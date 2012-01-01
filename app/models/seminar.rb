@@ -1,4 +1,4 @@
-class Seminar < ActiveRecord::Base
+﻿class Seminar < ActiveRecord::Base
   has_and_belongs_to_many :sponsors, :uniq => true
   has_and_belongs_to_many :speakers, :uniq => true
 
