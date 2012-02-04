@@ -1,0 +1,23 @@
+%h1 Listing Speakers
+
+- if @speakers.any?
+  %table.zebra
+    %tr
+      %th Name
+      %th Languages
+      %th Practice Areas
+      %th Actions
+
+    - @speakers.each do |speaker|
+      %tr
+        %td= link_to speaker.name, [:edit, :admin, speaker]
+        %td= speaker.languages.count
+        %td= speaker.practice_areas.count
+        %td= link_to 'Delete', [:admin, speaker], :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+- else
+  %p No speakers.
+
+= link_to 'Add Speaker', [:new, :admin, :speaker]

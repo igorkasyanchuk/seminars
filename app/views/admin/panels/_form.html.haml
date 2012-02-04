@@ -1,0 +1,11 @@
+= add_editor
+= editor("#panel_description");
+
+= error_messages_for :panel
+
+= simple_form_for [:admin, @seminar, @panel], :html => {:multipart => true} do |f|
+  = f.input :title
+  = f.input :description
+  = f.association :speakers, :as => :check_boxes
+  = f.association :sponsors, :as => :check_boxes
+  = f.button :submit

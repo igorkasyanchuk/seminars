@@ -1,0 +1,45 @@
+%h1.title
+  - if defined? @seminar
+    #{@seminar.title} Speakers
+  - else
+    = @page.page_title
+
+.page_sidebar
+  %h3 Upcoming Events
+  %ul
+    - Seminar.upcoming.by_date.each do |seminar|
+      = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => speakers_seminar_path(seminar) }
+
+
+  - if Seminar.past.count > 0
+    %br
+    %h3 Past Events
+    %ul
+      - Seminar.past.by_date.each do |seminar|
+        = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => speakers_seminar_path(seminar) }
+
+.page_content
+  - if defined? @seminar
+    #speakers
+      .clear
+      - @seminar.speakers.each do |speaker|
+        #speaker
+          .speaker_photo
+            = image_tag speaker.photo(:medium)
+          .speaker_info
+            %h2.speaker_name= speaker.name
+            %h2= speaker.position
+            .speaker_about= simple_format(speaker.about)
+  - else
+    #speakers
+      .clear
+      - @speakers.each do |speaker|
+        #speaker
+          .speaker_photo
+            = image_tag speaker.photo(:medium)
+          .speaker_info
+            %h2.speaker_name= speaker.name
+            %h2= speaker.position
+            .speaker_about= simple_format(speaker.about)
+
+.clear    

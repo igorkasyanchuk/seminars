@@ -1,0 +1,5 @@
+%h1 #{@city.name} Seminars
+
+%ul
+  - @city.seminars.each do |seminar|
+    %li= link_to seminar.title, agenda_seminar_path(seminar)

@@ -1,0 +1,5 @@
+%li{:class => active ? 'active' : ''}
+  = link_to image_tag(seminar.city.photo.url(:medium)), link
+  %span.seminar= link_to seminar.title, link
+  %span.city #{seminar.city.name}
+  %span.date_range #{seminar.event_range}

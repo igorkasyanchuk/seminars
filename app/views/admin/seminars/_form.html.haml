@@ -1,0 +1,18 @@
+= add_editor
+= editor("#seminar_agenda");
+= editor("#seminar_price_full_information");
+
+= error_messages_for :seminar
+
+= simple_form_for [:admin, @city, @seminar], :html => {:multipart => true} do |f|
+  = f.input :title
+  = f.input :start_on
+  = f.input :ends_on
+  = f.input :price_short_information, :label => "Price (short)"
+  = f.input :agenda
+  = f.input :price_full_information, :label => "Price (full information, description)"
+
+  = f.association :speakers, :as => :check_boxes
+  = f.association :sponsors, :as => :check_boxes
+
+  = f.button :submit

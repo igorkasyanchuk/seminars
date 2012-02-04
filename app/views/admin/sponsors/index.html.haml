@@ -1,0 +1,20 @@
+%h1 Listing Sponsors
+
+- if @sponsors.any?
+
+  %table.zebra
+    %tr
+      %th Name
+      %th Actions
+
+    - @sponsors.each do |sponsor|
+      %tr
+        %td= link_to sponsor.name, [:edit, :admin, sponsor]
+        %td= link_to 'Delete', [:admin, sponsor], :confirm => 'Are you sure?', :method => :delete
+
+- else
+  %p No sponsors.
+
+%br
+
+= link_to 'Add Sponsor', [:new, :admin, :sponsor]

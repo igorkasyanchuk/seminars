@@ -1,0 +1,11 @@
+%ul#admin_nav
+  %li= link_to "Exit", '/'
+  %li= link_to "Dashboard", '/admin'
+  %li= link_to "Cities(#{City.count})", [:admin, :cities]
+  %li= link_to "Sponsors(#{Sponsor.count})", [:admin, :sponsors]
+  %li= link_to "Speakers(#{Speaker.count})", [:admin, :speakers]
+  %li= link_to "Pages(#{Page.count})", [:admin, :pages]
+  %li= link_to "Page Blocks(#{PageBlock.count})", [:admin, :page_blocks]
+  %li= link_to "Languages(#{Language.count})", [:admin, :languages]
+  %li= link_to "Practice Areas(#{PracticeArea.count})", [:admin, :practice_areas]
+.clear

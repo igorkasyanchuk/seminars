@@ -1,0 +1,42 @@
+#footer
+  position: relative  
+  color: $light_text_color
+  text-align: right
+  background: #E9E9E9
+  margin: 0 auto
+  width: 980px
+  border-radius: 6px
+
+  .footer_nav_container    
+    margin: 0 auto
+    width: 980px
+    max-width: 980px
+    #footer_nav
+      ul
+        float: left
+        padding-bottom: 0px
+        padding-top: 12px
+        height: 25px
+        li
+          list-style-type: none
+          display: inline
+          float: none
+          padding: 0 1px
+          padding-right: 5px
+          margin: 0 3px
+          margin-top: 22px
+          vertical-align: top
+          padding-bottom: 2px
+          &.active            
+            a
+              font-family: "HelveticaNeueLTStd-Bd"
+              line-height: 12px
+          a
+            color: #454545
+            font-family: "HelveticaNeueLTStd-Roman"
+            font-size: $base_font_size
+            line-height: $base_font_size
+            vertical-align: top
+            text-decoration: none
+          &:last-child
+            border-right: 0px none

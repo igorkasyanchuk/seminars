@@ -1,0 +1,25 @@
+%h1 Listing `#{@seminar.title}` Panels
+
+- if @panels.any?
+  %table.zebra
+    %tr
+      %th Title
+      %th Speakers
+      %th Sponsors
+      %th Actions
+
+    - @panels.each do |panel|
+      %tr
+        %td= link_to panel.title, [:edit, :admin, @seminar, panel]
+        %td= panel.speakers.count
+        %td= panel.sponsors.count
+        %td= link_to 'Delete', [:admin, @seminar, panel], :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+- else
+  %p No panels.
+
+= link_to 'Add Panel', [:new, :admin, @seminar, :panel]
+| |
+= link_to 'Back', [:admin, @seminar.city, :seminars]

@@ -1,0 +1,17 @@
+= error_messages_for :document
+
+= simple_form_for [:admin, @seminar, @document], :html => {:multipart => true} do |f|
+
+  = f.input :title, :label => "Title of Resource"
+
+  %h3 Attachments
+
+  = f.fields_for :attachments do |ff|
+    = ff.input :title, :label => "Title"
+    = ff.input :attachment, :label => "Document"
+
+    - if ff.object.persisted?
+      = ff.check_box :_destroy
+      = ff.label :_destroy, "delete"
+
+  = f.button :submit

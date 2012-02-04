@@ -1,0 +1,34 @@
+%h1 #{@city.name} Seminars
+
+- if @seminars.any?
+  %table.zebra
+    %tr
+      %th Title
+      %th Date
+      %th Speakers
+      %th Sponsors
+      %th Panels
+      %th Actions
+
+    - @seminars.each do |seminar|
+      %tr
+        %td= link_to seminar.title, [:edit, :admin, @city, seminar]
+        %td= seminar.event_range
+        %td= seminar.speakers.count
+        %td= seminar.speakers.count
+        %td= seminar.panels.count
+        %td
+          = link_to "Manage Panels", [:admin, seminar, :panels]
+          | |
+          = link_to "Manage Documents", [:admin, seminar, :documents]
+          | |
+          = link_to 'Delete', [:admin, @city], :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+- else
+  %p No seminars.  
+
+= link_to 'Add Seminar', [:new, :admin, @city, :seminar]
+| |
+= link_to 'Back', [:admin, :cities]

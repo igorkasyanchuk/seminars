@@ -1,0 +1,23 @@
+#main_menu
+  = link_to "/" do
+    #home_link{:class => active_link("home")}
+  = link_to "/about" do
+    #about_link{:class => active_link("about")}
+  = link_to "/agenda" do
+    #agenda_link{:class => active_link("agenda")}
+  = link_to "/speakers" do
+    #speakers_link{:class => active_link("speakers")}
+  = link_to "/venue" do
+    #venue_link{:class => active_link("venue")}
+  = link_to "/sponsors" do
+    #sponsors_link{:class => active_link("sponsors")}
+  = link_to '/costs' do
+    #costs_link{:class => active_link("costs")}
+  = link_to "/resources" do
+    #resources_link{:class => active_link("resources")}
+  = link_to "/contact" do
+    #contact_us_link{:class => active_link("contact")}
+  #search_input
+    %input{:style => "border:0px;background:transparent;height:28px;"}
+  = link_to "#" do
+    #search_link 

@@ -1,0 +1,23 @@
+%h1 Listing `#{@seminar.title}` Documents
+
+- if @documents.any?
+  %table.zebra
+    %tr
+      %th Title
+      %th Attachments
+      %th Actions
+
+    - @documents.each do |document|
+      %tr
+        %td= link_to document.title, [:edit, :admin, @seminar, document]
+        %td= document.attachments.count
+        %td= link_to 'Delete', [:admin, @seminar, document], :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+- else
+  %p No documents.
+
+= link_to 'Add Document', [:new, :admin, @seminar, :document]
+| |
+= link_to 'Back', [:admin, @seminar.city, :seminars]

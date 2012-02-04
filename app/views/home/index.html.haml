@@ -1,0 +1,54 @@
+= javascript_include_tag "jquery.cycle.all.min.js", :cache => 'js'
+:javascript
+  $(document).ready(function() {
+    $('#slideshow').cycle({ 
+        fx:      'scrollHorz',
+        speed:    1500, 
+        timeout:  5000,
+        next:   '#slideshow',
+        pause:   1,
+        after:    function() {
+            $('#slideshow_caption').html(this.alt);
+        }
+    });
+  });
+
+#slideshow_container
+  #slideshow
+    - @cities.each do |city|
+      = image_tag city.photo(:big), :alt => city.name
+  #slideshow_caption
+    = @cities.first.try(:name)
+.clear
+
+.home_title
+  = pc('HOME page MAIN TITLE (after slideshow)')
+
+.home_text
+  = pc('HOME page MAIN TITLE content (after slideshow)')
+
+.united_states_container
+  .line
+  .home_title
+    %strong UNITED STATES
+  .line
+  .clear
+  #city_container
+    - @cities_us.each do |city|
+      .city
+        = city.name
+        .clear
+        = link_to (image_tag city.photo(:medium)), city
+.clear
+.international_container
+  .line
+  .home_title
+    %strong INTERNATIONAL
+  .line
+  .clear
+  #city_container
+    - @cities_in.each do |city|
+      .city
+        = city.name
+        .clear
+        = link_to (image_tag city.photo(:medium)), city

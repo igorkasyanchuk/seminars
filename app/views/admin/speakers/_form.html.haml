@@ -1,0 +1,14 @@
+= add_editor
+= editor("#speaker_about");
+
+= error_messages_for :speaker
+
+= simple_form_for [:admin, @speaker], :html => {:multipart => true} do |f|
+  = f.input :name
+  = f.input :position
+  = f.input :about
+  = f.input :photo
+  = f.input :priority
+  = f.association :languages, :as => :check_boxes
+  = f.association :practice_areas, :as => :check_boxes
+  = f.button :submit

@@ -1,0 +1,18 @@
+%h1 Listing Practice Areas
+
+- if @practice_areas.any?
+  %table.zebra
+    %tr
+      %th Name
+      %th Actions
+
+    - @practice_areas.each do |practice_area|
+      %tr
+        %td= link_to practice_area.name, [:edit, :admin, practice_area]
+        %td= link_to 'Delete', [:admin, practice_area], :confirm => 'Are you sure?', :method => :delete
+  %br
+
+- else
+  %p No practice areas.
+
+= link_to 'Add Practice Area', [:new, :admin, :practice_area]

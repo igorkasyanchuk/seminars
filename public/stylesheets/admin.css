@@ -1,0 +1,256 @@
+/* line 151, ../../app/stylesheets/_utils.sass */
+a.as_button {
+  background: transparent url(/images/btns_13.png) no-repeat right 0;
+  color: white;
+  display: inline-block;
+  height: 43px;
+  padding-right: 24px;
+  text-decoration: none;
+  text-shadow: #4d639c 0 -1px 0;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  color: white;
+}
+/* line 177, ../../app/stylesheets/_utils.sass */
+a.as_button:visited {
+  color: white;
+}
+/* line 181, ../../app/stylesheets/_utils.sass */
+a.as_button:hover {
+  background: transparent url(/images/btns_13.png) no-repeat right -42px;
+  color: white;
+  outline: none;
+  text-shadow: #666666 0 -1px 0;
+}
+/* line 191, ../../app/stylesheets/_utils.sass */
+a.as_button:hover span {
+  background: transparent url(/images/btns_12.png) no-repeat 0 -42px;
+}
+/* line 195, ../../app/stylesheets/_utils.sass */
+a.as_button span {
+  background: transparent url(/images/btns_12.png) no-repeat 0 0;
+  display: block;
+  padding: 13px 0 17px 26px;
+}
+/* line 203, ../../app/stylesheets/_utils.sass */
+a.as_button strong {
+  text-transform: none;
+}
+
+/* line 17, ../../app/stylesheets/admin.sass */
+.container table {
+  width: 100%;
+}
+
+/* line 23, ../../app/stylesheets/admin.sass */
+.container table {
+  border: 2px solid #dddddd;
+}
+/* line 27, ../../app/stylesheets/admin.sass */
+.container table tr th {
+  background: #dddddd;
+  color: black;
+  font-weight: bold;
+}
+/* line 35, ../../app/stylesheets/admin.sass */
+.container table tr th, .container table tr td {
+  padding: 3px 4px;
+}
+
+/* line 41, ../../app/stylesheets/admin.sass */
+.header_container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: white;
+}
+/* line 51, ../../app/stylesheets/admin.sass */
+.header_container .header_container_content {
+  padding: 0 6px;
+  padding-top: 6px;
+}
+
+/* line 59, ../../app/stylesheets/admin.sass */
+html h1 {
+  background: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* line 69, ../../app/stylesheets/admin.sass */
+html body {
+  background: #e1e3ec;
+}
+
+/* line 75, ../../app/stylesheets/admin.sass */
+html body, html ul {
+  font-family: Arial, sans-serif;
+}
+
+/* line 83, ../../app/stylesheets/admin.sass */
+body.admin_layout #root, body.admin_layout #content, body.admin_layout #footer {
+  background: #e1e3ec;
+}
+/* line 87, ../../app/stylesheets/admin.sass */
+body.admin_layout #root #content .container, body.admin_layout #footer ul#footer_nav {
+  width: 100%;
+  padding: 1%;
+  background: #e1e3ec;
+  margin: 0;
+}
+/* line 97, ../../app/stylesheets/admin.sass */
+body.admin_layout #footer ul#footer_nav {
+  margin: 0 auto;
+  padding: 0;
+}
+/* line 103, ../../app/stylesheets/admin.sass */
+body.admin_layout .content_inside {
+  background: white;
+  padding: 2%;
+  min-height: 400px;
+  width: 94%;
+  box-shadow: 0 0 12px #cccccc;
+  -moz-box-shadow: 0 0 12px #cccccc;
+  -webkit-box-shadow: 0 0 12px #cccccc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+/* line 121, ../../app/stylesheets/admin.sass */
+body.admin_layout .content_inside .simple_form #tabs label {
+  width: 350px;
+}
+/* line 125, ../../app/stylesheets/admin.sass */
+body.admin_layout .content_inside .simple_form #tabs .buttons {
+  padding-left: 350px;
+}
+/* line 131, ../../app/stylesheets/admin.sass */
+body.admin_layout .content_inside .simple_form #tabs .text textarea {
+  width: 500px;
+}
+
+/* line 137, ../../app/stylesheets/admin.sass */
+.current_user_name {
+  color: #666666;
+}
+
+/* line 145, ../../app/stylesheets/admin.sass */
+.sbi {
+  display: inline;
+  background: #3a69ad;
+  padding: 6px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 1px #cccccc;
+  -moz-box-shadow: 0 0 1px #cccccc;
+  -webkit-box-shadow: 0 0 1px #cccccc;
+}
+/* line 157, ../../app/stylesheets/admin.sass */
+.sbi:hover {
+  box-shadow: 0 0 12px #cccccc;
+  -moz-box-shadow: 0 0 12px #cccccc;
+  -webkit-box-shadow: 0 0 12px #cccccc;
+}
+/* line 161, ../../app/stylesheets/admin.sass */
+.sbi a {
+  color: white;
+  text-decoration: none;
+}
+
+/* line 169, ../../app/stylesheets/admin.sass */
+#tabs {
+  border: 1px solid #e5e5e5;
+  padding: 0;
+  margin: 0;
+  min-height: 500px;
+}
+
+/* line 181, ../../app/stylesheets/admin.sass */
+hr.photo_separation {
+  border-top: 1px solid #e5e5e5;
+  width: 100%;
+  margin: 16px 0;
+}
+
+/* line 191, ../../app/stylesheets/admin.sass */
+ul.preview_project_gallery {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 199, ../../app/stylesheets/admin.sass */
+ul.preview_project_gallery li {
+  list-style-type: none;
+  margin: 12px;
+  padding: 6px;
+  float: left;
+}
+
+/* line 211, ../../app/stylesheets/admin.sass */
+div.scroll {
+  width: 100%;
+  overflow: auto;
+}
+
+/* line 219, ../../app/stylesheets/admin.sass */
+.filter_options {
+  width: 500px;
+}
+/* line 223, ../../app/stylesheets/admin.sass */
+.filter_options label, .filter_options input {
+  width: auto;
+  float: none;
+}
+
+/* line 231, ../../app/stylesheets/admin.sass */
+table.translation {
+  width: 2400px;
+  overflow: auto;
+  border: 0 none;
+}
+/* line 239, ../../app/stylesheets/admin.sass */
+table.translation.short_table {
+  width: 1750px;
+}
+/* line 243, ../../app/stylesheets/admin.sass */
+table.translation tr td {
+  vertical-align: top;
+  width: 880px;
+}
+/* line 251, ../../app/stylesheets/admin.sass */
+table.translation td.t label {
+  display: none;
+}
+/* line 255, ../../app/stylesheets/admin.sass */
+table.translation td.t div.s {
+  clear: both;
+}
+/* line 259, ../../app/stylesheets/admin.sass */
+table.translation td.c {
+  width: 680px;
+}
+/* line 263, ../../app/stylesheets/admin.sass */
+table.translation td.c input, table.translation td.c textarea, table.translation td.c select, table.translation td.c .imp_editor_box {
+  border: 1px solid #e34234;
+}
+/* line 267, ../../app/stylesheets/admin.sass */
+table.translation td.r {
+  width: 680px;
+}
+/* line 271, ../../app/stylesheets/admin.sass */
+table.translation td.r input, table.translation td.r textarea, table.translation td.r select, table.translation td.r .imp_editor_box {
+  border: 1px solid #0247fe;
+}
+/* line 275, ../../app/stylesheets/admin.sass */
+table.translation td.td_nothing {
+  width: 0px;
+  display: none;
+}
+/* line 281, ../../app/stylesheets/admin.sass */
+table.translation .trow {
+  height: 31px;
+  margin-bottom: 10px;
+}
