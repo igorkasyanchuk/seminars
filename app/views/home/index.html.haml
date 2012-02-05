@@ -2,23 +2,21 @@
 :javascript
   $(document).ready(function() {
     $('#slideshow').cycle({ 
-        fx:      'scrollHorz',
+        fx:      'scrollLeft',
         speed:    1500, 
         timeout:  5000,
         next:   '#slideshow',
-        pause:   1,
-        after:    function() {
-            $('#slideshow_caption').html(this.alt);
-        }
+        pause:   1
     });
   });
 
 #slideshow_container
   #slideshow
     - @cities.each do |city|
-      = image_tag city.photo(:big), :alt => city.name
-  #slideshow_caption
-    = @cities.first.try(:name)
+      %div
+        = image_tag city.photo(:big)
+        #slideshow_caption
+          = city.name
 .clear
 
 .home_title
