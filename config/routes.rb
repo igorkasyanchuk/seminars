@@ -44,6 +44,8 @@ EB5Seminar::Application.routes.draw do
     member do
       get :agenda
       get :speakers
+      get :sponsors
+      get :costs
     end
   end
 

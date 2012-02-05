@@ -1,33 +1,27 @@
 %h1.title
-  - if defined? @city
-    #{@city.name} Sponsors
+  - if defined? @seminar
+    #{@seminar.title} Sponsors
   - else
     = @page.page_title
 
 .page_sidebar
   %h3 Upcoming Events
   %ul
-    - City.upcoming.by_date.each do |city|
-      %li{:class => @city == city ? 'active' : ''}
-        = link_to image_tag(city.photo.url(:medium)), sponsors_city_path(:city_id => city)
-        %span.city= link_to city.name, sponsors_city_path(:city_id => city)
-        %span.date_range #{city.event_range}
+    - Seminar.upcoming.by_date.each do |seminar|
+      = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => sponsors_seminar_path(seminar) }
 
-  - if City.past.count > 0
+  - if Seminar.past.count > 0
     %br
     %h3 Past Events
     %ul
-      - City.past.by_date.each do |city|
-        %li{:class => @city == city ? 'active' : ''}
-          = link_to image_tag(city.photo.url(:medium)), sponsors_city_path(:city_id => city)
-          %span.city= link_to city.name, sponsors_city_path(:city_id => city)
-          %span.date_range #{city.event_range}
+      - Seminar.past.by_date.each do |seminar|
+        = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => sponsors_seminar_path(seminar) }
 
 .page_content
-  - if defined? @city
+  - if defined? @seminar
     #sponsors      
       .clear
-      - @city.sponsors.each do |sponsor|
+      - @seminar.sponsors.each do |sponsor|
         #sponsor
           %h2= sponsor.name
           .clear
