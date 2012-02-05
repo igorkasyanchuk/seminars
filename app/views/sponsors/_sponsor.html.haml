@@ -4,5 +4,5 @@
     - if sponsor.logo.exists?
       = image_tag sponsor.logo(:medium), :alt => sponsor.name
   .description
-    .website= link_to sponsor.website, "#{sponsor.website}", :rel => 'nofollow'
+    .website= link_to sponsor.website, httpize(sponsor.website), :rel => 'nofollow'
   .clear
