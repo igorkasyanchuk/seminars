@@ -1,0 +1,8 @@
+.sponsor
+  %h2= link_to sponsor.name, sponsor_path(sponsor)
+  .photo
+    - if sponsor.logo.exists?
+      = link_to (image_tag sponsor.logo(:medium), :alt => sponsor.name), sponsor_path(sponsor)
+  .description
+    .website= link_to sponsor.website, "#{sponsor.website}", :rel => 'nofollow'
+  .clear

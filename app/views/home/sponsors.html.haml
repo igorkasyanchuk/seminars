@@ -19,30 +19,12 @@
 
 .page_content
   - if defined? @seminar
-    #sponsors      
-      .clear
+    .sponsors      
       - @seminar.sponsors.each do |sponsor|
-        #sponsor
-          %h2= link_to sponsor.name, sponsor_path(sponsor)
-          .clear
-          = link_to (image_tag sponsor.logo(:original)) , sponsor_path(sponsor)
-          .clear
-          = simple_format(sponsor.description)
-          .clear
-          .website= link_to sponsor.website, "#{sponsor.website}", :rel => 'nofollow'
-          .clear
+        = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
   - else
-    #sponsors
-      .clear
+    .sponsors
       - @sponsors.each do |sponsor|
-        #sponsor
-          %h2= link_to sponsor.name, sponsor_path(sponsor)
-          .clear
-          = link_to (image_tag sponsor.logo(:original)) , sponsor_path(sponsor)
-          .clear
-          = simple_format(sponsor.description)
-          .clear
-          .website= link_to sponsor.website, "#{sponsor.website}", :rel => 'nofollow'
-          .clear
+        = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
 
 .clear

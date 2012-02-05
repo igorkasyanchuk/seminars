@@ -4,7 +4,7 @@ class Speaker < ActiveRecord::Base
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
 
-  has_attached_file :photo, :styles => { :medium => "x137" }, :url => "/system/:class/:attachment/:id/:style/:filename"
+  has_attached_file :photo, :styles => { :medium => "100x137", :thumb => 'x50' }, :url => "/system/:class/:attachment/:id/:style/:filename"
 
   validates_presence_of :name
   validates_uniqueness_of :name

@@ -13,6 +13,8 @@ gem 'inherited_resources', '1.1.2'
 gem "has_scope", '0.5.0'
 gem "responders", '0.6.2'
 
+gem 'truncate_html'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

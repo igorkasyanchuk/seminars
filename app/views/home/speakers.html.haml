@@ -19,27 +19,12 @@
         = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => speakers_seminar_path(seminar) }
 
 .page_content
-  - if defined? @seminar
-    #speakers
-      .clear
+  .speakers
+    - if defined? @seminar
       - @seminar.speakers.each do |speaker|
-        #speaker
-          .speaker_photo
-            = link_to (image_tag speaker.photo(:medium)), speaker_path(speaker)
-          .speaker_info
-            %h2.speaker_name= link_to speaker.name, speaker_path(speaker)
-            %h2= speaker.position
-            .speaker_about= simple_format(speaker.about)
-  - else
-    #speakers
-      .clear
+        = render :partial => '/speakers/speaker', :locals => { :speaker => speaker }
+    - else
       - @speakers.each do |speaker|
-        #speaker
-          .speaker_photo
-            = link_to (image_tag speaker.photo(:medium)), speaker_path(speaker)
-          .speaker_info
-            %h2.speaker_name= link_to speaker.name, speaker_path(speaker)
-            %h2= speaker.position
-            .speaker_about= simple_format(speaker.about)
+        = render :partial => '/speakers/speaker', :locals => { :speaker => speaker }
 
 .clear    
