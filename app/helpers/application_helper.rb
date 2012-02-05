@@ -67,5 +67,12 @@ module ApplicationHelper
     @selected_menu == page ? 'active' : ''
   end
 
-
+  def httpize(url)
+    if url && url !~ /http:\/\//
+      'http://' + url
+    else
+      url
+    end
+  end
+  
 end
