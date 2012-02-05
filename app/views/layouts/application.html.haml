@@ -38,7 +38,7 @@
   %body
     #root
       #content
-        .container= raw(flash_messages)
+        .container= flash_messages
         = render :partial => '/shared/header'
         .container
           = yield

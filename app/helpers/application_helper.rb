@@ -30,7 +30,7 @@ module ApplicationHelper
       messages << "<div class='#{msg} flash'>#{html_escape(flash[msg.to_sym])}</div>" unless flash[msg.to_sym].blank?
     end
     flash.clear
-    messages
+    messages.join.html_safe
   end
 
   def inside_layout(layout = 'application', &block) 

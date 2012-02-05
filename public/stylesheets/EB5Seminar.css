@@ -1,9 +1,9 @@
 /*
 Syntax error: Undefined variable: "$base_font".
-        on line 429 of /root/work/seminars/app/stylesheets/EB5Seminar.sass
+        on line 431 of /root/work/seminars/app/stylesheets/EB5Seminar.sass
 
 Backtrace:
-/root/work/seminars/app/stylesheets/EB5Seminar.sass:429
+/root/work/seminars/app/stylesheets/EB5Seminar.sass:431
 /usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/script/variable.rb:39:in `_perform'
 /usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
 /usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/script/interpolation.rb:63:in `_perform'
@@ -88,4 +88,4 @@ script/rails:6
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$base_font\".\A         on line 429 of /root/work/seminars/app/stylesheets/EB5Seminar.sass"; }
+  content: "Syntax error: Undefined variable: \"$base_font\".\A         on line 431 of /root/work/seminars/app/stylesheets/EB5Seminar.sass"; }

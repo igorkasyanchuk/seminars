@@ -1,0 +1,11 @@
+.speaker
+  .speaker_photo
+    - if speaker.photo.exists?
+      = image_tag speaker.photo(:medium), :alt => speaker.name
+  .speaker_info
+    %h2.speaker_name= speaker.name
+    .position= speaker.position
+    .speaker_about
+      .firm= speaker.firm
+      .languages= speaker.languages.collect{|e| e.name}.join(", ")
+  .clear

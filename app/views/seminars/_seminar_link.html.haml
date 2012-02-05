@@ -3,3 +3,5 @@
   %span.seminar= link_to seminar.title, link
   %span.city #{seminar.city.name}
   %span.date_range #{seminar.event_range}
+  - if seminar.price_short_information.present?
+    %span.price Price: #{seminar.price_short_information}
