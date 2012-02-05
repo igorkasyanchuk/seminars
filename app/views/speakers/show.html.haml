@@ -1,0 +1,48 @@
+.page_sidebar
+  CONTACT INFORMATION
+  %br
+  = @speaker.firm
+  %br
+  = @speaker.contact_phone
+  %br
+  ADDRESS
+  %br
+  = @speaker.address
+  %br
+  #{@speaker.city}, #{@speaker.zip}
+  %br
+  = @speaker.country
+  %br
+  Web Site
+  %br
+  = @speaker.country
+  %br
+  Contact Email
+  %br
+  = @speaker.email
+  %br
+  Practice Areas
+  %br
+  - @speaker.practice_areas.each do |practice_area|
+    = practice_area.name
+    %br
+  Languages spoken
+  %br
+  - @speaker.languages.each do |language|
+    = language.name
+    %br
+  = @speaker.skype
+  %br
+  = @speaker.linked_in
+  %br
+  = @speaker.twitter
+  %br
+  = @speaker.facebook
+.page_content
+  #speaker
+    .speaker_photo
+      = image_tag @speaker.photo(:medium)
+    .speaker_info
+      %h2.speaker_name= @speaker.name
+      %h2= @speaker.position
+      .speaker_about= simple_format(@speaker.about)

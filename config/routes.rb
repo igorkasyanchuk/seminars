@@ -30,6 +30,7 @@ EB5Seminar::Application.routes.draw do
   match '/venue', :to => "home#venue"
   
   match '/sponsors', :to => "home#sponsors"
+  resources :sponsors, :only => [:show]
   match '/sponsors/:city_id', :to => "home#sponsors", :as => :sponsors_city
 
   match '/resources', :to => "home#resources"
@@ -38,6 +39,7 @@ EB5Seminar::Application.routes.draw do
   match '/about', :to => "home#about"
 
   match '/speakers', :to => "home#speakers"
+  resources :speakers, :only => [:show]
   match '/agenda', :to => "home#agenda"
 
   resources :seminars do

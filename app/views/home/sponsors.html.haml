@@ -23,9 +23,9 @@
       .clear
       - @seminar.sponsors.each do |sponsor|
         #sponsor
-          %h2= sponsor.name
+          %h2= link_to sponsor.name, sponsor_path(sponsor)
           .clear
-          = image_tag sponsor.logo(:original)
+          = link_to (image_tag sponsor.logo(:original)) , sponsor_path(sponsor)
           .clear
           = simple_format(sponsor.description)
           .clear
@@ -36,9 +36,9 @@
       .clear
       - @sponsors.each do |sponsor|
         #sponsor
-          %h2= sponsor.name
+          %h2= link_to sponsor.name, sponsor_path(sponsor)
           .clear
-          = image_tag sponsor.logo(:original)
+          = link_to (image_tag sponsor.logo(:original)) , sponsor_path(sponsor)
           .clear
           = simple_format(sponsor.description)
           .clear
