@@ -10,7 +10,75 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110215131408) do
+ActiveRecord::Schema.define(:version => 20120205154917) do
+
+  create_table "advisor_practice_areas", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "advisor_practice_areas", ["name"], :name => "index_advisor_practice_areas_on_name"
+
+  create_table "advisor_practice_areas_advisors", :id => false, :force => true do |t|
+    t.integer "advisor_practice_area_id"
+    t.integer "advisor_id"
+  end
+
+  add_index "advisor_practice_areas_advisors", ["advisor_id"], :name => "index_advisor_practice_areas_advisors_on_advisor_id"
+  add_index "advisor_practice_areas_advisors", ["advisor_practice_area_id"], :name => "aaapa_pa_id"
+
+  create_table "advisors", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "firm"
+    t.string   "title"
+    t.string   "web_site"
+    t.text     "description"
+    t.string   "address"
+    t.string   "blog"
+    t.string   "contact_phone"
+    t.string   "contact_email"
+    t.string   "contact_im"
+    t.string   "contact_skype"
+    t.text     "contact_bio"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "country"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "linked_in"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.integer  "state_id"
+    t.integer  "rating_order",                                       :default => 0
+    t.integer  "accuracy",                                           :default => -1
+    t.decimal  "lat",                :precision => 15, :scale => 10, :default => 0.0
+    t.decimal  "lng",                :precision => 15, :scale => 10, :default => 0.0
+    t.string   "contact_email_2"
+    t.string   "contact_email_3"
+    t.string   "contact_email_4"
+    t.string   "contact_email_5"
+  end
+
+  add_index "advisors", ["user_id"], :name => "index_advisors_on_user_id"
+
+  create_table "advisors_languages", :id => false, :force => true do |t|
+    t.integer "advisor_id"
+    t.integer "language_id"
+  end
+
+  add_index "advisors_languages", ["advisor_id"], :name => "index_advisors_languages_on_advisor_id"
+  add_index "advisors_languages", ["language_id"], :name => "index_advisors_languages_on_language_id"
 
   create_table "asset_photos", :force => true do |t|
     t.datetime "created_at"
@@ -38,6 +106,63 @@ ActiveRecord::Schema.define(:version => 20110215131408) do
     t.datetime "updated_at"
   end
 
+  create_table "attorneys", :force => true do |t|
+    t.string   "name"
+    t.string   "firm"
+    t.string   "web_site"
+    t.text     "description"
+    t.string   "address"
+    t.string   "blog"
+    t.string   "contact_phone"
+    t.string   "contact_email"
+    t.string   "contact_im"
+    t.string   "contact_skype"
+    t.text     "contact_bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "title"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "country"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "linked_in"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.integer  "state_id"
+    t.integer  "rating_order",                                       :default => 0
+    t.integer  "accuracy",                                           :default => -1
+    t.decimal  "lat",                :precision => 15, :scale => 10, :default => 0.0
+    t.decimal  "lng",                :precision => 15, :scale => 10, :default => 0.0
+    t.string   "contact_email_2"
+    t.string   "contact_email_3"
+    t.string   "contact_email_4"
+    t.string   "contact_email_5"
+  end
+
+  create_table "attorneys_languages", :id => false, :force => true do |t|
+    t.integer "attorney_id"
+    t.integer "language_id"
+  end
+
+  add_index "attorneys_languages", ["attorney_id"], :name => "index_attorneys_languages_on_attorney_id"
+  add_index "attorneys_languages", ["language_id"], :name => "index_attorneys_languages_on_language_id"
+
+  create_table "attorneys_practice_areas", :id => false, :force => true do |t|
+    t.integer "attorney_id"
+    t.integer "practice_area_id"
+  end
+
+  add_index "attorneys_practice_areas", ["attorney_id"], :name => "index_attorneys_practice_areas_on_attorney_id"
+  add_index "attorneys_practice_areas", ["practice_area_id"], :name => "index_attorneys_practice_areas_on_practice_area_id"
+
   create_table "cities", :force => true do |t|
     t.string  "name"
     t.text    "description"
@@ -56,6 +181,50 @@ ActiveRecord::Schema.define(:version => 20110215131408) do
   end
 
   add_index "documents", ["seminar_id"], :name => "index_documents_on_seminar_id"
+
+  create_table "firms", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "firm"
+    t.string   "title"
+    t.string   "web_site"
+    t.text     "description"
+    t.string   "address"
+    t.string   "blog"
+    t.string   "contact_phone"
+    t.string   "contact_email"
+    t.string   "contact_im"
+    t.string   "contact_skype"
+    t.text     "contact_bio"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "country"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "linked_in"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.integer  "state_id"
+    t.text     "short_description"
+    t.integer  "rating_order",                                       :default => 0
+    t.integer  "accuracy",                                           :default => -1
+    t.decimal  "lat",                :precision => 15, :scale => 10, :default => 0.0
+    t.decimal  "lng",                :precision => 15, :scale => 10, :default => 0.0
+    t.string   "contact_email_2"
+    t.string   "contact_email_3"
+    t.string   "contact_email_4"
+    t.string   "contact_email_5"
+  end
+
+  add_index "firms", ["state_id"], :name => "index_firms_on_state_id"
 
   create_table "languages", :force => true do |t|
     t.string "name"
@@ -101,7 +270,10 @@ ActiveRecord::Schema.define(:version => 20110215131408) do
   end
 
   create_table "practice_areas", :force => true do |t|
-    t.string "name"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "seminars", :force => true do |t|
@@ -130,6 +302,64 @@ ActiveRecord::Schema.define(:version => 20110215131408) do
     t.integer "sponsor_id"
   end
 
+  create_table "service_provider_practice_areas", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "service_provider_practice_areas_service_providers", :id => false, :force => true do |t|
+    t.integer "service_provider_practice_area_id"
+    t.integer "service_provider_id"
+  end
+
+  add_index "service_provider_practice_areas_service_providers", ["service_provider_id"], :name => "sppasp_spid"
+  add_index "service_provider_practice_areas_service_providers", ["service_provider_practice_area_id"], :name => "sppasp_paid"
+
+  create_table "service_providers", :force => true do |t|
+    t.string   "name"
+    t.string   "firm"
+    t.string   "web_site"
+    t.text     "description"
+    t.string   "address"
+    t.string   "blog"
+    t.string   "contact_phone"
+    t.string   "contact_email"
+    t.string   "contact_im"
+    t.string   "contact_skype"
+    t.text     "contact_bio"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "title"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "country"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "linked_in"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.integer  "state_id"
+    t.integer  "rating_order",                                       :default => 0
+    t.integer  "accuracy",                                           :default => -1
+    t.decimal  "lat",                :precision => 15, :scale => 10, :default => 0.0
+    t.decimal  "lng",                :precision => 15, :scale => 10, :default => 0.0
+    t.string   "contact_email_2"
+    t.string   "contact_email_3"
+    t.string   "contact_email_4"
+    t.string   "contact_email_5"
+  end
+
+  add_index "service_providers", ["user_id"], :name => "index_service_providers_on_user_id"
+
   create_table "speakers", :force => true do |t|
     t.string  "name"
     t.string  "position"
@@ -140,6 +370,18 @@ ActiveRecord::Schema.define(:version => 20110215131408) do
     t.string  "photo_file_name"
     t.string  "photo_content_type"
     t.integer "photo_file_size"
+    t.string  "owner_type"
+    t.integer "owner_id"
+    t.string  "firm"
+    t.string  "contact_phone"
+    t.string  "skype"
+    t.string  "country"
+    t.string  "address"
+    t.string  "city"
+    t.string  "zip"
+    t.string  "linked_in"
+    t.string  "twitter"
+    t.string  "facebook"
   end
 
   create_table "speakers_languages", :id => false, :force => true do |t|
@@ -161,6 +403,18 @@ ActiveRecord::Schema.define(:version => 20110215131408) do
     t.string  "logo_file_name"
     t.string  "logo_content_type"
     t.integer "logo_file_size"
+    t.string  "owner_type"
+    t.integer "owner_id"
+    t.string  "firm"
+    t.string  "contact_phone"
+    t.string  "skype"
+    t.string  "country"
+    t.string  "address"
+    t.string  "city"
+    t.string  "zip"
+    t.string  "linked_in"
+    t.string  "twitter"
+    t.string  "facebook"
   end
 
 end
