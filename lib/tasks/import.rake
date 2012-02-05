@@ -48,6 +48,44 @@ def import_firms
   end  
 end
 
+def add_practice_areas
+  Speaker.all.each do |speaker|
+    owner = case speaker.owner_type
+      when 'advisor' then Advisor
+      when 'service_provider' then ServiceProvider
+      when 'attorney' then Attorney
+    end.find(speaker.owner_id)
+    languages = owner.languages.collect{|e| e.name}
+    languages.each do |_language|
+      language = Language.find_or_create_by_name _language
+      speaker.languages << language unless speaker.languages.exists?(language)
+    end
+    areas = owner.practice_areas.collect{|e| e.name}
+    areas.each do |_area|
+      area = PracticeArea.find_or_create_by_name _area
+      speaker.practice_areas << area unless speaker.practice_areas.exists?(area)
+    end
+  end
+  Sponsor.all.each do |sponsor|
+    owner = Firm.find sponsor.owner_id
+    languages = owner.languages.collect{|e| e.name}
+    languages.each do |_language|
+      language = Language.find_or_create_by_name _language
+      sponsor.languages << language unless sponsor.languages.exists?(language)
+    end
+    areas = owner.practice_areas.collect{|e| e.name}
+    areas.each do |_area|
+      area = PracticeArea.find_or_create_by_name _area
+      sponsor.practice_areas << area unless sponsor.practice_areas.exists?(area)
+    end
+  end
+end
+
+desc "import practice areas"
+task :add_practice_areas => :environment do 
+  add_practice_areas
+end
+
 desc "import attorneys from eb5info => seminars"
 task :import_attorneys => :environment do 
   import_attorneys

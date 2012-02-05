@@ -5,11 +5,15 @@
   %table.zebra
     %tr
       %th Name
+      %th Languages
+      %th Practice Areas
       %th Actions
 
     - @sponsors.each do |sponsor|
       %tr
         %td= link_to sponsor.name, [:edit, :admin, sponsor]
+        %td= sponsor.languages.count
+        %td= sponsor.practice_areas.count        
         %td= link_to 'Delete', [:admin, sponsor], :confirm => 'Are you sure?', :method => :delete
 
 - else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205154917) do
+ActiveRecord::Schema.define(:version => 20120205220940) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -182,6 +182,23 @@ ActiveRecord::Schema.define(:version => 20120205154917) do
 
   add_index "documents", ["seminar_id"], :name => "index_documents_on_seminar_id"
 
+  create_table "firm_practice_areas", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "firm_practice_areas", ["name"], :name => "index_firm_practice_areas_on_name"
+
+  create_table "firm_practice_areas_firms", :id => false, :force => true do |t|
+    t.integer "firm_practice_area_id"
+    t.integer "firm_id"
+  end
+
+  add_index "firm_practice_areas_firms", ["firm_id"], :name => "index_firm_practice_areas_firms_on_firm_id"
+  add_index "firm_practice_areas_firms", ["firm_practice_area_id"], :name => "firm_pa_id"
+
   create_table "firms", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -226,8 +243,29 @@ ActiveRecord::Schema.define(:version => 20120205154917) do
 
   add_index "firms", ["state_id"], :name => "index_firms_on_state_id"
 
+  create_table "firms_languages", :id => false, :force => true do |t|
+    t.integer "firm_id"
+    t.integer "language_id"
+  end
+
+  add_index "firms_languages", ["firm_id"], :name => "index_firms_languages_on_firm_id"
+  add_index "firms_languages", ["language_id"], :name => "index_firms_languages_on_language_id"
+
   create_table "languages", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "languages_service_providers", :id => false, :force => true do |t|
+    t.integer "language_id"
+    t.integer "service_provider_id"
+  end
+
+  add_index "languages_service_providers", ["language_id"], :name => "index_languages_service_providers_on_language_id"
+  add_index "languages_service_providers", ["service_provider_id"], :name => "index_languages_service_providers_on_service_provider_id"
+
+  create_table "languages_sponsors", :id => false, :force => true do |t|
+    t.integer "language_id"
+    t.integer "sponsor_id"
   end
 
   create_table "page_blocks", :force => true do |t|
@@ -274,6 +312,11 @@ ActiveRecord::Schema.define(:version => 20120205154917) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "practice_areas_sponsors", :id => false, :force => true do |t|
+    t.integer "practice_area_id"
+    t.integer "sponsor_id"
   end
 
   create_table "seminars", :force => true do |t|

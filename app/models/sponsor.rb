@@ -3,6 +3,8 @@ class Sponsor < ActiveRecord::Base
 
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
+  has_and_belongs_to_many :languages, :uniq => true
+  has_and_belongs_to_many :practice_areas, :uniq => true
 
   validates_presence_of :name
 

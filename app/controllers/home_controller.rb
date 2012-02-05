@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def speakers
-    @speakers = Speaker.ordered
+    @speakers = Speaker.ordered.includes([:practice_areas, :languages])
     @selected_menu = 'speakers'
   end
 
@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def sponsors
-    @sponsors = Sponsor.ordered
+    @sponsors = Sponsor.ordered.includes([:practice_areas, :languages])
     @selected_menu = 'sponsors'
   end
 

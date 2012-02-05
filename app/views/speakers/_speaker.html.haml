@@ -7,5 +7,6 @@
     .position= speaker.position
     .speaker_about
       .firm= speaker.firm
+      .practice_areas= speaker.practice_areas.collect{|e| e.name}.join(", ")
       .languages= speaker.languages.collect{|e| e.name}.join(", ")
   .clear

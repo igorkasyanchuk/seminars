@@ -21,7 +21,7 @@
 .page_content
   .speakers
     - if defined? @seminar
-      - @seminar.speakers.each do |speaker|
+      - @seminar.speakers.includes([:practice_areas, :languages]).each do |speaker|
         = render :partial => '/speakers/speaker', :locals => { :speaker => speaker }
     - else
       - @speakers.each do |speaker|

@@ -20,7 +20,7 @@
 .page_content
   - if defined? @seminar
     .sponsors      
-      - @seminar.sponsors.each do |sponsor|
+      - @seminar.sponsors.includes([:practice_areas, :languages]).each do |sponsor|
         = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
   - else
     .sponsors

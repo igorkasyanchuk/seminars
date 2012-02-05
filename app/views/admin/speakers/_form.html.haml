@@ -5,16 +5,14 @@
 
 = simple_form_for [:admin, @speaker], :html => {:multipart => true} do |f|
   = f.input :name
+  = f.input :firm
   = f.input :position
   = f.input :about
   = f.input :photo
   = f.input :website
   = f.input :email
   = f.input :priority
-  = f.association :languages, :as => :check_boxes
-  = f.association :practice_areas, :as => :check_boxes
 
-  = f.input :firm
   = f.input :contact_phone
   = f.input :skype
   = f.input :country
@@ -24,5 +22,8 @@
   = f.input :linked_in
   = f.input :twitter
   = f.input :facebook
+
+  = f.association :languages, :as => :check_boxes
+  = f.association :practice_areas, :as => :check_boxes
 
   = f.button :submit
