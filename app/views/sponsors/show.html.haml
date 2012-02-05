@@ -30,14 +30,6 @@
   %br
   = @sponsor.facebook
 .page_content
-  #sponsor
-    %h2= @sponsor.name
-    .clear
-    = image_tag @sponsor.logo(:original)
-    .clear
-    = simple_format(@sponsor.description)
-    .clear
-    .website= link_to @sponsor.website, "#{@sponsor.website}", :rel => 'nofollow'
-    .clear
+  = render :partial => '/sponsors/sponsor', :locals => { :sponsor => @sponsor }
 
 .clear
