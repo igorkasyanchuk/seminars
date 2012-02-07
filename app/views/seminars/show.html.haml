@@ -11,6 +11,8 @@
       %a{"data-toggle" => "tab", :href => "#s2"} Speakers
     %li
       %a{"data-toggle" => "tab", :href => "#s3"} Sponsors
+    %li
+      %a{"data-toggle" => "tab", :href => "#s4"} Tickets
 
   .tab-content
     #s1.tab-pane.active
@@ -28,5 +30,7 @@
           %li
             = link_to sponsor.name, sponsor
         
+    #s4.tab-pane
+      = @seminar.tickets_html.html_safe
 
 

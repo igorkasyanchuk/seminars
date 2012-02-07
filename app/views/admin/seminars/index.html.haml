@@ -22,6 +22,8 @@
           | |
           = link_to "Manage Documents", [:admin, seminar, :documents]
           | |
+          = link_to "View", [seminar], :target => "_blank"
+          | |
           = link_to 'Delete', [:admin, @city], :confirm => 'Are you sure?', :method => :delete
 
   %br
