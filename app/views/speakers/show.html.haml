@@ -1,42 +1,56 @@
 .page_sidebar
-  CONTACT INFORMATION
-  %br
-  = @speaker.firm
-  %br
-  = @speaker.contact_phone
-  %br
-  ADDRESS
-  %br
-  = @speaker.address
-  %br
-  #{@speaker.city}, #{@speaker.zip}
-  %br
-  = @speaker.country
-  %br
-  Web Site
-  %br
-  = @speaker.country
-  %br
-  Contact Email
-  %br
-  = @speaker.email
-  %br
-  Practice Areas
-  %br
-  - @speaker.practice_areas.each do |practice_area|
-    = practice_area.name
-    %br
-  Languages spoken
-  %br
-  - @speaker.languages.each do |language|
-    = language.name
-    %br
-  = @speaker.skype
-  %br
-  = @speaker.linked_in
-  %br
-  = @speaker.twitter
-  %br
-  = @speaker.facebook
+  .speaker_contacts
+    %h3 CONTACT INFORMATION
+    %dl
+      %dd
+        = @speaker.name
+      %dd
+        = @speaker.contact_phone
+    
+    %h3 ADDRESS
+    %dl
+      %dd
+        = @speaker.address
+      %dd
+        #{@speaker.city}, #{@speaker.zip}
+      %dd
+        = @speaker.country
+    %dl
+      %dt Website    
+      %dd.link_br
+        = link_to @speaker.website
+      %dt Contact Email
+      %dd.link_br
+        = mail_to @speaker.email
+      %dt Skype 
+      %dd 
+        = @speaker.skype
+      %dt Linked in
+      %dd.link_br 
+        = link_to @speaker.linked_in
+      %dt Twitter
+      %dd
+        = @speaker.twitter
+      %dt Facebook
+      %dd.link_br
+        = link_to @speaker.facebook  
+
+    %dl 
+      %dt Practice Areas
+      %dd
+        - @speaker.practice_areas.each do |practice_area|
+          = practice_area.name
+        
+      %dt Languages spoken
+      %dd
+        - @speaker.languages.each do |language|
+          = language.name
+
+    %h3 ASSOCIADED WITH 
+    %dl
+      %dd
+        = @speaker.firm      
+      
+    
 .page_content
   = render :partial => '/speakers/speaker', :locals => { :speaker => @speaker }
