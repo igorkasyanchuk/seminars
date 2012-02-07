@@ -1,0 +1,12 @@
+.speaker
+  .speaker_photo
+    - if speaker.photo.exists?
+      = link_to image_tag(speaker.photo(:medium), :alt => speaker.name), speaker_path(speaker)
+  .speaker_info
+    %h2.speaker_name= link_to speaker.name, speaker_path(speaker)
+    .position= speaker.position
+    .speaker_about
+      .firm= speaker.firm
+      .practice_areas= speaker.practice_areas.collect{|e| e.name}.join(", ")
+      .languages= speaker.languages.collect{|e| e.name}.join(", ")
+  .clear
