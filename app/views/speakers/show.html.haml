@@ -4,8 +4,9 @@
     %dl
       %dd
         = @speaker.name
-      %dd
-        = @speaker.contact_phone
+      - if @speaker.contact_phone.present?  
+        %dd 
+          = @speaker.contact_phone
     
     %h3 ADDRESS
     %dl
@@ -16,24 +17,30 @@
       %dd
         = @speaker.country
     %dl
-      %dt Website    
-      %dd.link_br
-        = link_to @speaker.website
-      %dt Contact Email
-      %dd.link_br
-        = mail_to @speaker.email
-      %dt Skype 
-      %dd 
-        = @speaker.skype
-      %dt Linked in
-      %dd.link_br 
-        = link_to @speaker.linked_in
-      %dt Twitter
-      %dd
-        = @speaker.twitter
-      %dt Facebook
-      %dd.link_br
-        = link_to @speaker.facebook  
+      - if @speaker.twitter.present?  
+        %dt Website    
+        %dd.link_br
+          = link_to @speaker.website
+      - if @speaker.twitter.present?      
+        %dt Contact Email
+        %dd.link_br
+          = mail_to @speaker.email
+      - if @speaker.skype.present?  
+        %dt Skype 
+        %dd 
+          = @speaker.skype
+      - if @speaker.linked_in.present?    
+        %dt Linked in
+        %dd.link_br 
+          = link_to @speaker.linked_in
+      - if @speaker.twitter.present?    
+        %dt Twitter
+        %dd
+          = @speaker.twitter
+      - if @speaker.facebook.present?      
+        %dt Facebook
+        %dd.link_br
+          = link_to @speaker.facebook  
 
     %dl 
       %dt Practice Areas
