@@ -1,4 +1,4 @@
-﻿class City < ActiveRecord::Base
+class City < ActiveRecord::Base
   has_attached_file :photo, :styles => {:small => "120x90>", :medium => "120x80>", :big => "980x385#"},
                             :url => "/system/:class/:attachment/:id/:style/:filename"
 
