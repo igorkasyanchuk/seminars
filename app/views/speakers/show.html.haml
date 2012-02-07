@@ -53,4 +53,9 @@
       
     
 .page_content
-  = render :partial => '/speakers/speaker', :locals => { :speaker => @speaker }
+  .about_content
+    - if @speaker.photo.exists?
+      = image_tag @speaker.photo.url(:medium), :class => 'about_photo'
+    %h1.title= @speaker.name
+    = @speaker.about.html_safe
+    .clear

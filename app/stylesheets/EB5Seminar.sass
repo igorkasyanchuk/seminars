@@ -104,22 +104,42 @@ $base_font: 13px
   .speaker
     padding-bottom: 15px
     clear: both
+
     .speaker_photo
       padding:
         top: 5px
         right: 15px
         bottom: 10px 
       float: left
+      width: 120px
+
     .speaker_info
       text-align: left
+      float: left
+      width: 500px
+
       .speaker_name
         font-size: 24px
         text-transform: uppercase
+        margin-top: 0
+        margin-bottom: 12px
+
       .speaker_about
         text-align: left
-        p
-          line-height: 20px
-          display: block
+        dl
+          float: left
+          margin: 0
+          padding: 0
+          dt
+            float: left
+            clear: both
+            padding: 0
+            font-family: "HelveticaNeueLTStd-Bd", Arial
+
+          dd
+            float: left
+            padding: 0
+        
 
 #resources
   #tab1, #tab2
@@ -151,9 +171,11 @@ $base_font: 13px
 @font-face
   font-family: "HelveticaNeueLTStd-Bd"
   src: url("/fonts/HelveticaNeueLTStd-Bd.otf")
+
 @font-face
   font-family: "HelveticaNeueLTStd-Roman"
   src: url("/fonts/HelveticaNeueLTStd-Roman.otf")
+
 #header
   /*background: url(/images/slices/bg_top_pattern.png) repeat-x 
 #home_nav 
@@ -437,3 +459,11 @@ h1.with_spacer
 
 .inline
   display: inline  
+
+.about_photo
+  float: left
+  padding-right: 6px
+  padding-bottom: 6px
+
+.about_content
+  padding-top: 32px  
