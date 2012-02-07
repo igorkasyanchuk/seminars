@@ -1,3 +1,5 @@
+$base_font: 13px
+
 =eb_image_button($w,$h,$image)
   width: #{$w}px
   height: #{$h}px
@@ -162,6 +164,10 @@
   .title
     font: 33px "HelveticaNeueLTStd-Roman"
     text-transform: uppercase
+    line-height: 33px
+  .slogan
+    color: #999
+    font-size: 13px
 
 #flag_container
   height: 480px
@@ -238,41 +244,29 @@
     font-size: 16px
     margin-left: 5px
     margin-right: 5px
-  #city_container
+    font-size: 16px
+    padding-top: 6px
+    color: #D10E0C
+    font-family: "HelveticaNeueLTStd-Bd"
+  .city_container
     margin-top: 10px
     .city
       font: 14px "HelveticaNeueLTStd-Bd"
       float: left
+      border: 1px solid #eee
+      padding: 2px
+      margin-top: 10px
+      margin-left: 10px
       img
         float: left
         margin-top: 5px
-
-.united_states_container
-  .line      
-    width: 420px
-    float: right
-    &:first-child
-      float: left
-  img
-    width: 170px
-    height: 80px
-  .city
-    margin-right: 13px
-    margin-left: 13px
+    .city_img
+      width: 120px
+      height: 80px
+      overflow: hidden
 
 .international_container
-  .line      
-    width: 415px
-    float: right
-    &:first-child
-      width: 420px
-      float: left
-  img
-    width: 120px
-    height: 90px
-  .city
-    margin-right: 10px
-    margin-left: 10px
+  padding-top: 12px      
 
 .page_sidebar
   float: left
@@ -313,33 +307,33 @@
 #slideshow_container
   position: relative
   width: 980px
-  height: 345px
+  height: 385px
   #slideshow
     width: 980px
-    height: 345px
+    height: 385px
     margin-bottom: 15px
+    overflow: hidden
     img
-      width: 980px
-      height: 345px
+      height: 385px
       display: none
       margin: auto
     img
       &:first-child
         display: block
         margin: auto
-  #slideshow_caption
+  .slideshow_caption
     position: absolute
     z-index: 999
     bottom: 0px
     width: 980px
-    height: 30px
+    height: 36px
     background: black
     color: white
     font: 20px "HelveticaNeueLTStd-Roman"
     text-transform: uppercase
     opacity: 0.7
     text-align: center
-    padding-top: 5px
+    padding-top: 12px
 
 html h1.title
   color: #D10E0C
@@ -350,3 +344,76 @@ html b, html strong
 .page_spacer
   height: 16px
   clear: both
+
+.tabbable
+  list-style-type: none
+  li
+    list-style-type: none  
+
+  ul.with_discs
+    list-style: disc outside
+    li
+      list-style: disc outside
+
+ul.city_seminars
+  list-style-type: none
+  li
+    list-style-type: none
+    padding-bottom: 12px
+
+    .title
+      span
+        font-size: 12px
+        padding-left: 2px      
+
+      h2 a
+        //color: #D10E0C
+        text-transform: uppercase
+        text-decoration: underline
+    
+    ul.details
+      list-style-type: none
+
+      strong
+        font: 16px "HelveticaNeueLTStd-Roman"
+        text-transform: uppercase
+        
+      li
+        list-style-type: none
+        float: left
+        width: 28%
+
+        &.bigger
+          width: 40%
+
+        &.very_big
+          width: 68%          
+        
+        &.smaller
+          width: 28%
+          
+
+        ul.details_list
+          li
+            width: 100%
+
+        ul.speakers, ul.sponsors
+          li
+            float: left
+            width: auto
+            margin: 0
+            padding: 0
+            margin-left: 4px
+            img
+              margin: 0
+
+        ul.panels
+          list-style: disc outside
+          li
+            list-style: disc outside
+
+h1.with_spacer
+  margin-top: 12px
+
+.inline
+  display: inline  

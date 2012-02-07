@@ -1,2 +1,3 @@
 bundle exec rake paperclip:refresh class=Speaker
 bundle exec rake paperclip:refresh class=Sponsor
+bundle exec rake paperclip:refresh class=City

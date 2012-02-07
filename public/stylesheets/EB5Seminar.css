@@ -1,91 +1,843 @@
-/*
-Syntax error: Undefined variable: "$base_font".
-        on line 433 of /root/work/seminars/app/stylesheets/EB5Seminar.sass
+/* line 51, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu {
+  background: url("/images/menu.png");
+  width: 980px;
+  height: 43px;
+  margin-top: 8px;
+}
+/* line 61, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #home_link {
+  width: 61px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/01_home.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #home_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #home_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #home_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #home_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 65, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #about_link {
+  width: 74px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/02_about.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #about_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #about_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #about_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #about_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 69, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #agenda_link {
+  width: 88px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/03_agenda.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #agenda_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #agenda_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #agenda_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #agenda_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 73, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #speakers_link {
+  width: 98px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/04_speakers.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #speakers_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #speakers_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #speakers_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #speakers_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 77, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #venue_link {
+  width: 82px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/05_venue.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #venue_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #venue_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #venue_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #venue_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 81, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #sponsors_link {
+  width: 94px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/06_sponsors.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #sponsors_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #sponsors_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #sponsors_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #sponsors_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 85, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #costs_link {
+  width: 73px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/07_costs.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #costs_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #costs_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #costs_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #costs_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 89, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #resources_link {
+  width: 101px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/08_resources.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #resources_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #resources_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #resources_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #resources_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 93, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #contact_us_link {
+  width: 107px;
+  height: 43px;
+  display: inline-block;
+  background: url("/images/09_contact.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #contact_us_link.active {
+  background-position: 0px -43px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #contact_us_link.inactive {
+  background-position: 0px 43px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #contact_us_link:hover {
+  background-position: 0px -43px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #contact_us_link.disable:hover {
+  background-position: 0px 43px;
+}
+/* line 97, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_input {
+  margin-top: 6px;
+  margin-right: 3px;
+  margin-left: 5px;
+  width: 150px;
+  height: 31px;
+  display: inline-block;
+  background: url("/images/search.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_input.active {
+  background-position: 0px -31px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_input.inactive {
+  background-position: 0px 31px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_input:hover {
+  background-position: 0px -31px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_input.disable:hover {
+  background-position: 0px 31px;
+}
+/* line 107, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_input:hover {
+  background-position: 0px 0px !important;
+}
+/* line 111, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_input input {
+  color: white;
+  width: 150px;
+  font-size: 14px;
+  padding: 2px 3px;
+}
+/* line 121, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_link {
+  margin-top: 6px;
+  width: 35px;
+  height: 31px;
+  display: inline-block;
+  background: url("/images/btn_go.png") 0px 0px no-repeat;
+  border-style: none;
+  border-width: 0;
+  overflow: hidden;
+  float: left;
+}
+/* line 23, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_link.active {
+  background-position: 0px -31px;
+}
+/* line 27, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_link.inactive {
+  background-position: 0px 31px;
+}
+/* line 31, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_link:hover {
+  background-position: 0px -31px;
+}
+/* line 35, ../../app/stylesheets/EB5Seminar.sass */
+#main_menu #search_link.disable:hover {
+  background-position: 0px 31px;
+}
 
-Backtrace:
-/root/work/seminars/app/stylesheets/EB5Seminar.sass:433
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/script/variable.rb:39:in `_perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/script/interpolation.rb:63:in `_perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/script/node.rb:61:in `perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/prop_node.rb:132:in `perform!'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:305:in `_perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:213:in `perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `map'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:317:in `perform!'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/rule_node.rb:191:in `perform!'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:305:in `_perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:213:in `perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `map'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:327:in `perform_children'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:317:in `perform!'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/root_node.rb:59:in `perform!'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:305:in `_perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/node.rb:213:in `perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/root_node.rb:37:in `perform'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/tree/root_node.rb:29:in `render'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin.rb:223:in `update_stylesheet'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin.rb:88:in `update_stylesheets'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin.rb:81:in `each'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin.rb:81:in `update_stylesheets'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin.rb:79:in `each'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin.rb:79:in `update_stylesheets'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin.rb:50:in `check_for_updates'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/haml-3.0.25/lib/sass/plugin/rack.rb:40:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/methodoverride.rb:24:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/sendfile.rb:106:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/runtime.rb:17:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/lock.rb:13:in `synchronize'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/lock.rb:13:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/application.rb:77:in `send'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/content_length.rb:13:in `call'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/handler/webrick.rb:52:in `service'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:162:in `start'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:95:in `start'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:92:in `each'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:92:in `start'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:23:in `start'
-/usr/local/rvm/rubies/ree-1.8.7-2011.03/lib/ruby/1.8/webrick/server.rb:82:in `start'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/handler/webrick.rb:13:in `run'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/rack-1.2.5/lib/rack/server.rb:217:in `start'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/commands/server.rb:65:in `start'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/commands.rb:30
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/commands.rb:27:in `tap'
-/usr/local/rvm/gems/ree-1.8.7-2011.03/gems/railties-3.0.7/lib/rails/commands.rb:27
-script/rails:6:in `require'
-script/rails:6
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$base_font\".\A         on line 433 of /root/work/seminars/app/stylesheets/EB5Seminar.sass"; }
+/* line 131, ../../app/stylesheets/EB5Seminar.sass */
+#admin_nav li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 10px;
+}
+
+/* line 143, ../../app/stylesheets/EB5Seminar.sass */
+.speakers h1, .sponsors h1 {
+  color: #d10e0c;
+  margin: 30px 0px;
+  font-family: "HelveticaNeueLTStd-Roman";
+}
+/* line 151, ../../app/stylesheets/EB5Seminar.sass */
+.speakers h2, .sponsors h2 {
+  color: #1c4daf;
+  margin: 0px;
+  font-family: "HelveticaNeueLTStd-Roman";
+}
+
+/* line 161, ../../app/stylesheets/EB5Seminar.sass */
+.sponsors img {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/* line 167, ../../app/stylesheets/EB5Seminar.sass */
+.sponsors .sponsor {
+  margin-bottom: 40px;
+}
+/* line 171, ../../app/stylesheets/EB5Seminar.sass */
+.sponsors .website {
+  margin-top: 20px;
+}
+/* line 175, ../../app/stylesheets/EB5Seminar.sass */
+.sponsors .website a {
+  color: black;
+  font-family: "HelveticaNeueLTStd-Bd";
+}
+
+/* line 183, ../../app/stylesheets/EB5Seminar.sass */
+.speakers .speaker {
+  padding-bottom: 15px;
+  clear: both;
+}
+/* line 189, ../../app/stylesheets/EB5Seminar.sass */
+.speakers .speaker .speaker_photo {
+  float: left;
+}
+/* line 193, ../../app/stylesheets/EB5Seminar.sass */
+.speakers .speaker .speaker_info {
+  margin-left: 120px;
+}
+/* line 197, ../../app/stylesheets/EB5Seminar.sass */
+.speakers .speaker .speaker_info .speaker_name {
+  text-transform: uppercase;
+}
+/* line 201, ../../app/stylesheets/EB5Seminar.sass */
+.speakers .speaker .speaker_info .speaker_about {
+  margin-top: 15px;
+}
+
+/* line 209, ../../app/stylesheets/EB5Seminar.sass */
+#resources #tab1, #resources #tab2 {
+  margin-top: 30px;
+}
+/* line 213, ../../app/stylesheets/EB5Seminar.sass */
+#resources ul {
+  margin-bottom: 30px;
+}
+/* line 217, ../../app/stylesheets/EB5Seminar.sass */
+#resources h2 {
+  color: #1c4daf;
+  margin-bottom: 10px;
+  font-family: "HelveticaNeueLTStd-Roman";
+}
+/* line 227, ../../app/stylesheets/EB5Seminar.sass */
+#resources h3 a {
+  color: #1c4daf;
+  font-family: "HelveticaNeueLTStd-Roman";
+}
+/* line 233, ../../app/stylesheets/EB5Seminar.sass */
+#resources a {
+  color: black;
+  font-family: "HelveticaNeueLTStd-Roman";
+}
+/* line 239, ../../app/stylesheets/EB5Seminar.sass */
+#resources #pdf_message {
+  margin-top: 30px;
+  width: 450px;
+}
+/* line 245, ../../app/stylesheets/EB5Seminar.sass */
+#resources #pdf_message img {
+  float: left;
+}
+/* line 249, ../../app/stylesheets/EB5Seminar.sass */
+#resources #pdf_message .pdf_text {
+  padding-top: 10px;
+  margin-left: 80px;
+  font-size: 12px;
+  font-family: "HelveticaNeueLTStd-Roman";
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTStd-Bd";
+  src: url("/fonts/HelveticaNeueLTStd-Bd.otf");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTStd-Roman";
+  src: url("/fonts/HelveticaNeueLTStd-Roman.otf");
+}
+
+/* line 273, ../../app/stylesheets/EB5Seminar.sass */
+#header {
+  /*background: url(/images/slices/bg_top_pattern.png) repeat-x */
+}
+
+/* line 277, ../../app/stylesheets/EB5Seminar.sass */
+#home_nav {
+  font-size: 14px;
+  height: 43px;
+}
+/* line 283, ../../app/stylesheets/EB5Seminar.sass */
+#home_nav ul {
+  float: right;
+}
+/* line 287, ../../app/stylesheets/EB5Seminar.sass */
+#home_nav li {
+  margin-top: 16px;
+  float: left;
+}
+/* line 293, ../../app/stylesheets/EB5Seminar.sass */
+#home_nav li a {
+  color: #959595;
+  font-family: "HelveticaNeueLTStd-Roman";
+}
+/* line 301, ../../app/stylesheets/EB5Seminar.sass */
+#home_nav li.active a {
+  color: white;
+}
+
+/* line 305, ../../app/stylesheets/EB5Seminar.sass */
+#copyright {
+  float: right;
+  color: #959595;
+  padding-top: 23px;
+  margin-right: 2em;
+}
+
+/* line 317, ../../app/stylesheets/EB5Seminar.sass */
+#logo {
+  height: 56px;
+  padding-top: 10px;
+  font: 14px "HelveticaNeueLTStd-Roman";
+  margin-bottom: 25px;
+}
+/* line 327, ../../app/stylesheets/EB5Seminar.sass */
+#logo .title {
+  font: 33px "HelveticaNeueLTStd-Roman";
+  text-transform: uppercase;
+  line-height: 33px;
+}
+/* line 335, ../../app/stylesheets/EB5Seminar.sass */
+#logo .slogan {
+  color: #999999;
+  font-size: 13px;
+}
+
+/* line 343, ../../app/stylesheets/EB5Seminar.sass */
+#flag_container {
+  height: 480px;
+}
+
+/* line 349, ../../app/stylesheets/EB5Seminar.sass */
+.flag_shadow {
+  height: 480px;
+}
+
+/* line 355, ../../app/stylesheets/EB5Seminar.sass */
+.flag {
+  position: absolute;
+  top: 150px;
+  height: 400px;
+  width: 980px;
+  background: url(/images/slices/example.jpg) repeat-x;
+  padding-top: 40px;
+}
+
+/* line 371, ../../app/stylesheets/EB5Seminar.sass */
+.flag_text {
+  height: 300px;
+  margin-top: 10px;
+  background-color: white;
+  opacity: 0.9;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+/* line 385, ../../app/stylesheets/EB5Seminar.sass */
+.flag_text .flag_title {
+  padding-top: 30px;
+  float: left;
+}
+/* line 391, ../../app/stylesheets/EB5Seminar.sass */
+.flag_text .flag_button {
+  padding-top: 30px;
+  float: right;
+}
+/* line 397, ../../app/stylesheets/EB5Seminar.sass */
+.flag_text .flag_text_24 {
+  font-weight: bold;
+  font: 24px "HelveticaNeueLTStd-Bd";
+}
+/* line 403, ../../app/stylesheets/EB5Seminar.sass */
+.flag_text .flag_text_16 {
+  font: 16px "HelveticaNeueLTStd-Roman";
+  padding: 10px;
+  line-height: 26px;
+}
+/* line 411, ../../app/stylesheets/EB5Seminar.sass */
+.flag_text .flag_text_14 {
+  font: 14px "HelveticaNeueLTStd-Roman";
+  line-height: 24px;
+}
+
+/* line 419, ../../app/stylesheets/EB5Seminar.sass */
+#tab1 {
+  float: left;
+  width: 450px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 429, ../../app/stylesheets/EB5Seminar.sass */
+#tab2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float: right;
+  width: 450px;
+}
+
+/* line 441, ../../app/stylesheets/EB5Seminar.sass */
+.home_title {
+  font-weight: bold;
+  font: 22px 13px;
+}
+/* line 447, ../../app/stylesheets/EB5Seminar.sass */
+.home_title p {
+  margin-bottom: 6px;
+}
+
+/* line 453, ../../app/stylesheets/EB5Seminar.sass */
+.home_text {
+  line-height: 20px;
+  font: 15px 13px;
+  text-align: left;
+  padding-bottom: 12px;
+}
+
+/* line 465, ../../app/stylesheets/EB5Seminar.sass */
+.united_states_container, .international_container {
+  margin-bottom: 20px;
+  min-height: 130px;
+}
+/* line 471, ../../app/stylesheets/EB5Seminar.sass */
+.united_states_container .line, .international_container .line {
+  float: left;
+  border: 0px;
+  height: 1px;
+  background-color: #959595;
+  margin-top: 9px;
+}
+/* line 483, ../../app/stylesheets/EB5Seminar.sass */
+.united_states_container .home_title, .international_container .home_title {
+  float: left;
+  font-size: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 16px;
+  padding-top: 6px;
+  color: #d10e0c;
+  font-family: "HelveticaNeueLTStd-Bd";
+}
+/* line 501, ../../app/stylesheets/EB5Seminar.sass */
+.united_states_container .city_container, .international_container .city_container {
+  margin-top: 10px;
+}
+/* line 505, ../../app/stylesheets/EB5Seminar.sass */
+.united_states_container .city_container .city, .international_container .city_container .city {
+  font: 14px "HelveticaNeueLTStd-Bd";
+  float: left;
+  border: 1px solid #eeeeee;
+  padding: 2px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+/* line 519, ../../app/stylesheets/EB5Seminar.sass */
+.united_states_container .city_container .city img, .international_container .city_container .city img {
+  float: left;
+  margin-top: 5px;
+}
+/* line 525, ../../app/stylesheets/EB5Seminar.sass */
+.united_states_container .city_container .city_img, .international_container .city_container .city_img {
+  width: 120px;
+  height: 80px;
+  overflow: hidden;
+}
+
+/* line 535, ../../app/stylesheets/EB5Seminar.sass */
+.international_container {
+  padding-top: 12px;
+}
+
+/* line 541, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar {
+  float: left;
+  width: 25%;
+}
+/* line 547, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul {
+  list-style-type: none;
+}
+/* line 551, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul li {
+  list-style-type: none;
+  text-align: center;
+  padding: 12px 6px;
+  margin-bottom: 6px;
+  padding-top: 16px;
+}
+/* line 563, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul li span {
+  display: block;
+}
+/* line 567, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul li span.seminar {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+}
+/* line 575, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul li span.city {
+  font-size: 13px;
+  line-height: 14px;
+  font-weight: normal;
+}
+/* line 583, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul li span.date_range {
+  font-size: 11px;
+  font-weight: normal;
+}
+/* line 589, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul li span.price {
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+}
+/* line 597, ../../app/stylesheets/EB5Seminar.sass */
+.page_sidebar ul li.active {
+  background: #e9e9e9;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+/* line 605, ../../app/stylesheets/EB5Seminar.sass */
+.page_content {
+  float: right;
+  width: 74%;
+}
+
+/* line 613, ../../app/stylesheets/EB5Seminar.sass */
+#slideshow_container {
+  position: relative;
+  width: 980px;
+  height: 385px;
+}
+/* line 621, ../../app/stylesheets/EB5Seminar.sass */
+#slideshow_container #slideshow {
+  width: 980px;
+  height: 385px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+/* line 631, ../../app/stylesheets/EB5Seminar.sass */
+#slideshow_container #slideshow img {
+  height: 385px;
+  display: none;
+  margin: auto;
+}
+/* line 641, ../../app/stylesheets/EB5Seminar.sass */
+#slideshow_container #slideshow img:first-child {
+  display: block;
+  margin: auto;
+}
+/* line 647, ../../app/stylesheets/EB5Seminar.sass */
+#slideshow_container .slideshow_caption {
+  position: absolute;
+  z-index: 999;
+  bottom: 0px;
+  width: 980px;
+  height: 36px;
+  background: black;
+  color: white;
+  font: 20px "HelveticaNeueLTStd-Roman";
+  text-transform: uppercase;
+  opacity: 0.7;
+  text-align: center;
+  padding-top: 12px;
+}
+
+/* line 675, ../../app/stylesheets/EB5Seminar.sass */
+html h1.title {
+  color: #d10e0c;
+}
+
+/* line 681, ../../app/stylesheets/EB5Seminar.sass */
+html b, html strong {
+  font-family: "HelveticaNeueLTStd-Bl", "Helvetica Neue (TT)", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+/* line 687, ../../app/stylesheets/EB5Seminar.sass */
+.page_spacer {
+  height: 16px;
+  clear: both;
+}
+
+/* line 695, ../../app/stylesheets/EB5Seminar.sass */
+.tabbable {
+  list-style-type: none;
+}
+/* line 699, ../../app/stylesheets/EB5Seminar.sass */
+.tabbable li {
+  list-style-type: none;
+}
+/* line 705, ../../app/stylesheets/EB5Seminar.sass */
+.tabbable ul.with_discs {
+  list-style: disc outside;
+}
+/* line 709, ../../app/stylesheets/EB5Seminar.sass */
+.tabbable ul.with_discs li {
+  list-style: disc outside;
+}
+
+/* line 715, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars {
+  list-style-type: none;
+}
+/* line 719, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li {
+  list-style-type: none;
+  padding-bottom: 12px;
+}
+/* line 729, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li .title span {
+  font-size: 12px;
+  padding-left: 2px;
+}
+/* line 737, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li .title h2 a {
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+/* line 747, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details {
+  list-style-type: none;
+}
+/* line 753, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details strong {
+  font: 16px "HelveticaNeueLTStd-Roman";
+  text-transform: uppercase;
+}
+/* line 761, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li {
+  list-style-type: none;
+  float: left;
+  width: 28%;
+}
+/* line 771, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li.bigger {
+  width: 40%;
+}
+/* line 777, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li.very_big {
+  width: 68%;
+}
+/* line 783, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li.smaller {
+  width: 28%;
+}
+/* line 793, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li ul.details_list li {
+  width: 100%;
+}
+/* line 801, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li ul.speakers li, ul.city_seminars li ul.details li ul.sponsors li {
+  float: left;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  margin-left: 4px;
+}
+/* line 813, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li ul.speakers li img, ul.city_seminars li ul.details li ul.sponsors li img {
+  margin: 0;
+}
+/* line 819, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li ul.panels {
+  list-style: disc outside;
+}
+/* line 823, ../../app/stylesheets/EB5Seminar.sass */
+ul.city_seminars li ul.details li ul.panels li {
+  list-style: disc outside;
+}
+
+/* line 829, ../../app/stylesheets/EB5Seminar.sass */
+h1.with_spacer {
+  margin-top: 12px;
+}
+
+/* line 835, ../../app/stylesheets/EB5Seminar.sass */
+.inline {
+  display: inline;
+}

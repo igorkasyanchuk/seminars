@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205220940) do
+ActiveRecord::Schema.define(:version => 20120207191101) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -331,6 +331,7 @@ ActiveRecord::Schema.define(:version => 20120205220940) do
     t.string  "photo_content_type"
     t.integer "photo_file_size"
     t.integer "photo_updated_at"
+    t.text    "tickets_html"
   end
 
   add_index "seminars", ["city_id"], :name => "index_seminars_on_city_id"

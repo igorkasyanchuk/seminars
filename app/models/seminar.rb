@@ -16,6 +16,7 @@
   scope :upcoming, where('DATE(seminars.ends_on) >= DATE(NOW())')
   scope :past, where('DATE(seminars.ends_on) < DATE(NOW())')
   scope :by_date, order("start_on")
+  scope :from_new_to_old, order("start_on desc")
 
   def event_range
     if start_on == ends_on
@@ -26,6 +27,6 @@
   end
 
   def to_param
-    "#{id}-#{self.title}".downcase.gsub(/[^a-z0-9а-яА-Я]+/i, '-')
+    "#{id}-#{self.title}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
   end
 end

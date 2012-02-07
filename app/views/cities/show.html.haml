@@ -1,5 +1,32 @@
-%h1 #{@city.name} Seminars
+%h1.with_spacer.title #{@city.name} Seminars
 
-%ul
-  - @city.seminars.each do |seminar|
-    %li= link_to seminar.title, agenda_seminar_path(seminar)
+%ul.city_seminars
+  - @city.seminars.from_new_to_old.each do |seminar|
+    %li
+      .title
+        %h2.inline= link_to seminar.title, seminar
+        %span= seminar.event_range
+      %ul.details
+        - if seminar.panels.count > 0
+          %li.smaller
+            %strong Panels
+            %ul.details_list.panels
+              - seminar.panels.each do |panel|
+                %li= panel.title
+
+        %li.bigger{:class => seminar.panels.count == 0 ? 'very_big' : ''}
+          %strong Sponsors
+          %ul.details_list.sponsors
+            - seminar.sponsors.with_logo.each do |sponsor|
+              %li= link_to (image_tag(sponsor.logo.url(:thumb))), sponsor
+
+        %li.smaller
+          %strong Speakers
+          %ul.details_list.speakers
+            - seminar.speakers.with_photo.each do |speaker|
+              %li= link_to (image_tag(speaker.photo.url(:thumb))), speaker
+
+      .clear
+    .clear
+
+.clear   

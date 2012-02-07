@@ -15,8 +15,8 @@
   #slideshow
     - @cities.each do |city|
       %div
-        = image_tag city.photo(:big)
-        #slideshow_caption
+        = image_tag city.photo(:big), :alt => "eb 5 visa seminar in #{city.name}"
+        .slideshow_caption
           = city.name
 .clear
 
@@ -27,28 +27,26 @@
   = pc('HOME page MAIN TITLE content (after slideshow)')
 
 .united_states_container
-  .line
   .home_title
     %strong UNITED STATES
-  .line
   .clear
-  #city_container
+  .city_container
     - @cities_us.each do |city|
       .city
         = city.name
-        .clear
-        = link_to (image_tag city.photo(:medium)), city
+        .city_img= link_to (image_tag city.photo(:medium)), city
+  .clear
 
 .clear
+
 .international_container
-  .line
   .home_title
     %strong INTERNATIONAL
-  .line
   .clear
-  #city_container
+  .city_container
     - @cities_in.each do |city|
       .city
         = city.name
-        .clear
-        = link_to (image_tag city.photo(:medium)), city
+        .city_img= link_to (image_tag city.photo(:medium)), city
+  .clear
+  

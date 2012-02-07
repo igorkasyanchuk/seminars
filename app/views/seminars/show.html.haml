@@ -1,4 +1,32 @@
-%h1 #{@seminar.title}
+= content_for :on_ready do
+  $('#seminar_details').tab('show');
+
+%h1.with_spacer.title #{@seminar.title}
+
+#seminar_details.tabbable
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#s1"} Agenda
+    %li
+      %a{"data-toggle" => "tab", :href => "#s2"} Speakers
+    %li
+      %a{"data-toggle" => "tab", :href => "#s3"} Sponsors
+
+  .tab-content
+    #s1.tab-pane.active
+      = @seminar.agenda.html_safe
+
+    #s2.tab-pane
+      %ul.with_discs
+        - @seminar.speakers.each do |speaker|
+          %li
+            = link_to speaker.name, speaker
+
+    #s3.tab-pane
+      %ul.with_discs
+        - @seminar.sponsors.each do |sponsor|
+          %li
+            = link_to sponsor.name, sponsor
+        
 
 
-= @seminar.agenda.html_safe

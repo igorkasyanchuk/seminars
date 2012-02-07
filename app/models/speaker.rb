@@ -10,6 +10,11 @@ class Speaker < ActiveRecord::Base
   validates_uniqueness_of :name
 
   scope :ordered, order("priority")
+  scope :with_photo, where('photo_file_name is not null')
+
+  def to_param
+    "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
+  end  
 
   def photo_from_url(image_url)
     io = open(URI.parse(image_url))

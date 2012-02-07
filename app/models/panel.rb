@@ -7,4 +7,6 @@ class Panel < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of :description
+
+  scope :by_start_at, order("panels.start_at")
 end

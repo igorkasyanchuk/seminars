@@ -8,7 +8,12 @@ class Sponsor < ActiveRecord::Base
 
   validates_presence_of :name
 
-  scope :ordered, order("priority")  
+  scope :ordered, order("priority")
+  scope :with_logo, where('logo_file_name is not null')
+
+  def to_param
+    "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
+  end  
 
   def photo_from_url(image_url)
     io = open(URI.parse(image_url))
