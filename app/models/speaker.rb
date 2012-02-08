@@ -1,6 +1,16 @@
 class Speaker < ActiveRecord::Base
-  has_and_belongs_to_many :languages, :join_table => "speakers_languages", :uniq => true
-  has_and_belongs_to_many :practice_areas, :join_table => "speakers_practice_areas", :uniq => true
+  has_and_belongs_to_many :languages, 
+    :join_table => "speakers_languages", 
+    :uniq => true, 
+    :after_add => :update_languages_count, 
+    :after_remove => :update_languages_count
+
+  has_and_belongs_to_many :practice_areas, 
+    :join_table => "speakers_practice_areas", 
+    :uniq => true,
+    :after_add => :update_practice_areas_count,
+    :after_remove => :update_practice_areas_count
+
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
 
@@ -11,6 +21,16 @@ class Speaker < ActiveRecord::Base
 
   scope :ordered, order("priority")
   scope :with_photo, where('photo_file_name is not null')
+
+  def update_languages_count(e)
+    self.languages_count = self.languages.count
+    self.save(:validate => false)
+  end
+
+  def update_practice_areas_count(e)
+    self.practice_areas_count = self.practice_areas.count
+    self.save(:validate => false)
+  end  
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')

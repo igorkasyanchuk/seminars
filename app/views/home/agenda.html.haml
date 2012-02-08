@@ -20,7 +20,13 @@
 
 .page_content
   - if defined? @seminar
+    - @seminar.panels.by_start_at.each do |panel|
+      = render :partial => '/seminars/panel', :locals => { :panel => panel }
+    .clear
+
+    = line "Agenda"
     = @seminar.agenda.html_safe
+
   - else
     = @page.content.html_safe
 

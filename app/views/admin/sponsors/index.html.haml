@@ -12,8 +12,8 @@
     - @sponsors.each do |sponsor|
       %tr
         %td= link_to sponsor.name, [:edit, :admin, sponsor]
-        %td= sponsor.languages.count
-        %td= sponsor.practice_areas.count        
+        %td= sponsor.languages_count
+        %td= sponsor.practice_areas_count        
         %td= link_to 'Delete', [:admin, sponsor], :confirm => 'Are you sure?', :method => :delete
 
 - else

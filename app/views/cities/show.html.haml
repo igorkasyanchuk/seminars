@@ -5,7 +5,7 @@
     %li
       .title
         %h2.inline= link_to seminar.title, seminar
-        %span= seminar.event_range
+      = line seminar.event_range, 'bigger'
       %ul.details
         - if seminar.panels.count > 0
           %li.smaller

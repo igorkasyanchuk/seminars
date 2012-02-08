@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207191101) do
+ActiveRecord::Schema.define(:version => 20120208202609) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -287,12 +287,13 @@ ActiveRecord::Schema.define(:version => 20120207191101) do
   add_index "pages", ["identifier"], :name => "index_pages_on_identifier"
 
   create_table "panels", :force => true do |t|
-    t.integer "seminar_id"
-    t.string  "title"
-    t.text    "description"
-    t.string  "logo_file_name"
-    t.string  "logo_content_type"
-    t.integer "logo_file_size"
+    t.integer  "seminar_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "start_at"
   end
 
   add_index "panels", ["seminar_id"], :name => "index_panels_on_seminar_id"
@@ -410,7 +411,7 @@ ActiveRecord::Schema.define(:version => 20120207191101) do
     t.text    "about"
     t.string  "email"
     t.string  "website"
-    t.integer "priority",           :default => 0
+    t.integer "priority",             :default => 0
     t.string  "photo_file_name"
     t.string  "photo_content_type"
     t.integer "photo_file_size"
@@ -426,6 +427,8 @@ ActiveRecord::Schema.define(:version => 20120207191101) do
     t.string  "linked_in"
     t.string  "twitter"
     t.string  "facebook"
+    t.integer "languages_count",      :default => 0
+    t.integer "practice_areas_count", :default => 0
   end
 
   create_table "speakers_languages", :id => false, :force => true do |t|
@@ -443,7 +446,7 @@ ActiveRecord::Schema.define(:version => 20120207191101) do
     t.text    "description"
     t.string  "website"
     t.string  "email"
-    t.integer "priority",          :default => 0
+    t.integer "priority",             :default => 0
     t.string  "logo_file_name"
     t.string  "logo_content_type"
     t.integer "logo_file_size"
@@ -459,6 +462,8 @@ ActiveRecord::Schema.define(:version => 20120207191101) do
     t.string  "linked_in"
     t.string  "twitter"
     t.string  "facebook"
+    t.integer "languages_count",      :default => 0
+    t.integer "practice_areas_count", :default => 0
   end
 
 end

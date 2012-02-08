@@ -3,13 +3,30 @@ class Sponsor < ActiveRecord::Base
 
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
-  has_and_belongs_to_many :languages, :uniq => true
-  has_and_belongs_to_many :practice_areas, :uniq => true
+  has_and_belongs_to_many :languages,
+    :uniq => true,
+    :after_add => :update_languages_count, 
+    :after_remove => :update_languages_count    
+
+  has_and_belongs_to_many :practice_areas, 
+    :uniq => true,
+    :after_add => :update_practice_areas_count,
+    :after_remove => :update_practice_areas_count
 
   validates_presence_of :name
 
   scope :ordered, order("priority")
   scope :with_logo, where('logo_file_name is not null')
+
+  def update_languages_count(e)
+    self.languages_count = self.languages.count
+    self.save(:validate => false)
+  end
+
+  def update_practice_areas_count(e)
+    self.practice_areas_count = self.practice_areas.count
+    self.save(:validate => false)
+  end  
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
