@@ -25,9 +25,9 @@
     .clear
 
     = line "Agenda"
-    = @seminar.agenda.html_safe
+    .editor_content= @seminar.agenda.html_safe
 
   - else
-    = @page.content.html_safe
+    .editor_content= @page.content.html_safe
 
 .clear

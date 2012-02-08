@@ -167,6 +167,10 @@ $base_font: 13px
       margin-left: 80px
       font-size: 12px
       font-family: "HelveticaNeueLTStd-Roman"
+
+.editor_content
+  a
+    text-decoration: underline
     
 @font-face
   font-family: "HelveticaNeueLTStd-Bd"
@@ -308,7 +312,12 @@ $base_font: 13px
       overflow: hidden
 
 .international_container
-  padding-top: 12px      
+  padding-top: 12px
+  .city_container
+    .city_img
+      width: 100px
+      height: 67px
+      overflow: hidden    
 
 .page_sidebar
   float: left
@@ -401,7 +410,7 @@ ul.city_seminars
   list-style-type: none
   li
     list-style-type: none
-    padding-bottom: 12px
+    padding-bottom: 24px
 
     .title
       h2 a
@@ -436,7 +445,16 @@ ul.city_seminars
           li
             width: 100%
 
+        ul.sponsors
+          margin-left: 4px
+          img
+            padding-top: 0px
+            padding-right: 4px
+            padding-bottom: 4px
+
         ul.speakers, ul.sponsors
+          margin: 0
+          padding: 0
           li
             float: left
             width: auto
@@ -551,10 +569,27 @@ h1.with_spacer
 
 .panel
   padding-bottom: 12px
+  .date, .time
+    font-size: 14px
+    line-height: 17px
+    vertical-align: middle
+    span
+      display: inline-block
+      padding-top: 2px
+    *
+      vertical-align: middle
+  .date
+    padding-top: 6px
+  .time
+    padding-bottom: 6px
+  h3.panel_title
+    font-size: 16px
   .panel_title
     font-family: "HelveticaNeueLTStd-Bd", "Helvetica"
     font-size: 14px
   .panel_content
+    a
+      text-decoration: underline
   ul.panel_speakers, ul.panel_sponsors
     list-style-type: none
     clear: both

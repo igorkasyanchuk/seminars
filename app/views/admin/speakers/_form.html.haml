@@ -23,7 +23,7 @@
   = f.input :twitter
   = f.input :facebook
 
-  = f.association :languages, :as => :check_boxes
-  = f.association :practice_areas, :as => :check_boxes
+  = f.association :languages, :as => :check_boxes, :collection => Language.by_name.all
+  = f.association :practice_areas, :as => :check_boxes, :collection => PracticeArea.by_name.all
 
   = f.button :submit
