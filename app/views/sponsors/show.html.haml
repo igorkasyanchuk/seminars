@@ -43,6 +43,11 @@
           = link_to @sponsor.facebook       
 
 .page_content
-  = render :partial => '/sponsors/sponsor', :locals => { :sponsor => @sponsor }
+  .about_content
+    - if @sponsor.logo.exists?
+      = image_tag @sponsor.logo.url(:medium), :class => 'about_photo'
+    %h1.title= @sponsor.name
+    = @sponsor.description.html_safe
+    .clear
 
 .clear

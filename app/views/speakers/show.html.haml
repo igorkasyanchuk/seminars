@@ -63,6 +63,6 @@
   .about_content
     - if @speaker.photo.exists?
       = image_tag @speaker.photo.url(:medium), :class => 'about_photo'
-    %h1.title= @speaker.name
+    %h1.title.pad= @speaker.name
     = @speaker.about.html_safe
     .clear
