@@ -1,15 +1,24 @@
 .panel
   %h3.panel_title.inline= panel.title
-  %span= panel.start_time
+  .date
+    = image_tag 'calendar.png'
+    %span= panel.date
+  .time
+    = image_tag 'clock.png'
+    %span= panel.time
 
   .panel_content!= panel.description
 
+  %strong.panel_title Panel Speakers:
   %ul.panel_speakers
     - panel.speakers.with_photo.each do |speaker|
-      %li= link_to (image_tag(speaker.photo.url(:thumb))), speaker
+      %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
+  .clear
+
+  %strong.panel_title Panel Sponsors:
   %ul.panel_sponsors
     - panel.sponsors.with_logo.each do |sponsor|
-      %li= link_to (image_tag(sponsor.logo.url(:thumb))), sponsor
+      %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
 
   .clear

@@ -1,5 +1,6 @@
 class Sponsor < ActiveRecord::Base
-  has_attached_file :logo, :styles => { :medium => "100x100>", :thumb => "x50" }, :url => "/system/:class/:attachment/:id/:style/:filename"
+  has_attached_file :logo, 
+    :styles => { :medium => "100x100>", :thumb => "x50", :thumb2x => 'x75' }, :url => "/system/:class/:attachment/:id/:style/:filename"
 
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
@@ -17,6 +18,7 @@ class Sponsor < ActiveRecord::Base
 
   scope :ordered, order("priority")
   scope :with_logo, where('logo_file_name is not null')
+  scope :by_name, order("name")
 
   def update_languages_count(e)
     self.languages_count = self.languages.count

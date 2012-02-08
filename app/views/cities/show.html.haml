@@ -18,13 +18,13 @@
           %strong Sponsors
           %ul.details_list.sponsors
             - seminar.sponsors.with_logo.each do |sponsor|
-              %li= link_to (image_tag(sponsor.logo.url(:thumb))), sponsor
+              %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
 
         %li.smaller
           %strong Speakers
           %ul.details_list.speakers
             - seminar.speakers.with_photo.each do |speaker|
-              %li= link_to (image_tag(speaker.photo.url(:thumb))), speaker
+              %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
       .clear
     .clear

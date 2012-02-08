@@ -2,6 +2,10 @@ class Admin::SpeakersController < Admin::DashboardController
 	respond_to :html, :xml, :json
   actions :all, :except => :show 
 
+  def index
+    @speakers = Speaker.by_name.all
+  end
+
   def create
     create! do |success, failure|
       success.html { redirect_to [:admin, :speakers] }
