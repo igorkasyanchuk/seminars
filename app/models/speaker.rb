@@ -14,13 +14,15 @@ class Speaker < ActiveRecord::Base
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
 
-  has_attached_file :photo, :styles => { :medium => "100x137", :thumb => 'x50' }, :url => "/system/:class/:attachment/:id/:style/:filename"
+  has_attached_file :photo, 
+    :styles => { :medium => "100x137", :thumb => 'x50', :thumb2x => 'x75' }, :url => "/system/:class/:attachment/:id/:style/:filename"
 
   validates_presence_of :name
   validates_uniqueness_of :name
 
   scope :ordered, order("priority")
   scope :with_photo, where('photo_file_name is not null')
+  scope :by_name, order("name")
 
   def update_languages_count(e)
     self.languages_count = self.languages.count
