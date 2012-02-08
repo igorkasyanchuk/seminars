@@ -4,6 +4,7 @@
   %table.zebra
     %tr
       %th Title
+      %th Time
       %th Speakers
       %th Sponsors
       %th Actions
@@ -11,9 +12,13 @@
     - @panels.each do |panel|
       %tr
         %td= link_to panel.title, [:edit, :admin, @seminar, panel]
+        %td= panel.start_time
         %td= panel.speakers.count
         %td= panel.sponsors.count
-        %td= link_to 'Delete', [:admin, @seminar, panel], :confirm => 'Are you sure?', :method => :delete
+        %td
+          = link_to "View", agenda_seminar_path(@seminar)
+          | |
+          = link_to 'Delete', [:admin, @seminar, panel], :confirm => 'Are you sure?', :method => :delete
 
   %br
 

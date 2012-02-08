@@ -12,7 +12,7 @@
     %tbody
       - for page in @pages
         %tr{ :class => cycle(:odd, :even) }
-          %td= link_to page.identifier, [:admin, page]
+          %td= link_to page.identifier, [:edit, :admin, page]
           %td
             = link_to "edit", [:edit, :admin, page], :class => 'edit_button'
 - else

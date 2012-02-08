@@ -7,6 +7,11 @@ class Panel < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of :description
+  validates_presence_of :start_at
 
   scope :by_start_at, order("panels.start_at")
+
+  def start_time
+    start_at.strftime("%Y-%m-%d %H:%M") if start_at
+  end
 end

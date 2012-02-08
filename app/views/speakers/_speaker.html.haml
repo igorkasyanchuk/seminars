@@ -18,12 +18,12 @@
             %dd  
               = speaker.firm
 
-          - if speaker.practice_areas.count > 0
+          - if speaker.practice_areas_count > 0
             %dt Practice Areas:
             %dd
               = speaker.practice_areas.collect{|e| e.name}.join(", ")
 
-          - if speaker.languages.count > 0
+          - if speaker.languages_count > 0
             %dt Languages:
             %dd
               = speaker.languages.collect{|e| e.name}.join(", ")

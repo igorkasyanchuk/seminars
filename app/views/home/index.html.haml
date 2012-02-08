@@ -27,9 +27,7 @@
   = pc('HOME page MAIN TITLE content (after slideshow)')
 
 .united_states_container
-  .home_title
-    %strong UNITED STATES
-  .clear
+  = line "UNITED STATES"
   .city_container
     - @cities_us.each do |city|
       .city
@@ -40,9 +38,7 @@
 .clear
 
 .international_container
-  .home_title
-    %strong INTERNATIONAL
-  .clear
+  = line "INTERNATIONAL"
   .city_container
     - @cities_in.each do |city|
       .city

@@ -74,5 +74,15 @@ module ApplicationHelper
       url
     end
   end
+
+  def line(text, klass = '')
+    content_tag :div, :class => 'line_top' do
+      [
+        (content_tag :div, '', :class => 'line_placeholder'),
+        (content_tag :div, '', :class => "line_content_bg #{klass}"),
+        (content_tag :div, text, :class => 'line_content')
+      ].join.html_safe
+    end
+  end
   
 end
