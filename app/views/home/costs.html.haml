@@ -19,8 +19,8 @@
 
 .page_content
   - if defined? @seminar
-    = @seminar.price_full_information.html_safe
+    .editor_content= @seminar.price_full_information.html_safe
   - else
-    = @page.content.html_safe
+    .editor_content= @page.content.html_safe
 
 .clear
