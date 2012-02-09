@@ -51,7 +51,7 @@ module ApplicationHelper
 
   def title(t)
     content_for :title do
-      t + " | EB5 Seminar"
+      truncate(t, :length => 70, :omission => '') + " | EB5 Seminar"
     end
   end
 
