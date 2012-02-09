@@ -20,8 +20,10 @@
 
 .page_content
   - if defined? @seminar
-    - @seminar.panels.by_start_at.each do |panel|
+    - @seminar.panels.by_start_at.each_with_index do |panel, index|
       = render :partial => '/seminars/panel', :locals => { :panel => panel }
+      - if index != @seminar.panels.count - 1
+        = line "", "no_line"
     .clear
 
     = line "Agenda"

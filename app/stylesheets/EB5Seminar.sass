@@ -561,6 +561,9 @@ h1.with_spacer
     &.bigger
       left: 38%
       width: 24%
+    &.no_line
+      left: 50%
+      width: 0%
   .line_content
     text-align: center
     color: #333
@@ -569,19 +572,16 @@ h1.with_spacer
 
 .panel
   padding-bottom: 12px
-  .date, .time
-    font-size: 14px
-    line-height: 17px
+  span
+    display: inline-block
+    padding-top: 2px
+    padding-left: 0px
+  img.icon
+    padding-left: 6px
+  *
     vertical-align: middle
-    span
-      display: inline-block
-      padding-top: 2px
-    *
-      vertical-align: middle
   .date
-    padding-top: 6px
   .time
-    padding-bottom: 6px
   h3.panel_title
     font-size: 16px
   .panel_title

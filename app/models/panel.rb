@@ -12,11 +12,11 @@ class Panel < ActiveRecord::Base
   scope :by_start_at, order("panels.start_at")
 
   def start_time
-    start_at.strftime("%m/%d/%Y %I:%M%p") if start_at
+    start_at.strftime("%m/%d/%Y %I:%M %p") if start_at
   end
 
   def time
-    start_at.strftime("%I:%M%p") if start_at
+    start_at.strftime("%I:%M %p") if start_at
   end
 
   def date
