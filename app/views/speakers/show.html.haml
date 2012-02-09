@@ -20,7 +20,7 @@
       - if @speaker.website.present?  
         %dt Website    
         %dd.link_br
-          = link_to @speaker.website
+          =link_to "#{@speaker.website}", httpize(@speaker.website)
       - if @speaker.twitter.present?      
         %dt Contact Email
         %dd.link_br
@@ -32,7 +32,7 @@
       - if @speaker.linked_in.present?    
         %dt Linked in
         %dd.link_br 
-          = link_to @speaker.linked_in
+          = link_to "#{@speaker.linked_in}", httpize(@speaker.linked_in)
       - if @speaker.twitter.present?    
         %dt Twitter
         %dd
@@ -40,7 +40,7 @@
       - if @speaker.facebook.present?      
         %dt Facebook
         %dd.link_br
-          = link_to @speaker.facebook  
+          = link_to "#{@speaker.facebook}", httpize(@speaker.facebook)
 
     %dl 
       %dt Practice Areas

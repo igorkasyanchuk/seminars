@@ -20,7 +20,7 @@
       - if @sponsor.website.present?  
         %dt Website    
         %dd.link_br
-          = link_to @sponsor.website
+          = link_to @sponsor.website, httpize(@sponsor.website)
       - if @sponsor.twitter.present?      
         %dt Contact Email
         %dd.link_br
@@ -32,7 +32,7 @@
       - if @sponsor.linked_in.present?    
         %dt Linked in
         %dd.link_br 
-          = link_to @sponsor.linked_in
+          = link_to @sponsor.linked_in, httpize(@sponsor.linked_in)
       - if @sponsor.twitter.present?    
         %dt Twitter
         %dd
@@ -40,7 +40,7 @@
       - if @sponsor.facebook.present?      
         %dt Facebook
         %dd.link_br
-          = link_to @sponsor.facebook       
+          = link_to @sponsor.facebook, httpize(@sponsor.linked_in)       
 
 .page_content
   .about_content
