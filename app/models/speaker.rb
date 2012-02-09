@@ -37,7 +37,15 @@ class Speaker < ActiveRecord::Base
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
-  end  
+  end
+
+  def seo_title
+    self.name
+  end
+
+  def seo_description
+    self.about
+  end
 
   def photo_from_url(image_url)
     io = open(URI.parse(image_url))
