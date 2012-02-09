@@ -7,6 +7,7 @@
     = link_to sponsor.name, sponsor_path(sponsor)    
   .description
     %dl
+      %dd= (truncate_html sponsor.description, :length => 160).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
       - unless sponsor.firm.blank?
         %dt Associated With:
         %dd  

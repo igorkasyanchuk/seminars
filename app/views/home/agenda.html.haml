@@ -1,3 +1,7 @@
+= title @page.seo_title
+= description @page.seo_description
+= keywords @page.seo_keywords
+
 %h1.title
   - if defined? @seminar
     #{@seminar.title} Agenda
@@ -20,12 +24,16 @@
 
 .page_content
   - if defined? @seminar
-    - @seminar.panels.by_start_at.each do |panel|
+    = link_to 'Registration', seminar_path(@seminar, :anchor => 'registation'), :class => 'btn btn-large btn-danger register_button agenda_button_register_top'
+    - @seminar.panels.by_start_at.each_with_index do |panel, index|
       = render :partial => '/seminars/panel', :locals => { :panel => panel }
+      - if index != @seminar.panels.count - 1
+        = line "", "no_line"
     .clear
 
     = line "Agenda"
     .editor_content= @seminar.agenda.html_safe
+    = link_to 'Registration', seminar_path(@seminar, :anchor => 'registation'), :class => 'btn btn-large btn-danger register_button agenda_button_register_bottom'
 
   - else
     .editor_content= @page.content.html_safe

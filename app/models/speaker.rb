@@ -15,7 +15,8 @@ class Speaker < ActiveRecord::Base
   has_and_belongs_to_many :panels, :uniq => true
 
   has_attached_file :photo, 
-    :styles => { :medium => "100x137", :thumb => 'x50', :thumb2x => 'x75' }, :url => "/system/:class/:attachment/:id/:style/:filename"
+    :styles => { :medium => "100x137", :thumb => 'x50', :thumb2x => 'x75', :thumb3x => 'x100' }, 
+    :url => "/system/:class/:attachment/:id/:style/:filename"
 
   validates_presence_of :name
   validates_uniqueness_of :name
@@ -36,7 +37,15 @@ class Speaker < ActiveRecord::Base
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
-  end  
+  end
+
+  def seo_title
+    self.name
+  end
+
+  def seo_description
+    self.about
+  end
 
   def photo_from_url(image_url)
     io = open(URI.parse(image_url))

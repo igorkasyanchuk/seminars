@@ -8,6 +8,7 @@
         = link_to speaker.name, speaker_path(speaker)
       .speaker_about
         %dl
+          %dd= (truncate_html speaker.about, :length => 160).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
           - unless speaker.position.blank? 
             %dt Position:
             %dd  

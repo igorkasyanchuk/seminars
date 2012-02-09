@@ -1,4 +1,6 @@
 module ApplicationHelper
+  SITE_NAME = " | IntCapEx.com"
+  SITE_NAME_LENGTH = SITE_NAME.length
 
 
   def add_editor
@@ -51,7 +53,7 @@ module ApplicationHelper
 
   def title(t)
     content_for :title do
-      t + " | EB5 Seminar"
+      truncate(t, :length => 70 - SITE_NAME_LENGTH, :omission => '') + SITE_NAME
     end
   end
 

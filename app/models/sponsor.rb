@@ -1,6 +1,7 @@
 class Sponsor < ActiveRecord::Base
   has_attached_file :logo, 
-    :styles => { :medium => "100x100>", :thumb => "x50", :thumb2x => 'x75' }, :url => "/system/:class/:attachment/:id/:style/:filename"
+    :styles => { :medium => "100x100>", :thumb => "x50", :thumb2x => 'x75', :thumb3x => 'x100' }, 
+    :url => "/system/:class/:attachment/:id/:style/:filename"
 
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
@@ -32,7 +33,15 @@ class Sponsor < ActiveRecord::Base
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
-  end  
+  end
+
+  def seo_title
+    self.name
+  end
+
+  def seo_description
+    self.description
+  end
 
   def photo_from_url(image_url)
     io = open(URI.parse(image_url))
