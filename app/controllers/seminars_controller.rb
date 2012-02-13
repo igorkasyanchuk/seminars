@@ -11,7 +11,7 @@ class SeminarsController < InheritedResources::Base
   def speakers
     @page = Page["speakers"]
     @seminar = resource
-    @speakers = @seminar.speakers.ordered
+    @speakers = @seminar.speakers.ordered.where(:id => Panel.all_speakers_ids)
     @selected_menu = 'speakers'
     render '/home/speakers'
   end
@@ -19,7 +19,7 @@ class SeminarsController < InheritedResources::Base
   def sponsors
     @page = Page["sponsors"]
     @seminar = resource
-    @sponsors = @seminar.sponsors.ordered
+    @sponsors = @seminar.sponsors.ordered.where(:id => Panel.all_sponsors_ids)
     @selected_menu = 'sponsors'
     render '/home/sponsors'
   end

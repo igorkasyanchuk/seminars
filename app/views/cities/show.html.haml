@@ -1,32 +1,78 @@
+= title "#{@city.name} Seminars"
+
 %h1.with_spacer.title #{@city.name} Seminars
 
 %ul.city_seminars
-  - @city.seminars.from_new_to_old.each do |seminar|
+  - @city.seminars.from_new_to_old.upcoming.each do |seminar|
     %li
       .title
         %h2.inline= link_to seminar.title, seminar
       = line seminar.event_range, 'bigger'
       %ul.details
-        - if seminar.panels.count > 0
-          %li.smaller
-            %strong Panels
-            %ul.details_list.panels
-              - seminar.panels.each do |panel|
-                %li= panel.title
+        %li
+          %strong Panels
+          %ul.details_list.panels
+            - seminar.panels.by_start_at.each do |panel|
+              %li
+                %h3.panel_title.inline= panel.title
+                = image_tag 'calendar2.png', :class => 'icon'
+                %span= panel.date
+                = image_tag 'clock2.png', :class => 'icon'
+                %span= panel.time
+                = truncate_html panel.description, :length => 140
+                .clear
 
-        %li.bigger{:class => seminar.panels.count == 0 ? 'very_big' : ''}
-          %strong Sponsors
+          %ul
+            %li= link_to 'Registration', seminar_path(seminar, :anchor => 'registation'), :class => 'btn btn-large btn-danger register_button'
+
+        %li
+          %strong Sponsors / Speakers
           %ul.details_list.sponsors
             - seminar.sponsors.with_logo.each do |sponsor|
               %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
 
-        %li.smaller
-          %strong Speakers
-          %ul.details_list.speakers
             - seminar.speakers.with_photo.each do |speaker|
               %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
       .clear
     .clear
 
-.clear   
+.clear
+
+- if @city.seminars.from_new_to_old.past.count > 0
+  %h2 Past Seminars
+
+  %ul.city_seminars
+    - @city.seminars.from_new_to_old.past.each do |seminar|
+      %li
+        .title
+          %h2.inline= link_to seminar.title, seminar
+        = line seminar.event_range, 'bigger'
+        %ul.details
+          %li
+            %strong Panels
+            %ul.details_list.panels
+              - seminar.panels.by_start_at.each do |panel|
+                %li
+                  %h3.panel_title.inline= panel.title
+                  = image_tag 'calendar2.png', :class => 'icon'
+                  %span= panel.date
+                  = image_tag 'clock2.png', :class => 'icon'
+                  %span= panel.time
+                  = truncate_html panel.description, :length => 140
+                  .clear
+
+          %li
+            %strong Sponsors / Speakers
+            %ul.details_list.sponsors
+              - seminar.sponsors.with_logo.each do |sponsor|
+                %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
+
+              - seminar.speakers.with_photo.each do |speaker|
+                %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
+
+        .clear
+      .clear
+
+  .clear
+

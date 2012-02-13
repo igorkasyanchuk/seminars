@@ -7,16 +7,18 @@
 
   .panel_content!= panel.description
 
-  %strong.panel_title Panel Speakers:
-  %ul.panel_speakers
-    - panel.speakers.with_photo.each do |speaker|
-      %li= link_to (image_tag(speaker.photo.url(:thumb3x))), speaker
+  - if panel.speakers.with_photo.count > 0
+    %strong.panel_title Panel Speakers:
+    %ul.panel_speakers
+      - panel.speakers.with_photo.each do |speaker|
+        %li= link_to (image_tag(speaker.photo.url(:thumb3x))), speaker
 
-  .clear
+    .clear
 
-  %strong.panel_title Panel Sponsors:
-  %ul.panel_sponsors
-    - panel.sponsors.with_logo.each do |sponsor|
-      %li= link_to (image_tag(sponsor.logo.url(:thumb3x))), sponsor
+  - if panel.sponsors.with_logo.count > 0
+    %strong.panel_title Panel Sponsors:
+    %ul.panel_sponsors
+      - panel.sponsors.with_logo.each do |sponsor|
+        %li= link_to (image_tag(sponsor.logo.url(:thumb3x))), sponsor
 
   .clear

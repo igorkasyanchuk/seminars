@@ -22,4 +22,16 @@ class Panel < ActiveRecord::Base
   def date
     start_at.strftime("%m/%d/%Y") if start_at
   end
+
+  def self.all_speakers_ids
+    res = ActiveRecord::Base.connection.execute("SELECT DISTINCT speaker_id FROM panels_speakers").inject([]) {|res, e| res << e.first; res}
+    res << 0 if res.blank?
+    res
+  end
+
+  def self.all_sponsors_ids
+    res = ActiveRecord::Base.connection.execute("SELECT DISTINCT sponsor_id FROM panels_sponsors").inject([]) {|res, e| res << e.first; res}
+    res << 0 if res.blank?
+    res
+  end  
 end

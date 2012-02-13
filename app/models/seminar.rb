@@ -16,7 +16,7 @@ class Seminar < ActiveRecord::Base
   scope :upcoming, where('DATE(seminars.ends_on) >= DATE(NOW())')
   scope :past, where('DATE(seminars.ends_on) < DATE(NOW())')
   scope :by_date, order("start_on")
-  scope :from_new_to_old, order("start_on desc")
+  scope :from_new_to_old, order("start_on asc")
 
   def event_range
     if start_on == ends_on
