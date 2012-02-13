@@ -9,12 +9,23 @@
     .pdf_text
       Viewing .pdf documents requires the latest version of Adobe Reader. Adobe Reader is available for download free of charge by clicking the icon near this message.
   
-  .clear    
-  #tab1
-    - @documents.each do |document|
-      #resource
-        %h2= document.title
-        %ul
-          - document.attachments.each do |a|
-            %li
-              = link_to a.title, a.attachment.url
+  .clear
+  - @cities.each do |city|
+    - if city.documents.any?
+      %h1.title= city.name
+      .clear
+      .city_seminars_resources
+        - city.seminars.from_new_to_old.each do |seminar|
+          - if seminar.documents.any?
+            .title
+              %h2.inline= link_to seminar.title, seminar
+            = line seminar.event_range, 'bigger'
+            %strong Resources
+          .resources_list
+            - seminar.documents.each do |document|
+              .resource
+                = document.title
+                %ul
+                  - document.attachments.each do |a|
+                    %li
+                      = link_to (a.title? ? a.title : "View the Document"), a.attachment.url

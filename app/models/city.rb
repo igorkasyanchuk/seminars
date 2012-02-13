@@ -3,6 +3,7 @@ class City < ActiveRecord::Base
                             :url => "/system/:class/:attachment/:id/:style/:filename"
 
   has_many :seminars, :dependent => :destroy
+  has_many :documents, :through => :seminars
 
   validates_presence_of :name
   validates_presence_of :country
