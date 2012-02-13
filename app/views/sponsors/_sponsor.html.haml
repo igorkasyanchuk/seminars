@@ -1,27 +1,29 @@
-.sponsor
-  .sponsor_logo
-    - if sponsor.logo.exists?
-      = link_to (image_tag sponsor.logo(:medium), :alt => sponsor.name), sponsor_path(sponsor)
-  .sponsor_info
-  %h2.sponsor_name
-    = link_to sponsor.name, sponsor_path(sponsor)    
-  .description
-    %dl
-      - unless sponsor.firm.blank?
-        %dt Associated With:
-        %dd  
-          = sponsor.firm
-      - if sponsor.practice_areas.count > 0
-        %dt Practice Areas:
-        %dd
-          = sponsor.practice_areas.collect{|e| e.name}.join(", ")
-      - if sponsor.languages.count > 0
-        %dt Languages:
-        %dd
-          = sponsor.languages.collect{|e| e.name}.join(", ") 
-               
-      - unless sponsor.website.blank?
-        %dt Web site:
-        %dd
-          = link_to sponsor.website, httpize(sponsor.website), :rel => 'nofollow'
-  .clear
+.sponsors
+  .sponsor
+    .sponsor_logo
+      - if sponsor.logo.exists?
+        = link_to (image_tag sponsor.logo(:medium), :alt => sponsor.name), sponsor_path(sponsor)    
+    .sponsor_info
+    %h2.sponsor_name
+      = link_to sponsor.name, sponsor_path(sponsor)    
+    .description
+      %dl
+        %dd= (truncate_html sponsor.description, :length => 160).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
+        - unless sponsor.firm.blank?
+          %dt Associated With:
+          %dd  
+            = sponsor.firm
+        - if sponsor.practice_areas.count > 0
+          %dt Practice Areas:
+          %dd
+            = sponsor.practice_areas.collect{|e| e.name}.join(", ")
+        - if sponsor.languages.count > 0
+          %dt Languages:
+          %dd
+            = sponsor.languages.collect{|e| e.name}.join(", ") 
+                 
+        - unless sponsor.website.blank?
+          %dt Web site:
+          %dd
+            = link_to sponsor.website, httpize(sponsor.website), :rel => 'nofollow'
+    .clear

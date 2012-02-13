@@ -72,11 +72,11 @@ $base_font: 13px
   h1
     color: #D10E0C
     margin: 30px 0px    
-    font-family: "HelveticaNeueLTStd-Roman"   
+    font-family: "HelveticaNeueLTStd-Roman", 'Arial'   
   h2
     color: #1C4DAF
     margin: 0px
-    font-family: "HelveticaNeueLTStd-Roman"
+    font-family: "HelveticaNeueLTStd-Roman", 'Arial'
 .sponsors
   margin-top: 20px
   img
@@ -84,7 +84,7 @@ $base_font: 13px
       top: 5px
       right: 15px
       bottom: 10px 
-      float: left
+    width: 100px  
     float: left
   .sponsor
     margin-bottom: 40px
@@ -97,7 +97,7 @@ $base_font: 13px
     margin-top: 20px
     a
       color: black
-      font-family: "HelveticaNeueLTStd-Bd"
+      font-family: "HelveticaNeueLTStd-Bd", 'Arial'
 
 .speakers
   margin-top: 20px
@@ -134,7 +134,7 @@ $base_font: 13px
             float: left
             clear: both
             padding: 0
-            font-family: "HelveticaNeueLTStd-Bd", Arial
+            font-family: "HelveticaNeueLTStd-Bd", 'Arial'
 
           dd
             float: left
@@ -403,7 +403,7 @@ html b, html strong
   font-family: "HelveticaNeueLTStd-Bl", "Helvetica Neue (TT)", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 
 .page_spacer
-  height: 16px
+  height: 100px
   clear: both
 
 .tabbable
@@ -499,12 +499,13 @@ h1.with_spacer
   
 
 .sponsor_logo 
+  float: left
   padding:
     top: 5px
     right: 15px
     bottom: 10px 
     float: left
-    width: 100px  
+  width: 100px  
 
 
 .sponsor_name
@@ -514,6 +515,7 @@ h1.with_spacer
   margin-bottom: 12px
 
 .sponsor_info
+  clear: both
   text-align: left
   float: left
   width: 500px
@@ -571,6 +573,9 @@ h1.with_spacer
     &.bigger
       left: 38%
       width: 24%
+    &.no_line
+      left: 50%
+      width: 0%
   .line_content
     text-align: center
     color: #333
@@ -579,19 +584,16 @@ h1.with_spacer
 
 .panel
   padding-bottom: 12px
-  .date, .time
-    font-size: 14px
-    line-height: 17px
+  span
+    display: inline-block
+    padding-top: 2px
+    padding-left: 0px
+  img.icon
+    padding-left: 6px
+  *
     vertical-align: middle
-    span
-      display: inline-block
-      padding-top: 2px
-    *
-      vertical-align: middle
   .date
-    padding-top: 6px
   .time
-    padding-bottom: 6px
   h3.panel_title
     font-size: 16px
   .panel_title
@@ -609,3 +611,16 @@ h1.with_spacer
       margin-right: 5px
       margin-bottom: 5px
 
+
+.btn.register_button
+  color: white
+
+.agenda_button_register_top
+  float: right
+
+.agenda_button_register_bottom
+  float: left
+
+.agenda_button_register_top_seminar_page  
+  float: right
+  margin-top: 12px

@@ -1,6 +1,7 @@
 class Sponsor < ActiveRecord::Base
   has_attached_file :logo, 
-    :styles => { :medium => "100x100>", :thumb => "x50", :thumb2x => 'x75' }, :url => "/system/:class/:attachment/:id/:style/:filename"
+    :styles => { :medium => "100x100>", :thumb => "x50", :thumb2x => 'x75', :thumb3x => 'x100' }, 
+    :url => "/system/:class/:attachment/:id/:style/:filename"
 
   has_and_belongs_to_many :seminars, :uniq => true
   has_and_belongs_to_many :panels, :uniq => true
