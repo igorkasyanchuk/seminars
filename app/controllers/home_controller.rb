@@ -27,6 +27,7 @@ class HomeController < ApplicationController
   end
 
   def resources
+    @cities = City.for_home_page.all
     @documents = Document.all
     @selected_menu = 'resources'
   end
