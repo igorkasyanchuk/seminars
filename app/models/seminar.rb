@@ -27,7 +27,7 @@ class Seminar < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{self.title}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')[0..20]
+    "#{id}-#{self.title}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')[0..60]
   end
 
 
