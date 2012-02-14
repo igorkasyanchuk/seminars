@@ -33,10 +33,13 @@
 .united_states_container
   = line "UNITED STATES"
   .city_container
-    - @cities_us.each do |city|
-      .city
-        = city.name
-        .city_img= link_to (image_tag city.photo(:medium)), city
+    %table
+      %tr
+        - @cities_us.each do |city|
+          %td
+            .city
+              = city.name
+              .city_img= link_to (image_tag city.photo(:medium)), city
   .clear
 
 .clear
@@ -44,9 +47,12 @@
 .international_container
   = line "INTERNATIONAL"
   .city_container
-    - @cities_in.each do |city|
-      .city
-        = city.name
-        .city_img= link_to (image_tag city.photo(:medium2)), city
+    %table
+      %tr
+        - @cities_in.each do |city|
+          %td
+            .city
+              = city.name
+              .city_img= link_to (image_tag city.photo(:medium2)), city
   .clear
   

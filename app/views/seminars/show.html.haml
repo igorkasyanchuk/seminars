@@ -1,3 +1,6 @@
+= title @seminar.title
+= description @seminar.agenda
+
 = content_for :on_ready do
   $('#seminar_details').tab('show');
   console.log(window.location.hash);
@@ -21,27 +24,28 @@
 
   .tab-content
     #s1.tab-pane.active
+      = @seminar.agenda.html_safe
+
       - @seminar.panels.by_start_at.each_with_index do |panel, index|
         = render :partial => '/seminars/panel', :locals => { :panel => panel }
         - if index != @seminar.panels.count - 1
           = line "", "no_line"
       .clear
 
-      = @seminar.agenda.html_safe
-
       = link_to 'Registration', '#registration', :class => 'btn btn-large btn-danger register_button agenda_button_register_bottom'
 
     #s2.tab-pane
-      %ul.with_discs
+      %ul
         - @seminar.speakers.each do |speaker|
           %li
-            = link_to speaker.name, speaker
+          = render :partial => '/speakers/speaker', :locals => { :speaker => speaker }
 
     #s3.tab-pane
-      %ul.with_discs
+      %ul
         - @seminar.sponsors.each do |sponsor|
           %li
-            = link_to sponsor.name, sponsor
+            = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
+
         
     #s4.tab-pane
       = @seminar.tickets_html.html_safe

@@ -27,6 +27,22 @@ class Seminar < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{self.title}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
+    "#{id}-#{self.title}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')[0..20]
   end
+
+
+  def speakers(scope = :scoped)
+    res = ActiveRecord::Base.connection.execute("SELECT DISTINCT speaker_id FROM panels_speakers where panel_id in (#{panel_ids.join(',')})", ).inject([]) {|res, e| res << e.first; res}
+    Speaker.send(scope).where(:id => res)
+    rescue 
+      []
+  end
+
+  def sponsors(scope = :scoped)
+    res = ActiveRecord::Base.connection.execute("SELECT DISTINCT sponsor_id FROM panels_sponsors where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
+    Sponsor.send(scope).where(:id => res)
+    rescue 
+      []
+  end
+
 end

@@ -19,7 +19,7 @@
                 %span= panel.date
                 = image_tag 'clock2.png', :class => 'icon'
                 %span= panel.time
-                = truncate_html panel.description, :length => 140
+                .description= truncate_html panel.description, :length => 140
                 .clear
 
           %ul
@@ -28,10 +28,10 @@
         %li
           %strong Sponsors / Speakers
           %ul.details_list.sponsors
-            - seminar.sponsors.with_logo.each do |sponsor|
+            - seminar.sponsors(:with_logo).each do |sponsor|
               %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
 
-            - seminar.speakers.with_photo.each do |speaker|
+            - seminar.speakers(:with_photo).each do |speaker|
               %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
       .clear
@@ -65,10 +65,10 @@
           %li
             %strong Sponsors / Speakers
             %ul.details_list.sponsors
-              - seminar.sponsors.with_logo.each do |sponsor|
+              - seminar.sponsors(:with_logo).each do |sponsor|
                 %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
 
-              - seminar.speakers.with_photo.each do |speaker|
+              - seminar.speakers(:with_photo).each do |speaker|
                 %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
         .clear

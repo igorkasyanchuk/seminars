@@ -2,4 +2,4 @@ TITLE = ''
 DESCRIPTION = ''
 KEYWORDS = ''
 
-SITE_URL = 'http://intvencap.com/'
+SITE_URL = 'http://overseasfunding.com/'

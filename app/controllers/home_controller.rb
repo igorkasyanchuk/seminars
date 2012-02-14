@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def speakers
-    @speakers = Speaker.ordered.where(:id => Panel.all_speakers_ids).includes([:practice_areas, :languages])
+    @speakers = Speaker.ordered.where(:id => Panel.all_speakers_ids)
     @selected_menu = 'speakers'
   end
 
@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def sponsors
-    @sponsors = Sponsor.ordered.where(:id => Panel.all_sponsors_ids).includes([:practice_areas, :languages])
+    @sponsors = Sponsor.ordered.where(:id => Panel.all_sponsors_ids)
     @selected_menu = 'sponsors'
   end
 

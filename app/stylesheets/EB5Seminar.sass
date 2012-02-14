@@ -139,29 +139,31 @@ $base_font: 13px
           dd
             float: left
             padding: 0
-        
 
 #resources
-  h1.title
-    margin-bottom: 0px
-    margin-top: 20px
   h2
-    color: #1C4DAF    
-    /*margin-bottom: 10px
-    font-family: "HelveticaNeueLTStd-Roman"
-  h3    
+    color: #D10E0C    
+    font-size: 26px
+    font-family: "HelveticaNeueLTStd-Roman", "Arial"
+    padding-top: 6px
+
+  h3, h2    
     a
       color: #1C4DAF
-      font-family: "HelveticaNeueLTStd-Roman"
+      font-family: "HelveticaNeueLTStd-Roman", "Arial"
+      text-decoration: none
+
   a
-    color: black
-    font-family: "HelveticaNeueLTStd-Roman"  
+    font-family: "HelveticaNeueLTStd-Roman", "Arial" 
+    text-decoration: underline
+
   .title
     a
       color: #2F8EBA
   strong
     font: 16px "HelveticaNeueLTStd-Roman"
     text-transform: uppercase
+
   .resources_list
     margin-left: 20px
     .resource
@@ -171,6 +173,7 @@ $base_font: 13px
         margin-bottom: 5px
   .city_seminars_resources
     margin-left: 30px
+
   #pdf_message
     margin-top: 30px
     width: 450px
@@ -222,12 +225,16 @@ $base_font: 13px
   font: 14px "HelveticaNeueLTStd-Roman"
   margin-bottom: 25px
   .title
-    font: 33px "HelveticaNeueLTStd-Roman"
+    font: 31px "HelveticaNeueLTStd-Roman", "Arial"
     text-transform: uppercase
     line-height: 33px
+    float: left
   .slogan
     color: #999
-    font-size: 13px
+    font-size: 12px
+    p
+      padding-left: 2px
+  
 
 #flag_container
   height: 480px
@@ -310,6 +317,8 @@ $base_font: 13px
     font-family: "HelveticaNeueLTStd-Bd"
   .city_container
     margin-top: 10px
+    table
+      width: 100%
     .city
       font: 14px "HelveticaNeueLTStd-Bd"
       float: left
@@ -452,6 +461,9 @@ ul.city_seminars
         ul.details_list
           li
             width: 100%
+            .description
+              font-size: 12px
+              padding-top: 0
 
         ul.sponsors
           margin-left: 4px
@@ -471,6 +483,7 @@ ul.city_seminars
             margin-left: 4px
             img
               margin: 0
+              width: auto
 
         ul.panels
           list-style: disc outside
@@ -623,3 +636,7 @@ h1.with_spacer
 .agenda_button_register_top_seminar_page  
   float: right
   margin-top: 12px
+
+.addthis
+  float: right
+  padding-top: 10px

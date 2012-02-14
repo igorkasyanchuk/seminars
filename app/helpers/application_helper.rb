@@ -1,5 +1,5 @@
 module ApplicationHelper
-  SITE_NAME = " | IntCapEx.com"
+  SITE_NAME = " | OverseasFunding.com"
   SITE_NAME_LENGTH = SITE_NAME.length
 
 

@@ -12,7 +12,7 @@
   %h3 Upcoming Events
   %ul
     - Seminar.upcoming.by_date.each do |seminar|
-      = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => agenda_seminar_path(seminar) }
+      = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => seminar }
 
 
   - if Seminar.past.count > 0
@@ -20,7 +20,7 @@
     %h3 Past Events
     %ul
       - Seminar.past.by_date.each do |seminar|
-        = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => agenda_seminar_path(seminar) }
+        = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => seminar }
 
 .page_content
   - if defined? @seminar
