@@ -24,7 +24,7 @@
 
 .page_content
   - if defined? @seminar
-    = link_to 'Registration', seminar_path(@seminar, :anchor => 'registation'), :class => 'btn btn-large btn-danger register_button agenda_button_register_top'
+    = link_to 'Registration', seminar_path(@seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button agenda_button_register_top'
 
     .editor_content= @seminar.agenda.html_safe
 
@@ -34,7 +34,7 @@
         = line "", "no_line"
     .clear
 
-    = link_to 'Registration', seminar_path(@seminar, :anchor => 'registation'), :class => 'btn btn-large btn-danger register_button agenda_button_register_bottom'
+    = link_to 'Registration', seminar_path(@seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button agenda_button_register_bottom'
 
   - else
     .editor_content= @page.content.html_safe

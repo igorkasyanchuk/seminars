@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-  has_attached_file :photo, :styles => {:small => "120x90>", :medium => "120x80>", :medium2 => "100x67>", :big => "980x385#"},
+  has_attached_file :photo, :styles => {:small => "120x90>", :medium => "150x90!", :medium2 => "100x67>", :big => "980x385#"},
                             :url => "/system/:class/:attachment/:id/:style/:filename"
 
   has_many :seminars, :dependent => :destroy

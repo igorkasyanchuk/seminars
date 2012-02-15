@@ -61,8 +61,8 @@ module ApplicationHelper
     render :partial => '/shared/ga' if Rails.env == 'production'
   end
 
-  def pc(identifier)
-    (PageBlock.find_or_create_by_identifier(identifier).content || '').html_safe
+  def pc(identifier, default = '')
+    (PageBlock.find_or_create_by_identifier(identifier).content || default).html_safe
   end
 
   def active_link page

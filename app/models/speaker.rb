@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Speaker < ActiveRecord::Base
   has_and_belongs_to_many :languages, 
     :join_table => "speakers_languages", 
@@ -55,6 +57,10 @@ class Speaker < ActiveRecord::Base
   end
 
   def self.from_attorney a
+    if Speaker.where(:owner_id => a.id, :owner_type => 'attorney').any?
+      puts "skiping, a already in DB"
+      return nil
+    end
     s = Speaker.new
     s.name = a.name
     s.firm = a.firm
@@ -77,6 +83,10 @@ class Speaker < ActiveRecord::Base
   end
 
   def self.from_service_provider a
+    if Speaker.where(:owner_id => a.id, :owner_type => 'service_provider').any?
+      puts "skiping, sp already in DB"
+      return nil
+    end
     s = Speaker.new
     s.name = a.name
     s.firm = a.firm
@@ -99,6 +109,10 @@ class Speaker < ActiveRecord::Base
   end
 
   def self.from_advisor a
+    if Speaker.where(:owner_id => a.id, :owner_type => 'advisor').any?
+      puts "skiping, ad already in DB"
+      return nil
+    end    
     s = Speaker.new
     s.name = a.name
     s.firm = a.firm

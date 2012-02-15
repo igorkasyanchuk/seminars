@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Sponsor < ActiveRecord::Base
   has_attached_file :logo, 
     :styles => { :medium => "100x100>", :thumb => "x50", :thumb2x => 'x75', :thumb3x => 'x100' }, 
@@ -51,6 +53,10 @@ class Sponsor < ActiveRecord::Base
   end
 
   def self.from_firm a
+    if Sponsor.where(:owner_id => a.id).any?
+      puts "already in DB"
+      return nil
+    end
     s = Sponsor.new
     s.name = a.name
     s.firm = a.firm

@@ -8,7 +8,7 @@ def import_attorneys
       puts 'saved'
     else
       puts speaker.errors
-    end
+    end if speaker
   end
 end
 
@@ -20,7 +20,7 @@ def import_service_providers
       puts 'saved'
     else
       puts speaker.errors
-    end
+    end if speaker
   end  
 end
 
@@ -32,7 +32,7 @@ def import_advisors
       puts 'saved'
     else
       puts speaker.errors
-    end
+    end if speaker
   end  
 end
 
@@ -44,7 +44,7 @@ def import_firms
       puts 'saved'
     else
       puts sponsor.errors
-    end
+    end if sponsor
   end  
 end
 
