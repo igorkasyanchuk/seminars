@@ -22,17 +22,23 @@
                 .description= truncate_html panel.description, :length => 140
                 .clear
 
-          %ul
+          %ul.final_steps
+            %li
+              %span.price Price: #{seminar.price_short_information}
             %li= link_to 'Registration', seminar_path(seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button'
 
         %li
-          %strong Sponsors / Speakers
+          %strong Speakers / Sponsors
+
+          %ul.details_list.speakers
+            - seminar.speakers(:with_photo).each do |speaker|
+              %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
+
+          .clear
+
           %ul.details_list.sponsors
             - seminar.sponsors(:with_logo).each do |sponsor|
               %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
-
-            - seminar.speakers(:with_photo).each do |speaker|
-              %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
       .clear
     .clear
@@ -63,13 +69,17 @@
                   .clear
 
           %li
-            %strong Sponsors / Speakers
+            %strong Speakers / Sponsors
+            %ul.details_list.speakers
+              - seminar.speakers(:with_photo).each do |speaker|
+                %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
+
+            .clear
+            
             %ul.details_list.sponsors
               - seminar.sponsors(:with_logo).each do |sponsor|
                 %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
 
-              - seminar.speakers(:with_photo).each do |speaker|
-                %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
         .clear
       .clear

@@ -8,7 +8,7 @@
   if (window.location.hash == '#registration') window.open_last_tab();
 
 %h1.with_spacer.title.left #{@seminar.title}
-= link_to 'Back', @seminar.city, :class => 'btn back_button'
+= link_to 'Back', @seminar.city, :class => 'btn btn-large back_button'
 = link_to 'Registration', 'javascript: window.open_last_tab();', :class => 'btn btn-large btn-danger register_button agenda_button_register_top_seminar_page'
 .clear
 
@@ -33,7 +33,7 @@
           = line "", "no_line"
       .clear
 
-      = link_to 'Back', @seminar.city, :class => 'btn back_button', :style => 'float: none; margin-top: 6px'
+      = link_to 'Back', @seminar.city, :class => 'btn btn-large back_button', :style => 'float: none; margin-top: 0px'
       = link_to 'Registration', 'javascript: window.open_last_tab();', :class => 'btn btn-large btn-danger register_button agenda_button_register_bottom'
 
     #s2.tab-pane

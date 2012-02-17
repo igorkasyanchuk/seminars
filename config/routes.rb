@@ -38,6 +38,8 @@ EB5Seminar::Application.routes.draw do
 
   match '/about', :to => "home#about"
 
+  match '/search', :to => 'home#search'
+
   match '/speakers', :to => "home#speakers"
   resources :speakers, :only => [:show]
   match '/agenda', :to => "home#agenda"

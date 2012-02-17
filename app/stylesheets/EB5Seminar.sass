@@ -225,9 +225,9 @@ $base_font: 13px
   font: 14px "HelveticaNeueLTStd-Roman"
   margin-bottom: 25px
   .title
-    font: 31px "HelveticaNeueLTStd-Roman", "Arial"
+    font: 33px "HelveticaNeueLTStd-Roman", "Arial"
     text-transform: uppercase
-    line-height: 33px
+    line-height: 34px
     float: left
     padding-top: 2px
   .slogan
@@ -451,6 +451,15 @@ ul.city_seminars
       strong
         font: 16px "HelveticaNeueLTStd-Roman"
         text-transform: uppercase
+
+      ul.final_steps
+        li
+          float: none
+          span
+            display: block
+            padding-bottom: 3px
+            color: red
+            font-size: 14px
         
       li
         list-style-type: none
@@ -458,6 +467,9 @@ ul.city_seminars
         width: 49%
         padding: 0
         margin: 0
+        strong
+          padding-bottom: 9px
+          display: block
 
         ul.details_list
           li
@@ -472,6 +484,8 @@ ul.city_seminars
             padding-top: 0px
             padding-right: 4px
             padding-bottom: 4px
+            max-width: 130px
+            max-height: 75px
 
         ul.speakers, ul.sponsors
           margin: 0
@@ -484,7 +498,6 @@ ul.city_seminars
             margin-left: 4px
             img
               margin: 0
-              width: auto
 
         ul.panels
           list-style: disc outside
@@ -623,7 +636,12 @@ h1.with_spacer
       float: left
       margin-right: 5px
       margin-bottom: 5px
-
+  ul.panel_sponsors
+    vertical-align: middle
+    img
+      max-width: 130px
+      max-height: 75px
+      vertical-align: middle
 
 .btn.register_button
   color: white
@@ -640,9 +658,14 @@ h1.with_spacer
 
 .addthis
   float: right
-  padding-top: 10px
+  padding-top: 11px
 
 .back_button
   float: right
-  margin-top: 15px
+  margin-top: 12px
   margin-left: 6px
+
+.nav-tabs
+  li
+    a
+      font-family: "HelveticaNeueLTStd-Bd", "Helvetica"
