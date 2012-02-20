@@ -14,7 +14,10 @@
         %td= link_to sponsor.name, [:edit, :admin, sponsor]
         %td= sponsor.languages_count
         %td= sponsor.practice_areas_count        
-        %td= link_to 'Delete', [:admin, sponsor], :confirm => 'Are you sure?', :method => :delete
+        %td
+          = link_to 'Delete', [:admin, sponsor], :confirm => 'Are you sure?', :method => :delete
+          | |
+          = link_to "View", sponsor
 
 - else
   %p No sponsors.

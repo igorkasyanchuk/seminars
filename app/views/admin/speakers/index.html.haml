@@ -13,7 +13,10 @@
         %td= link_to speaker.name, [:edit, :admin, speaker]
         %td= speaker.languages_count
         %td= speaker.practice_areas_count
-        %td= link_to 'Delete', [:admin, speaker], :confirm => 'Are you sure?', :method => :delete
+        %td
+          = link_to 'Delete', [:admin, speaker], :confirm => 'Are you sure?', :method => :delete
+          | |
+          = link_to "View", speaker
 
   %br
 
