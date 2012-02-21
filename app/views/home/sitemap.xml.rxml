@@ -3,42 +3,42 @@ xml.instruct!
 xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
   
   xml.url do
-    xml.loc         "http://intvencap.com/"
+    xml.loc         "http://overseasfunding.com/"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end
 
   xml.url do
-    xml.loc         "http://intvencap.com/agenda"
+    xml.loc         "http://overseasfunding.com/agenda"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end
 
   xml.url do
-    xml.loc         "http://intvencap.com/speakers"
+    xml.loc         "http://overseasfunding.com/speakers"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end
 
   xml.url do
-    xml.loc         "http://intvencap.com/venue"
+    xml.loc         "http://overseasfunding.com/venue"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end
 
   xml.url do
-    xml.loc         "http://intvencap.com/sponsors"
+    xml.loc         "http://overseasfunding.com/sponsors"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end
     xml.url do
-    xml.loc         "http://intvencap.com/resources"
+    xml.loc         "http://overseasfunding.com/resources"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end
 
   xml.url do
-    xml.loc         "http://intvencap.com/contact"
+    xml.loc         "http://overseasfunding.com/contact"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "always"
   end

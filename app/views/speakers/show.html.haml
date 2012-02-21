@@ -1,6 +1,9 @@
 = title @speaker.seo_title
 = description @speaker.seo_description
 
+= content_for :on_ready do
+  $('#details').tab('show');
+
 .page_sidebar
   .speaker_contacts
     %h3 CONTACT INFORMATION
@@ -63,9 +66,25 @@
       
     
 .page_content
-  .about_content
-    - if @speaker.photo.exists?
-      = image_tag @speaker.photo.url(:medium), :class => 'about_photo'
-    %h1.title.pad= @speaker.name
-    = @speaker.about.html_safe
-    .clear
+  #details.tabbable
+    %ul.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#s1"} About
+      %li
+        %a{"data-toggle" => "tab", :href => "#s2"} Seminars
+
+    .tab-content
+      #s1.tab-pane.active
+        - if @speaker.photo.exists?
+          = image_tag @speaker.photo.url(:medium), :class => 'about_photo'
+        %h1.title.pad= @speaker.name
+        = @speaker.about.html_safe
+        .clear
+
+      #s2.tab-pane.page_sidebar.full_page_view
+        - if @speaker.seminars.any?
+          %h3 Speaker on:
+          %ul
+            - @speaker.seminars.each do |seminar|
+              = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => seminar }
+.clear
