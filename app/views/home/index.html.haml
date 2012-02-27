@@ -2,33 +2,8 @@
 = description @page.seo_description
 = keywords @page.seo_keywords
 
-= javascript_include_tag "jquery.cycle.all.min.js"
-
-:javascript
-  $(document).ready(function() {
-    $('#slideshow').cycle({ 
-        fx:      'scrollLeft',
-        speed:    1500, 
-        timeout:  5000,
-        next:   '#slideshow',
-        pause:   1
-    });
-  });
-
-#slideshow_container
-  #slideshow
-    - @cities.each do |city|
-      %div
-        = image_tag city.photo(:big), :alt => "eb 5 visa seminar in #{city.name}"
-        .slideshow_caption
-          = city.name
-.clear
-
 .home_title
   = pc('HOME page MAIN TITLE (after slideshow)')
-
-.home_text
-  = pc('HOME page MAIN TITLE content (after slideshow)')
 
 .united_states_container
   = line "UNITED STATES"
@@ -56,3 +31,8 @@
               .city_img= link_to (image_tag city.photo(:medium2)), city
   .clear
   
+.home_text
+  = pc('HOME page MAIN TITLE content (after slideshow)')
+  
+.home_page_description
+  = pc('HOME page home_page_description')

@@ -7,6 +7,7 @@ class Admin::DashboardController < InheritedResources::Base
 
   USER, PASSWORD = 'admin', 'admin12345'
   before_filter :authenticate
+  before_filter :set_logged_in
   
   def welcome
   end
@@ -17,6 +18,10 @@ class Admin::DashboardController < InheritedResources::Base
       authenticate_or_request_with_http_basic do |id, password|
         id == USER && password == PASSWORD
       end
+    end
+
+    def set_logged_in
+      session["logged_in"] = 'yes'
     end
 
 end

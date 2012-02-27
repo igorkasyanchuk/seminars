@@ -16,7 +16,7 @@ module ApplicationHelper
     content_for :on_ready do 
       "$('#{element}').editor(redactor);".html_safe
     end
-  end 
+  end
 
   def w3c_date(date)
     date.utc.strftime("%Y-%m-%dT%H:%M:%S+00:00")

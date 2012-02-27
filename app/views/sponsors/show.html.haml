@@ -6,6 +6,10 @@
 
 .page_sidebar
   .sponsor_contacts
+
+    - if logged_in?
+      = link_to 'edit', [:edit, :admin, @sponsor], :class => 'edit_button'
+
     %h3 CONTACT INFORMATION
     %dl
       %dd
