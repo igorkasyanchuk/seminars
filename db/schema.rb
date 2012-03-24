@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208202609) do
+ActiveRecord::Schema.define(:version => 20120324172313) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -464,6 +464,14 @@ ActiveRecord::Schema.define(:version => 20120208202609) do
     t.string  "facebook"
     t.integer "languages_count",      :default => 0
     t.integer "practice_areas_count", :default => 0
+  end
+
+  create_table "testimonials", :force => true do |t|
+    t.string   "author"
+    t.text     "content"
+    t.date     "when"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

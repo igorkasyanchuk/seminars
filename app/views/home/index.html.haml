@@ -36,3 +36,13 @@
   
 .home_page_description
   = pc('HOME page home_page_description')
+
+.testimonials
+  - Testimonial.randomiza.limit(2).each_with_index do |testimonial, index|
+    .testimonial{:class => index == 0 ? 'first' : ''}
+      .testimonial_block
+        .testimonial_content
+          .quote= image_tag 'quote.png'
+          = testimonial.content
+          .clear
+        .testimonial_author= testimonial.author

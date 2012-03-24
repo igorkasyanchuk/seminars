@@ -1,0 +1,19 @@
+%h1 Listing Testimonials
+
+- if @testimonials.any?
+  %table.zebra
+    %tr
+      %th Author
+      %th Actions
+
+    - @testimonials.each do |testimonial|
+      %tr
+        %td= link_to testimonial.author, [:edit, :admin, testimonial]
+        %td= link_to 'Delete', [:admin, testimonial], :confirm => 'Are you sure?', :method => :delete
+  %br
+
+- else
+  %p No testimonials.
+
+
+= link_to 'Add Testimonial', [:new, :admin, :testimonial]

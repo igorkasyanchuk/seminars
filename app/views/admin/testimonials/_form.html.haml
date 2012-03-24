@@ -1,0 +1,6 @@
+= error_messages_for :testimonial
+
+= simple_form_for [:admin, @testimonial] do |f|
+  = f.input :author
+  = f.input :content
+  = f.button :submit

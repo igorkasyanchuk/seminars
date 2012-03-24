@@ -5,6 +5,7 @@ EB5Seminar::Application.routes.draw do
     resources :sponsors
     resources :practice_areas
     resources :languages
+    resources :testimonials
     resources :pages
     resources :page_blocks
     resources :cities do
