@@ -46,7 +46,7 @@ class Speaker < ActiveRecord::Base
   end
 
   def seo_description
-    self.about
+    any_description
   end
 
   def photo_from_url(image_url)
@@ -56,8 +56,20 @@ class Speaker < ActiveRecord::Base
     attachment_for(:photo).assign(io)
   end
 
+  def any_description
+    if self.about.present?
+      self.about
+    elsif self.bio.present?
+      self.bio
+    else
+      ""
+    end
+  end
+
   def self.from_attorney a
     if Speaker.where(:owner_id => a.id, :owner_type => 'attorney').any?
+      ss = Speaker.where(:owner_id => a.id, :owner_type => 'attorney').first
+      ss.update_attribute(:bio, a.contact_bio)
       puts "skiping, a already in DB"
       return nil
     end
@@ -78,12 +90,15 @@ class Speaker < ActiveRecord::Base
     s.linked_in = a.linked_in
     s.twitter = a.twitter
     s.facebook = a.facebook
+    s.bio = a.contact_bio
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end
 
   def self.from_service_provider a
     if Speaker.where(:owner_id => a.id, :owner_type => 'service_provider').any?
+      ss = Speaker.where(:owner_id => a.id, :owner_type => 'service_provider').first
+      ss.update_attribute(:bio, a.contact_bio)
       puts "skiping, sp already in DB"
       return nil
     end
@@ -104,12 +119,15 @@ class Speaker < ActiveRecord::Base
     s.linked_in = a.linked_in
     s.twitter = a.twitter
     s.facebook = a.facebook
+    s.bio = a.contact_bio
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end
 
   def self.from_advisor a
     if Speaker.where(:owner_id => a.id, :owner_type => 'advisor').any?
+      ss = Speaker.where(:owner_id => a.id, :owner_type => 'advisor').first
+      ss.update_attribute(:bio, a.contact_bio)
       puts "skiping, ad already in DB"
       return nil
     end    
@@ -130,6 +148,7 @@ class Speaker < ActiveRecord::Base
     s.linked_in = a.linked_in
     s.twitter = a.twitter
     s.facebook = a.facebook
+    s.bio = a.contact_bio
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end  

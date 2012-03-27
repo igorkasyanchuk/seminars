@@ -66,7 +66,7 @@
     %h3 ASSOCIADED WITH 
     %dl
       %dd
-        = @speaker.firm      
+        = @speaker.firm
       
     
 .page_content
@@ -83,6 +83,10 @@
           = image_tag @speaker.photo.url(:medium), :class => 'about_photo'
         %h1.title.pad= @speaker.name
         = @speaker.about.html_safe
+        .clear
+        - if @speaker.bio.present?
+          %h2 BIO
+          = @speaker.bio.html_safe
         .clear
 
       #s2.tab-pane.page_sidebar.full_page_view

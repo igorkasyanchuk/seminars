@@ -1,3 +1,7 @@
+/* line 1, ../../app/stylesheets/testimonials.sass */
+.testimonials {
+  padding-bottom: 20px;
+}
 /* line 5, ../../app/stylesheets/testimonials.sass */
 .testimonials .testimonial {
   float: left;
@@ -11,7 +15,7 @@
 }
 /* line 19, ../../app/stylesheets/testimonials.sass */
 .testimonials .testimonial .testimonial_block {
-  height: 90px;
+  height: 155px;
   position: relative;
   padding-bottom: 16px;
 }

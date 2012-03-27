@@ -1,12 +1,11 @@
-.sponsors
-  .sponsor
-    .sponsor_logo
-      - if sponsor.logo.exists?
-        = link_to (image_tag sponsor.logo(:medium), :alt => sponsor.name), sponsor_path(sponsor)    
-    .sponsor_info
-    %h2.sponsor_name
+.sponsor
+  .sponsor_logo
+    - if sponsor.logo.exists?
+      = link_to (image_tag sponsor.logo(:medium), :alt => sponsor.name), sponsor_path(sponsor)    
+  .sponsor_info
+    %h1.sponsor_name
       = link_to sponsor.name, sponsor_path(sponsor)    
-    .description
+    .description.sponsor_about
       %dl
         %dd= (truncate_html sponsor.description, :length => 160).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
         - unless sponsor.firm.blank?
@@ -26,4 +25,5 @@
           %dt Web site:
           %dd
             = link_to sponsor.website, httpize(sponsor.website), :rel => 'nofollow'
-    .clear
+      .clear
+  .clear
