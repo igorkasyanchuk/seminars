@@ -92,7 +92,7 @@ class Speaker < ActiveRecord::Base
     s.twitter = a.twitter
     s.facebook = a.facebook
     s.bio = a.contact_bio
-    s.position = a.position
+    s.position = a.title
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end
@@ -123,7 +123,7 @@ class Speaker < ActiveRecord::Base
     s.twitter = a.twitter
     s.facebook = a.facebook
     s.bio = a.contact_bio
-    s.position = a.position
+    s.position = a.title
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end
@@ -154,7 +154,7 @@ class Speaker < ActiveRecord::Base
     s.twitter = a.twitter
     s.facebook = a.facebook
     s.bio = a.contact_bio
-    s.position = a.position
+    s.position = a.title
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end  
