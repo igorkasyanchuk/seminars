@@ -70,6 +70,7 @@ class Speaker < ActiveRecord::Base
     if Speaker.where(:owner_id => a.id, :owner_type => 'attorney').any?
       ss = Speaker.where(:owner_id => a.id, :owner_type => 'attorney').first
       ss.update_attribute(:bio, a.contact_bio)
+      ss.update_attribute(:position, a.title)
       puts "skiping, a already in DB"
       return nil
     end
@@ -91,6 +92,7 @@ class Speaker < ActiveRecord::Base
     s.twitter = a.twitter
     s.facebook = a.facebook
     s.bio = a.contact_bio
+    s.position = a.position
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end
@@ -99,6 +101,7 @@ class Speaker < ActiveRecord::Base
     if Speaker.where(:owner_id => a.id, :owner_type => 'service_provider').any?
       ss = Speaker.where(:owner_id => a.id, :owner_type => 'service_provider').first
       ss.update_attribute(:bio, a.contact_bio)
+      ss.update_attribute(:position, a.title)
       puts "skiping, sp already in DB"
       return nil
     end
@@ -120,6 +123,7 @@ class Speaker < ActiveRecord::Base
     s.twitter = a.twitter
     s.facebook = a.facebook
     s.bio = a.contact_bio
+    s.position = a.position
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end
@@ -128,6 +132,7 @@ class Speaker < ActiveRecord::Base
     if Speaker.where(:owner_id => a.id, :owner_type => 'advisor').any?
       ss = Speaker.where(:owner_id => a.id, :owner_type => 'advisor').first
       ss.update_attribute(:bio, a.contact_bio)
+      ss.update_attribute(:position, a.title)
       puts "skiping, ad already in DB"
       return nil
     end    
@@ -149,6 +154,7 @@ class Speaker < ActiveRecord::Base
     s.twitter = a.twitter
     s.facebook = a.facebook
     s.bio = a.contact_bio
+    s.position = a.position
     s.photo_from_url "http://eb5info.com#{a.photo.url(:original, false)}" if a.photo_file_name.present?
     s
   end  

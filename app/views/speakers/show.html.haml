@@ -17,6 +17,9 @@
       - if @speaker.contact_phone.present?  
         %dd 
           = @speaker.contact_phone
+      - if @speaker.position.present?  
+        %dd 
+          = @speaker.position
     
     %h3 ADDRESS
     %dl

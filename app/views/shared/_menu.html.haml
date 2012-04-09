@@ -1,22 +1,22 @@
 #main_menu
   = link_to "/" do
-    #home_link{:class => active_link("home")}
+    %span#home_link{:class => active_link("home")}
   = link_to "/about" do
-    #about_link{:class => active_link("about")}
-  = link_to "/agenda" do
-    #agenda_link{:class => active_link("agenda")}
+    %span#about_link{:class => active_link("about")}
+  = link_to "/cities" do
+    %span#cities_link{:class => active_link("cities")}
   = link_to "/speakers" do
-    #speakers_link{:class => active_link("speakers")}
+    %span#speakers_link{:class => active_link("speakers")}
   = link_to "/venue" do
-    #venue_link{:class => active_link("venue")}
+    %span#venue_link{:class => active_link("venue")}
   = link_to "/sponsors" do
-    #sponsors_link{:class => active_link("sponsors")}
+    %span#sponsors_link{:class => active_link("sponsors")}
   = link_to '/costs' do
-    #costs_link{:class => active_link("costs")}
+    %span#costs_link{:class => active_link("costs")}
   = link_to "/resources" do
-    #resources_link{:class => active_link("resources")}
+    %span#resources_link{:class => active_link("resources")}
   = link_to "/contact" do
-    #contact_us_link{:class => active_link("contact")}
+    %span#contact_us_link{:class => active_link("contact")}
   = form_tag '/search', :method => :get, :html => {:style => 'display: inline'} do
     #search_input
       %input{:style => "border:0px;background:transparent;height:28px;", :name => "q"}

@@ -1,0 +1,29 @@
+= title "Seminars"
+
+%h1.with_spacer.title Seminars
+
+%table.zebra.cities_table
+  - @cities.each do |city|
+    - next if city.seminars.count == 0
+    %tr
+      %td.city
+        = link_to city do
+          %h2= city.name
+          = image_tag city.photo.url(:small)
+      %td
+        - if city.seminars.count > 0
+          %h3 Seminars:
+          %ul
+            - city.seminars.each do |seminar|
+              %li
+                .seminar_name= link_to seminar.title, seminar
+                %span.info= seminar.event_range
+                .description= truncate_html seminar.agenda, :length => 240
+                %ul.city_seminar_panels
+                  - seminar.panels.each do |panel|
+                    %li= panel.title
+
+                %ul.final_steps
+                  %li
+                    %span.price Price: #{seminar.price_short_information}
+                  %li= link_to 'Registration', seminar_path(seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button'

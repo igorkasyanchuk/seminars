@@ -2,17 +2,15 @@
   .speaker_photo
     - if speaker.photo.exists?
       = link_to image_tag(speaker.photo(:medium), :alt => speaker.name), speaker_path(speaker)
+    - unless speaker.position.blank? 
+      %span.position= speaker.position
+
   .speaker_info
     %h1.speaker_name
       = link_to speaker.name, speaker_path(speaker)
     .speaker_about
       %dl
         %dd= (truncate_html speaker.any_description, :length => 160).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
-        - unless speaker.position.blank? 
-          %dt Position:
-          %dd  
-            = speaker.position
-
         - unless speaker.firm.blank?
           %dt Associated With:
           %dd  

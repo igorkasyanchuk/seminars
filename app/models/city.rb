@@ -12,6 +12,7 @@ class City < ActiveRecord::Base
   scope :us_cities, where(:country => "United States")
   scope :international_cities, where("country <> 'United States'")
   scope :for_home_page, where(:for_home_page => true)
+  scope :by_name, order("name")
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')

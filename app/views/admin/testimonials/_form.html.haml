@@ -1,6 +1,13 @@
 = error_messages_for :testimonial
 
-= simple_form_for [:admin, @testimonial] do |f|
+= simple_form_for [:admin, @testimonial], :html => {:multipart => true} do |f|
   = f.input :author
   = f.input :content
+  - if !f.object.new_record? && f.object.photo.present?
+    .input
+      %label
+      .optional
+        = image_tag f.object.photo.url(:small)
+  = f.input :photo
+  = f.association :city
   = f.button :submit

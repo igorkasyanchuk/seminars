@@ -4,12 +4,20 @@
   %table.zebra
     %tr
       %th Author
+      %th City
+      %th Photo
       %th Actions
 
     - @testimonials.each do |testimonial|
       %tr
         %td= link_to testimonial.author, [:edit, :admin, testimonial]
-        %td= link_to 'Delete', [:admin, testimonial], :confirm => 'Are you sure?', :method => :delete
+        %td= testimonial.city.try(:name)
+        %td= testimonial.photo.present? ? 'yes' : 'no'
+        %td
+          = link_to 'Edit', [:edit, :admin, testimonial]
+          |
+          = link_to 'Delete', [:admin, testimonial], :confirm => 'Are you sure?', :method => :delete
+
   %br
 
 - else

@@ -54,7 +54,7 @@ EB5Seminar::Application.routes.draw do
     end
   end
 
-  resources :cities
+  resources :cities, :only => [:index, :show]
 
   match "/sitemap.xml", :controller => "home", :action => "sitemap", :format => 'xml'
 end
