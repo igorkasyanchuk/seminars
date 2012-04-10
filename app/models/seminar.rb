@@ -26,6 +26,10 @@ class Seminar < ActiveRecord::Base
     end
   end
 
+  def past?
+    ends_on < Date.today
+  end
+
   def to_param
     "#{id}-#{self.title}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')[0..60]
   end

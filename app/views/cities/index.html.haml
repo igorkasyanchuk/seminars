@@ -1,4 +1,5 @@
 = title "Seminars"
+= description "Seminars"
 
 %h1.with_spacer.title Seminars
 
@@ -23,7 +24,9 @@
                   - seminar.panels.each do |panel|
                     %li= panel.title
 
-                %ul.final_steps
-                  %li
-                    %span.price Price: #{seminar.price_short_information}
-                  %li= link_to 'Registration', seminar_path(seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button'
+                - unless seminar.past?
+                  %ul.final_steps
+                    - if seminar.price_short_information.present?
+                      %li
+                        %span.price Price: #{seminar.price_short_information}
+                    %li= link_to 'Registration', seminar_path(seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button'

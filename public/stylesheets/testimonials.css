@@ -15,7 +15,7 @@
 }
 /* line 19, ../../app/stylesheets/testimonials.sass */
 .testimonials .testimonial .testimonial_block {
-  height: 155px;
+  height: auto;
   position: relative;
   padding-bottom: 16px;
 }

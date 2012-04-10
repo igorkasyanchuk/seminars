@@ -37,6 +37,8 @@ EB5Seminar::Application.routes.draw do
   match '/resources', :to => "home#resources"
   match '/contact', :to => "home#contact"
 
+  match '/testimonials', :to => "testimonials#index"
+
   match '/about', :to => "home#about"
 
   match '/search', :to => 'home#search'

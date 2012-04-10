@@ -1,0 +1,21 @@
+= title "Testimonials"
+= description "Testimonials"
+
+= content_for :js do
+  = javascript_include_tag 'jquery.masonry.min.js'
+
+= content_for :on_ready do
+  $('.testimonials').masonry({ itemSelector : '.testimonial', columnWidth : 240  });
+
+%h1.with_spacer.title Testimonials
+
+.testimonials.massive
+  - @testimonials.each_with_index do |testimonial, index|
+    .testimonial
+      .testimonial_block
+        .testimonial_content
+          .quote= image_tag 'quote.png'
+          = testimonial.content
+          .clear
+        .testimonial_author= testimonial.author
+  .clear

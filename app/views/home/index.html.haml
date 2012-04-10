@@ -43,6 +43,7 @@
       .testimonial_block
         .testimonial_content
           .quote= image_tag 'quote.png'
-          = testimonial.content
+          = truncate_html testimonial.content, :length => 150
+          = link_to 'read more', '/testimonials', :class => 'normal_text'
           .clear
         .testimonial_author= testimonial.author

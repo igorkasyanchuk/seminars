@@ -8,4 +8,5 @@ class Testimonial < ActiveRecord::Base
   belongs_to :city
 
   scope :randomiza, order("rand()")
+  scope :randomize, order("rand()")
 end
