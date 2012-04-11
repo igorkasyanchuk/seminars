@@ -95,7 +95,7 @@
       #s2.tab-pane.page_sidebar.full_page_view
         - if @speaker.seminars.any?
           %h3 Speaker on:
-          %ul
+          %ul.participated_on
             - @speaker.seminars.each do |seminar|
               = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => seminar }
 .clear

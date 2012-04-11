@@ -14,8 +14,15 @@
     .testimonial
       .testimonial_block
         .testimonial_content
-          .quote= image_tag 'quote.png'
-          = testimonial.content
+          %p
+            %span.quote.left
+              = image_tag 'quote.png'
+            .right= image_tag testimonial.photo.url(:small), :class => 'photo'
+            = testimonial.content
           .clear
+        .clear
         .testimonial_author= testimonial.author
+
   .clear
+
+.clear
