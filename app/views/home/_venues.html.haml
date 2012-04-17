@@ -1,0 +1,8 @@
+.top_cities
+  - City.all.each do |city|
+    - next unless city.seminars.any?
+    .top_city
+      = city.name
+      .city_img= link_to (image_tag city.photo(:medium2)), city_venue_path(city)
+.clear
+%br

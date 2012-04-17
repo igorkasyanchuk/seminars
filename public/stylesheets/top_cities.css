@@ -1,0 +1,9 @@
+/* line 1, ../../app/stylesheets/top_cities.sass */
+.top_cities {
+  padding-bottom: 20px;
+}
+/* line 5, ../../app/stylesheets/top_cities.sass */
+.top_cities .top_city {
+  float: left;
+  padding-right: 20px;
+}

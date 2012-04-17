@@ -1,7 +1,18 @@
-= title @page.seo_title
-= description @page.seo_description
-= keywords @page.seo_keywords
+- if defined?(@city)
+  = title "#{@city.name} Venue"
+  = description "#{@city.name} Venue"
+  = keywords "#{@city.name} Venue"
+- else
+  = title @page.seo_title
+  = description @page.seo_description
+  = keywords @page.seo_keywords
 
-%h1= @page.page_title
+- if defined?(@city)
+  %h1 #{@city.name} Venue
+  = render :partial => '/home/venues'
+  .editor_content= @city.venue.try(:html_safe)
 
-.editor_content= @page.content.html_safe
+- else
+  %h1= @page.page_title
+  = render :partial => '/home/venues'
+  .editor_content= @page.content.html_safe

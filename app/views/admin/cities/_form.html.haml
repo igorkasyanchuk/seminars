@@ -1,11 +1,17 @@
 = add_editor
 = editor("#city_description");
+= editor("#city_agenda");
+= editor("#city_venue");
 
 = error_messages_for :city
 
 = simple_form_for [:admin, @city], :html => {:multipart => true} do |f|
   = f.input :name, :label => "Name"
+
   = f.input :description
+  = f.input :agenda
+  = f.input :venue
+
   = f.input :country, :label => "Country"
   = f.input :for_home_page, :label => "Show on Home page?"
   = f.input :photo

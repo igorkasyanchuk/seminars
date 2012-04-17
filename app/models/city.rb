@@ -1,9 +1,14 @@
 class City < ActiveRecord::Base
+
   has_attached_file :photo, :styles => {:small => "120x90>", :medium => "150x90!", :medium2 => "100x67>", :big => "980x385#"},
                             :url => "/system/:class/:attachment/:id/:style/:filename"
 
   has_many :seminars, :dependent => :destroy
   has_many :documents, :through => :seminars
+
+  has_many :panels, :through => :seminars
+
+  has_many :sponsors, :through => :panels
 
   validates_presence_of :name
   validates_presence_of :country
@@ -16,5 +21,20 @@ class City < ActiveRecord::Base
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
-  end  
+  end
+
+  def speakers(scope = :scoped)
+    res = ActiveRecord::Base.connection.execute("SELECT DISTINCT speaker_id FROM panels_speakers where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
+    Speaker.send(scope).where(:id => res)
+    rescue 
+      []
+  end
+
+  def sponsors(scope = :scoped)
+    res = ActiveRecord::Base.connection.execute("SELECT DISTINCT sponsor_id FROM panels_sponsors where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
+    Sponsor.send(scope).where(:id => res)
+    rescue 
+      []
+  end
+
 end
