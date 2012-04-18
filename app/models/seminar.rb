@@ -39,14 +39,14 @@ class Seminar < ActiveRecord::Base
     res = ActiveRecord::Base.connection.execute("SELECT DISTINCT speaker_id FROM panels_speakers where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
     Speaker.send(scope).where(:id => res)
     rescue 
-      []
+      Speaker.where(0)
   end
 
   def sponsors(scope = :scoped)
     res = ActiveRecord::Base.connection.execute("SELECT DISTINCT sponsor_id FROM panels_sponsors where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
     Sponsor.send(scope).where(:id => res)
     rescue 
-      []
+      Sponsor.where(0)
   end
 
 end
