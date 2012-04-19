@@ -17,9 +17,9 @@
 
 %h1.title
   - if defined? @seminar
-    #{@seminar.title} Speakers
+    #{@seminar.title} Speakers (#{@speakers.size})
   - if defined? @city
-    #{@city.name} Speakers
+    #{@city.name} Speakers (#{@speakers.size})
   - elsif defined? @page
     = @page.page_title
 

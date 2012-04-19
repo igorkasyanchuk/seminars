@@ -1,34 +1,35 @@
-= title @page.seo_title
-= description @page.seo_description
-= keywords @page.seo_keywords
+- if defined? @page
+  = title @page.seo_title
+  = description @page.seo_description
+  = keywords @page.seo_keywords
+
+- elsif defined? @city
+  = title "#{@city.name} Sponsors"
+  = description "#{@city.name} Sponsors"
+  = keywords "#{@city.name} Sponsors"
+
+- elsif defined? @seminar
+  = title "#{@seminar.title} Sponsors"
+  = description "#{@seminar.title} Sponsors"
+  = keywords "#{@seminar.title} Sponsors"
+
+= render :partial => '/home/sponsors'
 
 %h1.title
   - if defined? @seminar
-    #{@seminar.title} Sponsors
-  - else
+    #{@seminar.title} Sponsors (#{@sponsors.size})
+  - if defined? @city
+    #{@city.name} Sponsors (#{@sponsors.size})
+  - elsif defined? @page
     = @page.page_title
 
-.page_sidebar
-  %h3 Upcoming Events
-  %ul
-    - Seminar.upcoming.by_date.each do |seminar|
-      = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => seminar }
-
-  - if Seminar.past.count > 0
-    %br
-    %h3 Past Events
-    %ul
-      - Seminar.past.by_date.each do |seminar|
-        = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => seminar }
-
-.page_content
-  - if defined? @seminar
-    .sponsors
+.full_page_content
+  .sponsors
+    - if defined? @seminar
       - @seminar.sponsors.each do |sponsor|
         = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
-  - else
-    .sponsors
+    - else
       - @sponsors.each do |sponsor|
         = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
 
-.clear
+.clear    

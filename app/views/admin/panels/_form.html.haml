@@ -9,4 +9,5 @@
   = f.input :description
   = f.association :speakers, :as => :check_boxes, :collection => Speaker.by_name.all
   = f.association :sponsors, :as => :check_boxes, :collection => Sponsor.by_name.all
+  .clear
   = f.button :submit

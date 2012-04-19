@@ -11,4 +11,12 @@ class CitiesController < InheritedResources::Base
     @speakers = @city.speakers
     render '/home/speakers'
   end
+
+  def sponsors
+    @selected_menu = 'sponsors'
+    @cities = City.by_name.all
+    @city = City.find(params[:id])
+    @sponsors = @city.sponsors
+    render '/home/sponsors'
+  end  
 end
