@@ -37,16 +37,18 @@
       = link_to 'Registration', 'javascript: window.open_last_tab();', :class => 'btn btn-large btn-danger register_button agenda_button_register_bottom'
 
     #s2.tab-pane
-      %ul
-        - @seminar.speakers.each do |speaker|
-          %li
-          = render :partial => '/speakers/speaker', :locals => { :speaker => speaker }
+      .speakers
+        %ul
+          - @seminar.speakers.each do |speaker|
+            %li
+              = render :partial => '/speakers/speaker', :locals => { :speaker => speaker }
 
     #s3.tab-pane
-      %ul
-        - @seminar.sponsors.each do |sponsor|
-          %li
-            = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
+      .sponsors
+        %ul
+          - @seminar.sponsors.each do |sponsor|
+            %li
+              = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
 
         
     #s4.tab-pane

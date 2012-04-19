@@ -10,7 +10,8 @@
       = link_to speaker.name, speaker_path(speaker)
     .speaker_about
       %dl
-        %dd= (truncate_html speaker.any_description, :length => 160).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
+        - if speaker.any_description.present?
+          %dd.no_padding= (truncate_html speaker.any_description, :length => 260).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
         - unless speaker.firm.blank?
           %dt Associated With:
           %dd  

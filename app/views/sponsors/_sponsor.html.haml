@@ -7,7 +7,8 @@
       = link_to sponsor.name, sponsor_path(sponsor)    
     .description.sponsor_about
       %dl
-        %dd= (truncate_html sponsor.description, :length => 160).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
+        - if sponsor.description.present?
+          %dd.no_padding= (truncate_html sponsor.description, :length => 260).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
         - unless sponsor.firm.blank?
           %dt Associated With:
           %dd  

@@ -32,7 +32,7 @@ class City < ActiveRecord::Base
 
   def sponsors(scope = :scoped)
     res = ActiveRecord::Base.connection.execute("SELECT DISTINCT sponsor_id FROM panels_sponsors where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
-    Sponsor.send(scope).where(:id => res)
+    Sponsor.send(scope).where(:id => res).includes([:languages, :practice_areas])
     rescue 
       Sponsor.where(0)
   end
