@@ -6,6 +6,13 @@ class Seminar < ActiveRecord::Base
   has_many :panels, :dependent => :destroy
   has_many :documents, :dependent => :destroy
 
+  has_and_belongs_to_many :real_sponsors, 
+    :join_table => "real_sponsors_seminars", 
+    :foreign_key => "real_sponsor_id", 
+    :uniq => true, 
+    :class_name => 'Sponsor', 
+    :association_foreign_key => 'seminar_id'
+
   has_attached_file :photo, :styles => {:small => "120x90>", :medium => "170x80>", :big => "980x345>"},
                             :url => "/system/:class/:attachment/:id/:style/:filename"
 

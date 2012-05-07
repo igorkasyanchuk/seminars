@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507191412) do
+ActiveRecord::Schema.define(:version => 20120507195942) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -322,6 +322,13 @@ ActiveRecord::Schema.define(:version => 20120507191412) do
     t.integer "practice_area_id"
     t.integer "sponsor_id"
   end
+
+  create_table "real_sponsors_seminars", :id => false, :force => true do |t|
+    t.integer "real_sponsor_id"
+    t.integer "seminar_id"
+  end
+
+  add_index "real_sponsors_seminars", ["seminar_id"], :name => "index_real_sponsors_seminars_on_seminar_id"
 
   create_table "seminars", :force => true do |t|
     t.integer "city_id"

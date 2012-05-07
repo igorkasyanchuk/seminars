@@ -14,4 +14,6 @@
 
   = f.input :tickets_html, :as => :text, :input_html => { :cols => 80, :rows => 8}
 
+  = f.association :real_sponsors, :as => :check_boxes
+
   = f.button :submit

@@ -2,6 +2,7 @@ EB5Seminar::Application.routes.draw do
   namespace :admin do
     match '/', :to => 'dashboard#welcome'
     match '/import', :to => 'dashboard#import', :as => :import
+    match '/refresh', :to => 'dashboard#refresh', :as => :refresh
     resources :speakers do
       member {
         get :refresh

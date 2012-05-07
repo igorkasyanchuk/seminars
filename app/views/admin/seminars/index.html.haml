@@ -6,6 +6,7 @@
       %th Title
       %th Date
       %th Panels
+      %th Sponsors
       %th Actions
 
     - @seminars.each do |seminar|
@@ -13,6 +14,7 @@
         %td= link_to seminar.title, [:edit, :admin, @city, seminar]
         %td= seminar.event_range
         %td= seminar.panels.count
+        %td= seminar.real_sponsors.count
         %td
           = link_to "Manage Panels", [:admin, seminar, :panels]
           | |

@@ -17,6 +17,13 @@ class Sponsor < ActiveRecord::Base
     :after_add => :update_practice_areas_count,
     :after_remove => :update_practice_areas_count
 
+  has_and_belongs_to_many :real_seminars, 
+    :join_table => "real_sponsors_seminars", 
+    :foreign_key => "seminar_id", 
+    :uniq => true, 
+    :class_name => 'Seminar',
+    :association_foreign_key => 'real_sponsor_id'
+
   validates_presence_of :name
 
   scope :ordered, order("priority")

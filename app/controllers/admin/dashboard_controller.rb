@@ -16,6 +16,13 @@ class Admin::DashboardController < InheritedResources::Base
     Importer.import
     redirect_to '/admin', :notice => 'Imported.'
   end
+
+  def refresh
+    (Sponsor.all + Speaker.all).each do |e|
+      e.refresh_info
+    end
+    redirect_to '/admin', :notice => 'Refreshed.'
+  end  
   
   private
     

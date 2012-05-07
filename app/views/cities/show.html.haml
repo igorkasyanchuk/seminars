@@ -28,14 +28,22 @@
             %li= link_to 'Registration', seminar_path(seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button'
 
         %li
-          %strong Speakers / Sponsors
-
+          %strong Speakers
           %ul.details_list.speakers
             - seminar.speakers(:with_photo).each do |speaker|
               %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
-          .clear
+          - if seminar.real_sponsors.count > 0
+            .clear
+            %br
+            %strong Sponsors
+            %ul.details_list.sponsors.larger
+              - seminar.real_sponsors.with_logo.each do |sponsor|
+                %li= link_to (image_tag(sponsor.logo.url(:thumb3x))), sponsor
 
+          .clear
+          %br
+          %strong Firms Presentings
           %ul.details_list.sponsors
             - seminar.sponsors(:with_logo).each do |sponsor|
               %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
@@ -69,13 +77,22 @@
                   .clear
 
           %li
-            %strong Speakers / Sponsors
+            %strong Speakers
             %ul.details_list.speakers
               - seminar.speakers(:with_photo).each do |speaker|
                 %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
 
+            - if seminar.real_sponsors.count > 0
+              .clear
+              %br
+              %strong Sponsors
+              %ul.details_list.sponsors.larger
+                - seminar.real_sponsors.with_logo.each do |sponsor|
+                  %li= link_to (image_tag(sponsor.logo.url(:thumb3x))), sponsor
+
             .clear
-            
+            %br
+            %strong Firms Presenting
             %ul.details_list.sponsors
               - seminar.sponsors(:with_logo).each do |sponsor|
                 %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
