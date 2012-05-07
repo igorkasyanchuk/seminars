@@ -16,6 +16,8 @@
         %td
           = link_to 'Delete', [:admin, speaker], :confirm => 'Are you sure?', :method => :delete
           | |
+          = link_to "Refresh", [:refresh, :admin, speaker]
+          | |
           = link_to "View", speaker
 
   %br

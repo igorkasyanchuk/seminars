@@ -23,6 +23,10 @@ class City < ActiveRecord::Base
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')
   end
 
+  def self.default_city
+    City.where(:default_city => true).first
+  end
+
   def speakers(scope = :scoped)
     res = ActiveRecord::Base.connection.execute("SELECT DISTINCT speaker_id FROM panels_speakers where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
     Speaker.send(scope).where(:id => res).includes([:languages, :practice_areas])

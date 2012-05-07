@@ -5,6 +5,7 @@
   %table.zebra
     %tr
       %th Name
+      %th Premium?
       %th Languages
       %th Practice Areas
       %th Actions
@@ -12,10 +13,13 @@
     - @sponsors.each do |sponsor|
       %tr
         %td= link_to sponsor.name, [:edit, :admin, sponsor]
+        %td= sponsor.premium ? 'yes' : 'no'
         %td= sponsor.languages_count
         %td= sponsor.practice_areas_count        
         %td
           = link_to 'Delete', [:admin, sponsor], :confirm => 'Are you sure?', :method => :delete
+          | |
+          = link_to "Refresh", [:refresh, :admin, sponsor]
           | |
           = link_to "View", sponsor
 

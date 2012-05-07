@@ -45,6 +45,18 @@ class Sponsor < ActiveRecord::Base
     self.description
   end
 
+  def refresh_info
+    begin
+      e = Firm.find(self.owner_id)
+      self.name = e.name
+      self.description = e.description
+      self.save(:validate => false)
+      true
+    rescue
+      false
+    end
+  end  
+
   def photo_from_url(image_url)
     io = open(URI.parse(image_url))
     def io.original_filename; base_uri.path.split('/').last; end

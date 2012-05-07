@@ -1,8 +1,17 @@
 EB5Seminar::Application.routes.draw do  
   namespace :admin do
     match '/', :to => 'dashboard#welcome'
-    resources :speakers
-    resources :sponsors
+    match '/import', :to => 'dashboard#import', :as => :import
+    resources :speakers do
+      member {
+        get :refresh
+      }
+    end
+    resources :sponsors do
+      member {
+        get :refresh
+      }
+    end
     resources :practice_areas
     resources :languages
     resources :testimonials

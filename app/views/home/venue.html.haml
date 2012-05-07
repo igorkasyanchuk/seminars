@@ -2,6 +2,11 @@
   = title "#{@city.name} Venue"
   = description "#{@city.name} Venue"
   = keywords "#{@city.name} Venue"
+- elsif City.default_city
+  - @city = City.default_city
+  = title "#{@city.name} Venue"
+  = description "#{@city.name} Venue"
+  = keywords "#{@city.name} Venue"
 - else
   = title @page.seo_title
   = description @page.seo_description
@@ -12,6 +17,10 @@
 - if defined?(@city)
   %h1.title #{@city.name} Venue
   .editor_content= @city.venue.try(:html_safe)
+
+- elsif City.default_city
+  %h1.title Venue
+  .editor_content= City.default_city.venue.try(:html_safe)
 
 - else
   %h1.title= @page.page_title

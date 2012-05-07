@@ -4,7 +4,12 @@ class Admin::SponsorsController < Admin::DashboardController
 
   def index
     @sponsors = Sponsor.by_name.all
-  end  
+  end
+
+  def refresh
+    @sponsor = resource
+    redirect_to :back, :notice => "#{@sponsor.refresh_info ? 'Successfully: ' : 'Error: '} imported from INFO"
+  end
 
   def create
     create! do |success, failure|

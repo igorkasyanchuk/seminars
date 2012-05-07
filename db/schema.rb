@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417210012) do
+ActiveRecord::Schema.define(:version => 20120507191412) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -174,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20120417210012) do
     t.integer "photo_updated_at"
     t.text    "agenda"
     t.text    "venue"
+    t.boolean "default_city",       :default => false
   end
 
   create_table "documents", :force => true do |t|
@@ -467,6 +468,7 @@ ActiveRecord::Schema.define(:version => 20120417210012) do
     t.string  "facebook"
     t.integer "languages_count",      :default => 0
     t.integer "practice_areas_count", :default => 0
+    t.boolean "premium",              :default => false
   end
 
   create_table "testimonials", :force => true do |t|

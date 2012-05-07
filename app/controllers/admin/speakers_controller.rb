@@ -6,6 +6,11 @@ class Admin::SpeakersController < Admin::DashboardController
     @speakers = Speaker.by_name.all
   end
 
+  def refresh
+    @speaker = resource
+    redirect_to :back, :notice => "#{@speaker.refresh_info ? 'Successfully: ' : 'Error: '} imported from INFO"
+  end
+
   def create
     create! do |success, failure|
       success.html { redirect_to [:admin, :speakers] }

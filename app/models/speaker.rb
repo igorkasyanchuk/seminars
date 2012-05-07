@@ -66,6 +66,20 @@ class Speaker < ActiveRecord::Base
     end
   end
 
+  def refresh_info
+    begin
+      e = self.owner_type.classify.constantize.find(self.owner_id)
+      self.name = e.name if e.respond_to?(:name)
+      self.bio = e.contact_bio if e.respond_to?(:contact_bio)
+      self.position = e.title if e.respond_to?(:title)
+      self.about = e.description if e.respond_to?(:description)
+      self.save(:validate => false)
+      true
+    rescue
+      false
+    end
+  end
+
   def self.from_attorney a
     if Speaker.where(:owner_id => a.id, :owner_type => 'attorney').any?
       ss = Speaker.where(:owner_id => a.id, :owner_type => 'attorney').first

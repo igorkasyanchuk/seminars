@@ -11,6 +11,11 @@ class Admin::DashboardController < InheritedResources::Base
   
   def welcome
   end
+
+  def import
+    Importer.import
+    redirect_to '/admin', :notice => 'Imported.'
+  end
   
   private
     

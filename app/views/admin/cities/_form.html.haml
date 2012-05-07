@@ -8,6 +8,8 @@
 = simple_form_for [:admin, @city], :html => {:multipart => true} do |f|
   = f.input :name, :label => "Name"
 
+  = f.input :default_city, :label => 'Default City for Venue page.'
+
   = f.input :description
   = f.input :agenda
   = f.input :venue

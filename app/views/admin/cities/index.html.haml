@@ -7,6 +7,10 @@
       %th Name
       %th Country
       %th Seminars
+      %th Agenda?
+      %th Description?
+      %th Venue?
+      %th Default?
       %th Actions
 
     - @cities.each do |city|
@@ -14,6 +18,10 @@
         %td= link_to city.name, [:edit, :admin, city]
         %td= city.country
         %td= city.seminars.count
+        %td= city.agenda.present? ? 'yes' : 'no'
+        %td= city.description.present? ? 'yes' : 'no'
+        %td= city.venue.present? ? 'yes' : 'no'
+        %td= city.default_city.present? ? 'yes' : 'no'
         %td
           = link_to "Manage Seminars", [:admin, city, :seminars]
           | |

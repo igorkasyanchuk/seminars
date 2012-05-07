@@ -41,6 +41,8 @@ module EB5Seminar
   end
 end
 
+require "#{Rails.root}/lib/importer.rb"
+
 def log_to(stream)
   ActiveRecord::Base.logger = Logger.new(stream)
   ActiveRecord::Base.clear_active_connections!
