@@ -15,6 +15,9 @@
             .city
               = city.name
               .city_img= link_to (image_tag city.photo(:medium)), city
+              - seminar = city.seminars.upcoming.first
+              - if seminar
+                .event_range= seminar.event_range 
   .clear
 
 .clear
@@ -29,6 +32,9 @@
             .city
               = city.name
               .city_img= link_to (image_tag city.photo(:medium2)), city
+              - seminar = city.seminars.upcoming.first
+              - if seminar
+                .event_range= seminar.event_range
   .clear
   
 .home_text
