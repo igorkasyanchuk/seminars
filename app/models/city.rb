@@ -1,4 +1,5 @@
 class City < ActiveRecord::Base
+  default_scope order("priority desc")
 
   has_attached_file :photo, :styles => {:small => "120x90>", :medium => "150x90!", :medium2 => "100x67>", :big => "980x385#"},
                             :url => "/system/:class/:attachment/:id/:style/:filename"
@@ -18,6 +19,7 @@ class City < ActiveRecord::Base
   scope :international_cities, where("country <> 'United States'")
   scope :for_home_page, where(:for_home_page => true)
   scope :by_name, order("name")
+  scope :by_priority, order("priority desc")
 
   def to_param
     "#{id}-#{self.name}".downcase.gsub(/[^a-z0-9A-Z]+/i, '-')

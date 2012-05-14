@@ -11,6 +11,7 @@
       %th Description?
       %th Venue?
       %th Default?
+      %th Order
       %th Actions
 
     - @cities.each do |city|
@@ -22,6 +23,7 @@
         %td= city.description.present? ? 'yes' : 'no'
         %td= city.venue.present? ? 'yes' : 'no'
         %td= city.default_city.present? ? 'yes' : 'no'
+        %td= city.priority
         %td
           = link_to "Manage Seminars", [:admin, city, :seminars]
           | |

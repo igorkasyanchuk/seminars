@@ -16,6 +16,7 @@
               = city.name
               .city_img= link_to (image_tag city.photo(:medium)), city
               - seminar = city.seminars.upcoming.first
+              - seminar = city.seminars.past.first unless seminar
               .event_range
                 = seminar.event_range if seminar
   .clear
@@ -33,6 +34,7 @@
               = city.name
               .city_img= link_to (image_tag city.photo(:medium2)), city
               - seminar = city.seminars.upcoming.first
+              - seminar = city.seminars.past.first unless seminar
               .event_range
                 = seminar.event_range if seminar
   .clear

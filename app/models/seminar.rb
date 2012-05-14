@@ -28,6 +28,8 @@ class Seminar < ActiveRecord::Base
   def event_range
     if start_on == ends_on
       start_on.strftime('%B %d, %Y')
+    elsif start_on.month == ends_on.month
+      "#{start_on.strftime('%B %d')}-#{ends_on.strftime('%d, %Y')}"
     else
       "#{start_on.strftime('%B %d')} - #{ends_on.strftime('%B %d, %Y')}"
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507195942) do
+ActiveRecord::Schema.define(:version => 20120514195654) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20120507195942) do
     t.text    "agenda"
     t.text    "venue"
     t.boolean "default_city",       :default => false
+    t.integer "priority",           :default => 0
   end
 
   create_table "documents", :force => true do |t|

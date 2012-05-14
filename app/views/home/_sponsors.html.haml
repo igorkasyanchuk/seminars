@@ -4,5 +4,9 @@
     .top_city
       = link_to city.name, city_sponsors_path(city)
       .city_img= link_to (image_tag city.photo(:medium2)), city_sponsors_path(city)
+      - seminar = city.seminars.upcoming.first
+      - seminar = city.seminars.past.first unless seminar
+      .event_range.smaller_range
+        = seminar.event_range if seminar
 .clear
 %br
