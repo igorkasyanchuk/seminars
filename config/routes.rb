@@ -13,6 +13,9 @@ EB5Seminar::Application.routes.draw do
         get :refresh
       }
     end
+
+    resources :medians
+
     resources :practice_areas
     resources :languages
     resources :testimonials
@@ -25,6 +28,11 @@ EB5Seminar::Application.routes.draw do
     resources :seminars, :only => [] do
       resources :documents
       resources :panels
+    end
+    resources :panels do
+      resources :videos
+      resources :photos
+      resources :presentations
     end
   end
 

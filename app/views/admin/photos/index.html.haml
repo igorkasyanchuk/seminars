@@ -1,0 +1,27 @@
+%h1 Listing `#{@panel.title}` Photos
+
+- if @photos.any?
+  %table.zebra
+    %tr
+      %th
+      %th Title
+      %th Actions
+
+    - @photos.each do |photo|
+      %tr
+        %td= image_tag photo.photo.url(:thumb)
+        %td= link_to photo.title, [:edit, :admin, @panel, photo]
+        %td= link_to 'Delete', [:admin, @panel, photo], :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+- else
+  %p No photos.
+
+%h2 Add New Photo
+
+= render 'form'  
+
+= link_to 'Add Photo', [:new, :admin, @panel, :photo]
+| |
+= link_to 'Back', [:admin, @panel.seminar, :panels]

@@ -3,6 +3,7 @@
   %li= link_to "Dashboard", '/admin'
   %li= link_to "Cities(#{City.count})", [:admin, :cities]
   %li= link_to "Sponsors(#{Sponsor.count})", [:admin, :sponsors]
+  %li= link_to "Media(#{Median.count})", [:admin, :medians]
   %li= link_to "Speakers(#{Speaker.count})", [:admin, :speakers]
   %li= link_to "Pages(#{Page.count})", [:admin, :pages]
   %li= link_to "Page Blocks(#{PageBlock.count})", [:admin, :page_blocks]

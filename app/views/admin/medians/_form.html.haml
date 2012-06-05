@@ -1,0 +1,27 @@
+= add_editor
+= editor("#median_description");
+
+= error_messages_for :median
+
+= simple_form_for [:admin, @median], :html => {:multipart => true} do |f|
+  = f.input :name
+
+  = f.input :premium, :label => 'Premium Media?'
+
+  = f.input :logo
+  = f.input :description
+  = f.input :website
+  = f.input :email
+  = f.input :priority
+
+  = f.input :contact_phone
+  = f.input :skype
+  = f.input :country
+  = f.input :address
+  = f.input :city
+  = f.input :zip
+  = f.input :linked_in
+  = f.input :twitter
+  = f.input :facebook
+
+  = f.button :submit, "Save"

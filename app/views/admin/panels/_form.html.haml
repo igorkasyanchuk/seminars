@@ -6,8 +6,10 @@
 = simple_form_for [:admin, @seminar, @panel], :html => {:multipart => true} do |f|
   = f.input :title
   = f.input :start_at
+  = f.input :ends_at
   = f.input :description
   = f.association :speakers, :as => :check_boxes, :collection => Speaker.by_name.all
   = f.association :sponsors, :as => :check_boxes, :collection => Sponsor.by_name.all
+  = f.association :medians, :as => :check_boxes, :collection => Median.by_name.all, :label => "Media"
   .clear
   = f.button :submit

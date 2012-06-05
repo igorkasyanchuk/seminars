@@ -1,0 +1,21 @@
+%h1 Listing `#{@panel.title}` Videos
+
+- if @videos.any?
+  %table.zebra
+    %tr
+      %th Title
+      %th Actions
+
+    - @videos.each do |video|
+      %tr
+        %td= link_to video.title, [:edit, :admin, @panel, video]
+        %td= link_to 'Delete', [:admin, @panel, video], :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+- else
+  %p No videos.
+
+= link_to 'Add Video', [:new, :admin, @panel, :video]
+| |
+= link_to 'Back', [:admin, @panel.seminar, :panels]

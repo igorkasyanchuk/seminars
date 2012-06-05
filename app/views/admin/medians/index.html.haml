@@ -1,0 +1,23 @@
+%h1 Listing Media
+
+- if @medians.any?
+
+  %table.zebra
+    %tr
+      %th Name
+      %th Premium?
+      %th Actions
+
+    - @medians.each do |media|
+      %tr
+        %td= link_to media.name, [:edit, :admin, media]
+        %td= media.premium ? 'yes' : 'no'
+        %td
+          = link_to 'Delete', [:admin, media], :confirm => 'Are you sure?', :method => :delete
+
+- else
+  %p No media.
+
+%br
+
+= link_to 'Add Media', [:new, :admin, :median]

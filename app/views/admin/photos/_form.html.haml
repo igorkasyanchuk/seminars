@@ -1,0 +1,17 @@
+= error_messages_for :photo
+
+= simple_form_for [:admin, @panel, @photo], :html => {:multipart => true} do |f|
+
+  = f.input :title
+  = f.input :description, :input_html => { :rows => 6, :cols => 60 }
+  = f.input :photo
+
+  = f.button :submit
+
+- unless @photo.new_record?
+  %h2 Preview:
+  = image_tag @photo.photo.url(:preview)
+
+  %br
+  %br
+ 

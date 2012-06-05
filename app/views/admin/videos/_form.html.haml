@@ -1,0 +1,16 @@
+= error_messages_for :video
+
+= simple_form_for [:admin, @panel, @video], :html => {:multipart => true} do |f|
+
+  = f.input :title
+  = f.input :description, :input_html => { :rows => 6, :cols => 60 }
+  = f.input :video_code, :input_html => { :rows => 6, :cols => 60 }, :label => 'Embedded Code(youtube, vimeo, etc)'
+
+  = f.button :submit
+
+- unless @video.new_record?
+  %h2 Preview:
+  != @video.video_code
+
+  %br
+ 

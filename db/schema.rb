@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514195654) do
+ActiveRecord::Schema.define(:version => 20120605202646) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -272,6 +272,41 @@ ActiveRecord::Schema.define(:version => 20120514195654) do
     t.integer "sponsor_id"
   end
 
+  create_table "medians", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "website"
+    t.string   "email"
+    t.integer  "priority",             :default => 0
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "firm"
+    t.string   "contact_phone"
+    t.string   "skype"
+    t.string   "country"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "linked_in"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.integer  "languages_count",      :default => 0
+    t.integer  "practice_areas_count", :default => 0
+    t.boolean  "premium",              :default => false
+  end
+
+  create_table "medians_panels", :id => false, :force => true do |t|
+    t.integer "median_id"
+    t.integer "panel_id"
+  end
+
+  create_table "medians_seminars", :id => false, :force => true do |t|
+    t.integer "median_id"
+    t.integer "seminar_id"
+  end
+
   create_table "page_blocks", :force => true do |t|
     t.string "identifier"
     t.text   "content"
@@ -298,6 +333,7 @@ ActiveRecord::Schema.define(:version => 20120514195654) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "start_at"
+    t.datetime "ends_at"
   end
 
   add_index "panels", ["seminar_id"], :name => "index_panels_on_seminar_id"
@@ -312,6 +348,18 @@ ActiveRecord::Schema.define(:version => 20120514195654) do
     t.integer "sponsor_id"
   end
 
+  create_table "photos", :force => true do |t|
+    t.integer  "panel_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "photos", ["panel_id"], :name => "index_photos_on_panel_id"
+
   create_table "practice_areas", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -323,6 +371,20 @@ ActiveRecord::Schema.define(:version => 20120514195654) do
     t.integer "practice_area_id"
     t.integer "sponsor_id"
   end
+
+  create_table "presentations", :force => true do |t|
+    t.integer  "panel_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "presentations", ["panel_id"], :name => "index_presentations_on_panel_id"
 
   create_table "real_sponsors_seminars", :id => false, :force => true do |t|
     t.integer "real_sponsor_id"
@@ -491,5 +553,14 @@ ActiveRecord::Schema.define(:version => 20120514195654) do
     t.datetime "photo_updated_at"
     t.integer  "city_id"
   end
+
+  create_table "videos", :force => true do |t|
+    t.integer "panel_id"
+    t.text    "video_code"
+    t.string  "title"
+    t.text    "description"
+  end
+
+  add_index "videos", ["panel_id"], :name => "index_videos_on_panel_id"
 
 end
