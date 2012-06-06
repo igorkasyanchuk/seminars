@@ -22,12 +22,15 @@
       %a{"data-toggle" => "tab", :href => "#s3"} Firms Presenting
     %li
       %a{"data-toggle" => "tab", :href => "#s31"} Media
-    %li
-      %a{"data-toggle" => "tab", :href => "#photos"} Photos
-    %li
-      %a{"data-toggle" => "tab", :href => "#videos"} Videos
-    %li
-      %a{"data-toggle" => "tab", :href => "#presentations"} Presentations
+    - if @seminar.photos.count > 0
+      %li
+        %a{"data-toggle" => "tab", :href => "#photos"} Photos
+    - if @seminar.videos.count > 0
+      %li
+        %a{"data-toggle" => "tab", :href => "#videos"} Videos
+    - if @seminar.presentations.count > 0
+      %li
+        %a{"data-toggle" => "tab", :href => "#presentations"} Presentations
     %li
       %a{"data-toggle" => "tab", :href => "#s4"} Registation
 

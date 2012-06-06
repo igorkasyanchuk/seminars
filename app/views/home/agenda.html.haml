@@ -26,6 +26,15 @@
   - if defined? @seminar
     = link_to 'Registration', seminar_path(@seminar, :anchor => 'registration'), :class => 'btn btn-large btn-danger register_button agenda_button_register_top'
 
+    - if @seminar.photos.count > 0
+      = link_to 'Photos', seminar_path(@seminar, :anchor => 'photos'), :class => 'mega_link'
+
+    - if @seminar.videos.count > 0
+      = link_to 'Videos', seminar_path(@seminar, :anchor => 'videos'), :class => 'mega_link'
+
+    - if @seminar.presentations.count > 0
+      = link_to 'Presentations', seminar_path(@seminar, :anchor => 'presentations'), :class => 'mega_link'
+
     .editor_content= @seminar.agenda.html_safe
 
     - @seminar.panels.by_start_at.each_with_index do |panel, index|
