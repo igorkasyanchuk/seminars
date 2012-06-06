@@ -1,0 +1,77 @@
+= title @media.seo_title
+= description @media.seo_description
+
+= content_for :on_ready do
+  $('#details').tab('show');
+
+.page_sidebar
+  .media_contacts
+
+    - if logged_in?
+      = link_to 'edit', [:edit, :admin, @media], :class => 'edit_button'
+
+    %h3 CONTACT INFORMATION
+    %dl
+      %dd
+        = @media.firm
+      - if @media.contact_phone.present?  
+        %dd 
+          = @media.contact_phone    
+
+    %h3 ADDRESS
+    %dl
+      %dd
+        = @media.address
+      %dd
+        #{@media.city}, #{@media.zip}
+      %dd
+        = @media.country
+    %dl 
+      - if @media.website.present?  
+        %dt Website    
+        %dd.link_br
+          = link_to @media.website, httpize(@media.website)
+      - if @media.twitter.present?      
+        %dt Contact Email
+        %dd.link_br
+          = mail_to @media.email
+      - if @media.skype.present?  
+        %dt Skype 
+        %dd 
+          = @media.skype
+      - if @media.linked_in.present?    
+        %dt Linked in
+        %dd.link_br 
+          = link_to @media.linked_in, httpize(@media.linked_in)
+      - if @media.twitter.present?    
+        %dt Twitter
+        %dd
+          = @media.twitter
+      - if @media.facebook.present?      
+        %dt Facebook
+        %dd.link_br
+          = link_to @media.facebook, httpize(@media.linked_in)       
+
+.page_content
+  #details.tabbable
+    %ul.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#s1"} About
+      %li
+        %a{"data-toggle" => "tab", :href => "#s2"} Seminars
+
+    .tab-content
+      #s1.tab-pane.active
+        - if @media.logo.exists?
+          = image_tag @media.logo.url(:medium), :class => 'about_photo'
+        %h1.title= @media.name
+        = @media.description.html_safe
+        .clear
+
+      #s2.tab-pane.page_sidebar.full_page_view
+        - if @media.seminars.any?
+          %h3 Sponsor of:
+          %ul.participated_on
+            - @media.seminars.each do |seminar|
+              = render :partial => '/seminars/seminar_link', :locals => { :seminar => seminar, :active => (@seminar == seminar), :link => seminar }
+.clear

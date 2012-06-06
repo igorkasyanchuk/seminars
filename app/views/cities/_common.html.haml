@@ -1,0 +1,33 @@
+- speakers = seminar.speakers(:with_photo)
+- if speakers.size > 0
+  %strong Speakers
+  %ul.details_list.speakers
+    - speakers.each do |speaker|
+      %li= link_to (image_tag(speaker.photo.url(:thumb2x))), speaker
+  .clear
+
+- sponsors = seminar.real_sponsors.with_logo
+- if sponsors.size > 0
+  %br
+  %strong Sponsors
+  %ul.details_list.sponsors.larger
+    - sponsors.each do |sponsor|
+      %li= link_to (image_tag(sponsor.logo.url(:thumb3x))), sponsor
+  .clear
+  %br
+
+- firms = seminar.sponsors(:with_logo)
+- if firms.size > 0
+  %strong Firms Presenting
+  %ul.details_list.sponsors
+    - firms.each do |sponsor|
+      %li= link_to (image_tag(sponsor.logo.url(:thumb2x))), sponsor
+  .clear
+  %br
+
+- medias = seminar.media(:with_logo)
+- if medias.size > 0
+  %strong Media
+  %ul.details_list.sponsors
+    - medias.each do |media|
+      %li= link_to (image_tag(media.logo.url(:thumb2x))), media    

@@ -1,0 +1,9 @@
+- seminar.panels.by_start_at.each do |panel|
+  %li
+    %h3.panel_title.inline= panel.title
+    = image_tag 'calendar2.png', :class => 'icon'
+    %span= panel.date
+    = image_tag 'clock2.png', :class => 'icon'
+    %span= panel.time
+    .description= truncate_html panel.description, :length => 140
+    .clear

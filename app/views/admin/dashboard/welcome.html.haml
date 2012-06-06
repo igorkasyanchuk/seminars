@@ -2,7 +2,7 @@
 
 %h1 Admin Dashboard
 
-%table.zebra.w33
+%table.zebra{:style => 'width: 300px;'}
   %tr
     %th Cities
     %td #{City.count}
@@ -31,9 +31,65 @@
     %th Testimonials
     %td #{Testimonial.count}
 
+%h3 All Seminars
+
+%table.zebra
+  %tr
+    %th Title
+    %th City
+    %th Panels
+    %th Sponsors
+    %th Media
+    %th Actions
+  - Seminar.order(:city_id).each do |seminar|
+    %tr
+      %td= link_to seminar.title, [:edit, :admin, seminar.city, seminar]
+      %td= seminar.city.name
+      %td= seminar.panels.count
+      %td= seminar.real_sponsors.count
+      %td= seminar.medians.count
+      %td
+        = link_to "Panels", [:admin, seminar, :panels]
+        | |
+        = link_to "Documents", [:admin, seminar, :documents]
+        | |
+        = link_to "View", [seminar], :target => "_blank"
+        | |
+        = link_to 'Delete', [:admin, @city], :confirm => 'Are you sure?', :method => :delete    
+
+%h3 All Panels
+
+%table.zebra
+  %tr
+    %th Title
+    %th Seminar
+    %th Speakers
+    %th Sponsors
+    %th Media
+    %th Actions
+
+  - Panel.by_title.each do |panel|
+    %tr
+      %td= link_to panel.title, [:edit, :admin, panel.seminar, panel]
+      %td= panel.seminar.title
+      %td= panel.speakers.count
+      %td= panel.sponsors.count
+      %td= panel.medians.count
+      %td
+        = link_to "Photos(#{panel.photos.count})", [:admin, panel, :photos]
+        | |
+        = link_to "Videos(#{panel.videos.count})", [:admin, panel, :videos]
+        | |
+        = link_to "Presentations(#{panel.presentations.count})", [:admin, panel, :presentations]
+        | |
+        = link_to "View", agenda_seminar_path(panel.seminar)
+        | |
+        = link_to 'Delete', [:admin, panel.seminar, panel], :confirm => 'Are you sure?', :method => :delete
+
+
 
 %p
   = link_to 'Import ALL', [:admin, :import]
 
 %p
-  = link_to 'Refresh ALL', [:admin, :refresh]  
+  = link_to 'Refresh ALL', [:admin, :refresh]          

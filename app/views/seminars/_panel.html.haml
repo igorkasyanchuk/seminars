@@ -24,4 +24,13 @@
         %li
           = link_to (image_tag(sponsor.logo.url(:thumb3x))), sponsor
           %span= link_to sponsor.name, sponsor
+    .clear
+
+  - if panel.medians.with_logo.count > 0
+    %strong.panel_title Media:
+    %ul.panel_sponsors
+      - panel.medians.with_logo.each do |media|
+        %li
+          = link_to (image_tag(media.logo.url(:thumb3x))), media
+          %span= link_to media.name, media
   .clear

@@ -1,0 +1,21 @@
+.media
+  .media_logo
+    - if media.logo.exists?
+      = link_to (image_tag media.logo(:medium), :alt => media.name), media
+  .media_info
+    %h1.media_name
+      = link_to media.name, media
+    .description.media_about
+      %dl
+        - if media.description.present?
+          %dd.no_padding= (truncate_html media.description, :length => 260).gsub(/\<\/?\S\>|\<\S.*.../, '') rescue nil
+        - unless media.firm.blank?
+          %dt Associated With:
+          %dd  
+            = media.firm
+        - unless media.website.blank?
+          %dt Web site:
+          %dd
+            = link_to media.website, httpize(media.website), :rel => 'nofollow'
+      .clear
+  .clear

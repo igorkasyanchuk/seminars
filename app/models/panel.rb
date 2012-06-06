@@ -15,6 +15,7 @@ class Panel < ActiveRecord::Base
   validates_presence_of :start_at
 
   scope :by_start_at, order("panels.start_at")
+  scope :by_title, order(:title)
 
   def start_time
     start_at.strftime("%m/%d/%Y %I:%M %p") if start_at

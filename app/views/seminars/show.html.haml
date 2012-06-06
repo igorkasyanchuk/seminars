@@ -21,6 +21,14 @@
     %li
       %a{"data-toggle" => "tab", :href => "#s3"} Firms Presenting
     %li
+      %a{"data-toggle" => "tab", :href => "#s31"} Media
+    %li
+      %a{"data-toggle" => "tab", :href => "#photos"} Photos
+    %li
+      %a{"data-toggle" => "tab", :href => "#videos"} Videos
+    %li
+      %a{"data-toggle" => "tab", :href => "#presentations"} Presentations
+    %li
       %a{"data-toggle" => "tab", :href => "#s4"} Registation
 
   .tab-content
@@ -49,6 +57,35 @@
           - @seminar.sponsors.each do |sponsor|
             %li
               = render :partial => '/sponsors/sponsor', :locals => { :sponsor => sponsor }
+
+    #s31.tab-pane
+      .sponsors
+        %ul
+          - @seminar.medians.each do |media|
+            %li
+              = render :partial => '/medians/media', :locals => { :media => media }
+
+    #videos.tab-pane
+      .sponsors.seminar_videos
+        %ul
+          - @seminar.videos.each do |video|
+            %li
+              != video.video_code
+
+    #photos.tab-pane
+      .sponsors.seminar_photos
+        %ul
+          - @seminar.photos.each do |photo|
+            %li
+              = image_tag photo.photo.url(:preview), :title => photo.title
+
+    #presentations.tab-pane
+      .sponsors.seminar_presentations
+        %ul
+          - @seminar.presentations.each do |presentation|
+            %li
+              %strong= link_to presentation.title, presentation.file.url
+              %p= presentation.description
 
         
     #s4.tab-pane

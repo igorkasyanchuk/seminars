@@ -8,7 +8,8 @@ class Page < ActiveRecord::Base
     'resources' => 'Resources',
     'contact' => 'Contact Us',
     'costs' => 'Costs',
-    'about' => 'About'
+    'about' => 'About',
+    'media' => 'Media'
   }
 
   validates_presence_of :identifier

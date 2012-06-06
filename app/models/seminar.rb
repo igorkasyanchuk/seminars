@@ -7,6 +7,11 @@ class Seminar < ActiveRecord::Base
   has_many :panels, :dependent => :destroy
   has_many :documents, :dependent => :destroy
 
+  has_many :videos, :through => :panels
+  has_many :photos, :through => :panels
+  has_many :presentations, :through => :panels
+
+
   has_and_belongs_to_many :real_sponsors, 
     :join_table => "real_sponsors_seminars", 
     :foreign_key => "real_sponsor_id", 
@@ -58,5 +63,12 @@ class Seminar < ActiveRecord::Base
     rescue 
       Sponsor.where(0)
   end
+
+  def media(scope = :scoped)
+    res = ActiveRecord::Base.connection.execute("SELECT DISTINCT median_id FROM medians_panels where panel_id in (#{panel_ids.join(',')})").inject([]) {|res, e| res << e.first; res}
+    Median.send(scope).where(:id => res)
+    rescue 
+      Median.where(0)
+  end  
 
 end

@@ -64,6 +64,9 @@ EB5Seminar::Application.routes.draw do
 
   match '/speakers', :to => "home#speakers"
   resources :speakers, :only => [:show]
+
+  resources :medians, :only => [:show]
+
   match '/cities/:id/speakers', :to => "cities#speakers", :as => :city_speakers
   match '/cities/:id/sponsors', :to => "cities#sponsors", :as => :city_sponsors
 
