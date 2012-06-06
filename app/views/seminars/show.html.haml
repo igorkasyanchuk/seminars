@@ -7,6 +7,10 @@
   $('#seminar_details').tab('show');
   if (window.location.hash == '#registration') window.open_last_tab();
 
+  if (window.location.hash == '#photos') { $('ul.nav-tabs li a[href="#photos"]').trigger('click'); }
+  if (window.location.hash == '#presentations') { $('ul.nav-tabs li a[href="#presentations"]').trigger('click'); }
+  if (window.location.hash == '#videos') { $('ul.nav-tabs li a[href="#videos"]').trigger('click'); }
+
 %h1.with_spacer.title.left #{@seminar.title}
 = link_to 'Back', @seminar.city, :class => 'btn btn-large back_button'
 = link_to 'Registration', 'javascript: window.open_last_tab();', :class => 'btn btn-large btn-danger register_button agenda_button_register_top_seminar_page'
