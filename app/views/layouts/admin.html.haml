@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="image_src" href="/logo.jpg" />
     = csrf_meta_tag
-    = stylesheet_link_tag 'colorbox', 'application', :cache => 'admin'
+    = stylesheet_link_tag 'colorbox', 'application'
     = yield :css
     = javascript_include_tag 'jquery-1.5.1.min', 'jquery.rails', 'jquery.colorbox-min', 'application', :cache => 'admin'
     = yield :js
