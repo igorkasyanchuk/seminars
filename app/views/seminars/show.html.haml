@@ -16,6 +16,10 @@
 = link_to 'Registration', 'javascript: window.open_last_tab();', :class => 'btn btn-large btn-danger register_button agenda_button_register_top_seminar_page'
 .clear
 
+- if logged_in?
+  %p
+    = link_to 'edit', [:edit, :admin, @seminar.city, @seminar], :class => 'edit_button'
+
 #seminar_details.tabbable
   %ul.nav.nav-tabs
     %li.active

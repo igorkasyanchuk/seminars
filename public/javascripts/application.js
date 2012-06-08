@@ -20,4 +20,5 @@ $(function() {
     $(this).parents("form").submit();
     return false;
   });
+  $('.photo_gallery_item').colorbox();
 })

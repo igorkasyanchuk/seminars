@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605202646) do
+ActiveRecord::Schema.define(:version => 20120608154807) do
 
   create_table "advisor_practice_areas", :force => true do |t|
     t.string   "name"
@@ -382,6 +382,10 @@ ActiveRecord::Schema.define(:version => 20120605202646) do
     t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
   end
 
   add_index "presentations", ["panel_id"], :name => "index_presentations_on_panel_id"
@@ -555,10 +559,14 @@ ActiveRecord::Schema.define(:version => 20120605202646) do
   end
 
   create_table "videos", :force => true do |t|
-    t.integer "panel_id"
-    t.text    "video_code"
-    t.string  "title"
-    t.text    "description"
+    t.integer  "panel_id"
+    t.text     "video_code"
+    t.string   "title"
+    t.text     "description"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
   end
 
   add_index "videos", ["panel_id"], :name => "index_videos_on_panel_id"

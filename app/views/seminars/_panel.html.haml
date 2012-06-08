@@ -33,4 +33,11 @@
         %li
           = link_to (image_tag(media.logo.url(:thumb3x))), media
           %span= link_to media.name, media
+
+  - if panel.photos.count > 0
+    %strong.panel_title Photo Gallery:
+    %ul.panel_sponsors.panel_photos
+      - panel.photos.each do |photo|
+        %li
+          = link_to image_tag(photo.photo.url(:thumb)), photo.photo.url, :class => 'photo_gallery_item', :rel => "panel_#{panel.id}"
   .clear
