@@ -22,9 +22,9 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="image_src" href="/logo.jpg" />
     = csrf_meta_tag
-    = stylesheet_link_tag 'bootstrap.min', 'colorbox', 'application', :cache => 'css'
+    = stylesheet_link_tag 'bootstrap.min', 'colorbox', 'application'
     = yield :css
-    = javascript_include_tag 'jquery-1.7.1.min', 'jquery.rails', 'bootstrap.min', 'bootstrap/bootstrap-tab', 'jquery.colorbox-min', 'application', :cache => 'js'
+    = javascript_include_tag 'jquery-1.7.1.min', 'jquery.rails', 'bootstrap.min', 'bootstrap/bootstrap-tab', 'jquery.colorbox-min', 'application'
     = yield :js
     = yield :map
     = yield :markitup
