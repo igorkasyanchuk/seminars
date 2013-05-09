@@ -28,13 +28,17 @@ class Speaker < ActiveRecord::Base
   scope :by_name, order("name")
 
   def update_languages_count(e)
-    self.languages_count = self.languages.count
-    self.save(:validate => false)
+    unless destroyed?
+      self.languages_count = self.languages.count
+      self.save(:validate => false)
+    end
   end
 
   def update_practice_areas_count(e)
-    self.practice_areas_count = self.practice_areas.count
-    self.save(:validate => false)
+    unless destroyed?
+      self.practice_areas_count = self.practice_areas.count
+      self.save(:validate => false)
+    end
   end  
 
   def to_param
